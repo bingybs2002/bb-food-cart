@@ -1,0 +1,6 @@
+@Gacha_HostAddress = http://localhost:5155
+
+GET {{Gacha_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
