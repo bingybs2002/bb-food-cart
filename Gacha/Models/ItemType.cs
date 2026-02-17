@@ -2,7 +2,6 @@
 {
     public enum ItemRarity
     {
-        None = 0,           //default to 0
         Common,             //0
         Rare,               //1
         Epic,               //2

@@ -12,5 +12,107 @@
       "url": "http://localhost:5155"
     }
   ],
-  "paths": { }
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Gacha"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gacha": {
+      "get": {
+        "tags": [
+          "Gacha"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ItemType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Gacha"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItemType"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ItemRarity": {
+        "type": "integer"
+      },
+      "ItemType": {
+        "required": [
+          "itemName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "itemName": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "itemRarity": {
+            "$ref": "#/components/schemas/ItemRarity"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Gacha"
+    }
+  ]
 }

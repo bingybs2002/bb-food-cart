@@ -1,0 +1,12 @@
+$body = @{
+    Id = 4
+    ItemName = "Rare - Spring Rolls"
+    Description = $null
+    ItemRarity = 1
+} | ConvertTo-Json
+
+Invoke-RestMethod `
+    -Method Post `
+    -Uri "https://localhost:7003/api/gacha" `
+    -ContentType "application/json" `
+    -Body $body
