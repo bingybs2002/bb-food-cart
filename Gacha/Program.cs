@@ -1,4 +1,3 @@
-using Gacha.Models;
 using Gacha.Data;
 using Microsoft.EntityFrameworkCore;
 using static Gacha.EndPoints.GachaLookup;

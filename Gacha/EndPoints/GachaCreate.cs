@@ -1,6 +1,6 @@
 ﻿using Gacha.Data;
 using Gacha.Models;
-
+using System.Text.Json;
 namespace Gacha.EndPoints
 {
     public static class GachaCreate
@@ -15,7 +15,7 @@ namespace Gacha.EndPoints
                 db.Items.Add(items);
                 await db.SaveChangesAsync();
 
-                return Results.Created($"gacha/{items.Id}", items);
+                return Results.Created($"{items.Id}", items);
             });
 
             //POST bulk insert 
@@ -24,7 +24,7 @@ namespace Gacha.EndPoints
                 await db.Items.AddRangeAsync(items);
                 await db.SaveChangesAsync();
 
-                return Results.Created($"gacha/bulk", items);
+                return Results.Created("/bulk", items);
             });
 
         }
