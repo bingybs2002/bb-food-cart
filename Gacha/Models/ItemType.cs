@@ -2,11 +2,12 @@
 {
     public enum ItemRarity
     {
-        Common,             //0
-        Rare,               //1
-        Epic,               //2
-        Mystic,             //3 
-        Legendary           //4
+                            //droprate
+        Common,             //50%
+        Rare,               //30%
+        Epic,               //12%
+        Mystic,             //7%
+        Legendary           //1%
     }
     public class ItemType
     {

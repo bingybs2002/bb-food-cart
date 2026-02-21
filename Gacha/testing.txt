@@ -1,12 +1,20 @@
-$body = @{
-    Id = 4
-    ItemName = "Rare - Spring Rolls"
-    Description = $null
-    ItemRarity = 1
-} | ConvertTo-Json
-
-Invoke-RestMethod `
-    -Method Post `
-    -Uri "https://localhost:7003/api/gacha" `
-    -ContentType "application/json" `
-    -Body $body
+[
+  {
+    "id": 3,
+    "itemName": "Spring Rolls",
+    "description": "Healthy choice of calories and nuetrient!",
+    "itemRarity": 2
+  },
+  {
+    "id": 1,
+    "itemName": "Thank you for visiting!",
+    "description": null,
+    "itemRarity": 0
+  },
+  {
+    "id": 2,
+    "itemName": "Have a good day!",
+    "description": null,
+    "itemRarity": 0
+  }
+]

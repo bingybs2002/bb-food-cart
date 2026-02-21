@@ -3,34 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\testing.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:testing.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\gacha.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:gacha.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\endpoints\\gachacreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:endpoints\\gachacreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\models\\itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:models\\itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\endpoints\\gachalookup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:endpoints\\gachalookup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bingy\\AppData\\Local\\Temp\\.vsdbgsrc\\4305122e11753d5f668a623e0aa15666be3b2b02\\OpenApiXmlCommentSupport.generated.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bingy\\AppData\\Local\\Temp\\.vsdbgsrc\\ecac800d1f8e2db67f6e2eb81e41846afc0cdb4d\\OpenApiXmlCommentSupport.generated.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\project\\bb-food-cart\\gacha\\testing.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:testing.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-17T19:08:46.041Z",
               "IsPinned": true,
@@ -58,94 +44,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "GachaCreate.cs",
+              "DocumentMoniker": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\EndPoints\\GachaCreate.cs",
+              "RelativeDocumentMoniker": "EndPoints\\GachaCreate.cs",
+              "ToolTip": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\EndPoints\\GachaCreate.cs",
+              "RelativeToolTip": "EndPoints\\GachaCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T14:04:42.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GachaLookup.cs",
+              "DocumentMoniker": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\EndPoints\\GachaLookup.cs",
+              "RelativeDocumentMoniker": "EndPoints\\GachaLookup.cs",
+              "ToolTip": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\EndPoints\\GachaLookup.cs",
+              "RelativeToolTip": "EndPoints\\GachaLookup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T13:43:57.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "testing.txt",
               "DocumentMoniker": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\testing.txt",
               "RelativeDocumentMoniker": "testing.txt",
               "ToolTip": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\testing.txt",
               "RelativeToolTip": "testing.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-02-17T21:30:24.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T19:54:19.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Gacha.http",
-              "DocumentMoniker": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\Gacha.http",
-              "RelativeDocumentMoniker": "Gacha.http",
-              "ToolTip": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\Gacha.http",
-              "RelativeToolTip": "Gacha.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-02-17T20:02:44.812Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-17T20:02:44.141Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ItemType.cs",
-              "DocumentMoniker": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\Models\\ItemType.cs",
-              "RelativeDocumentMoniker": "Models\\ItemType.cs",
-              "ToolTip": "C:\\Users\\bingy\\Project\\bb-food-cart\\Gacha\\Models\\ItemType.cs",
-              "RelativeToolTip": "Models\\ItemType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T20:00:11.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OpenApiXmlCommentSupport.generated.cs",
-              "DocumentMoniker": "C:\\Users\\bingy\\AppData\\Local\\Temp\\.vsdbgsrc\\4305122e11753d5f668a623e0aa15666be3b2b02\\OpenApiXmlCommentSupport.generated.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\4305122e11753d5f668a623e0aa15666be3b2b02\\OpenApiXmlCommentSupport.generated.cs",
-              "ToolTip": "C:\\Users\\bingy\\AppData\\Local\\Temp\\.vsdbgsrc\\4305122e11753d5f668a623e0aa15666be3b2b02\\OpenApiXmlCommentSupport.generated.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\4305122e11753d5f668a623e0aa15666be3b2b02\\OpenApiXmlCommentSupport.generated.cs [Read Only]",
-              "ViewState": "AgIAAEMCAAAAAAAAAAArwFwCAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T21:16:43.888Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OpenApiXmlCommentSupport.generated.cs",
-              "DocumentMoniker": "C:\\Users\\bingy\\AppData\\Local\\Temp\\.vsdbgsrc\\ecac800d1f8e2db67f6e2eb81e41846afc0cdb4d\\OpenApiXmlCommentSupport.generated.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\ecac800d1f8e2db67f6e2eb81e41846afc0cdb4d\\OpenApiXmlCommentSupport.generated.cs",
-              "ToolTip": "C:\\Users\\bingy\\AppData\\Local\\Temp\\.vsdbgsrc\\ecac800d1f8e2db67f6e2eb81e41846afc0cdb4d\\OpenApiXmlCommentSupport.generated.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\ecac800d1f8e2db67f6e2eb81e41846afc0cdb4d\\OpenApiXmlCommentSupport.generated.cs [Read Only]",
-              "ViewState": "AgIAAEMCAAAAAAAAAAAuwFcCAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T21:03:30.243Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2026-02-17T21:30:24.871Z"
             }
           ]
         }

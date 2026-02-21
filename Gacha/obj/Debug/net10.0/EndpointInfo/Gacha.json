@@ -1,18 +1,45 @@
 {
-  "openapi": "3.1.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "Gacha | v1",
-    "version": "1.0.0"
+    "title": "Gacha",
+    "version": "1.0"
   },
-  "servers": [
-    {
-      "url": "https://localhost:7003"
-    },
-    {
-      "url": "http://localhost:5155"
-    }
-  ],
   "paths": {
+    "/gacha/{id}": {
+      "delete": {
+        "tags": [
+          "Gacha"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/gacha/reset": {
+      "delete": {
+        "tags": [
+          "Gacha"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/": {
       "get": {
         "tags": [
@@ -32,7 +59,7 @@
         }
       }
     },
-    "/api/gacha": {
+    "/gacha": {
       "get": {
         "tags": [
           "Gacha"
@@ -52,7 +79,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/Gacha": {
       "post": {
         "tags": [
           "Gacha"
@@ -73,12 +102,45 @@
           }
         }
       }
+    },
+    "/Gacha/bulk": {
+      "post": {
+        "tags": [
+          "Gacha"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ItemType"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
       "ItemRarity": {
-        "type": "integer"
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "ItemType": {
         "required": [
@@ -87,26 +149,22 @@
         "type": "object",
         "properties": {
           "id": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "itemName": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "description": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "itemRarity": {
             "$ref": "#/components/schemas/ItemRarity"
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
   },
