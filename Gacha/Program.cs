@@ -26,5 +26,6 @@ app.UseHttpsRedirection();
 app.GachaItemLookup();
 app.GachaCreateItem();
 app.GachaDeleteItem();
+app.GachaDrawItem();
 app.Run();
 

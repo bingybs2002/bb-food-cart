@@ -102,6 +102,22 @@
     ]
   },
   {
+    "ContainingType": "Gacha.EndPoints.GachaDraw\u002B\u003C\u003Ec",
+    "Method": "\u003CGachaDrawItem\u003Eb__0_0",
+    "RelativePath": "gacha/draw/",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Gacha.EndPoints.GachaDelete\u002B\u003C\u003Ec",
     "Method": "\u003CGachaDeleteItem\u003Eb__0_1",
     "RelativePath": "gacha/reset",

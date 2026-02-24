@@ -1,6 +1,5 @@
 ﻿using Gacha.Data;
 using Gacha.Models;
-using System.Text.Json;
 namespace Gacha.EndPoints
 {
     public static class GachaCreate
@@ -9,7 +8,7 @@ namespace Gacha.EndPoints
         {
             var groups = r.MapGroup("Gacha");
 
-            /// POST create item
+            ///POST create item
             groups.MapPost(string.Empty, async (AppDbContext db, ItemType items) =>
             {
                 db.Items.Add(items);

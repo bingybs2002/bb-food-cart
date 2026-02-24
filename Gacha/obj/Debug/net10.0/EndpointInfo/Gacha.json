@@ -127,6 +127,18 @@
           }
         }
       }
+    },
+    "/gacha/draw": {
+      "get": {
+        "tags": [
+          "Gacha"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
