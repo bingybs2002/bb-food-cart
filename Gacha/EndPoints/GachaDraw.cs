@@ -14,7 +14,7 @@ namespace Gacha.EndPoints
                 var Count = await db.Items.CountAsync();
                 Console.Out.WriteLine("Numaber of Counts: " + Count);
 
-                var Index = Random.Shared.Next(Count);
+                var Index = Random.Shared.Next(1,Count+1);
                 Console.Out.WriteLine("Random Generated: " + Index);
                 return Results.Ok(Index);
             });
