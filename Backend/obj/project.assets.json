@@ -2728,11 +2728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bingy\\Project\\bb-food-cart\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\bingy\\Project\\bb-food-cart\\Backend\\Backend.csproj",
+      "projectPath": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\bingy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bingy\\Project\\bb-food-cart\\Backend\\obj\\",
+      "outputPath": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

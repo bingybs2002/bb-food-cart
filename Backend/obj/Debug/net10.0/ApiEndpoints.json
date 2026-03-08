@@ -62,6 +62,58 @@
     ]
   },
   {
+    "ContainingType": "Backend.EndPoints.Utilities.EndpointCalories\u002B\u003C\u003Ec",
+    "Method": "\u003CCaloriesUtilities\u003Eb__0_0",
+    "RelativePath": "calories/",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "weightInKg",
+        "Type": "System.Double",
+        "IsRequired": true
+      },
+      {
+        "Name": "heightInCm",
+        "Type": "System.Double",
+        "IsRequired": true
+      },
+      {
+        "Name": "isMale",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      },
+      {
+        "Name": "age",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "activitylevel",
+        "Type": "Backend.HelperFunctions.Calories\u002BUserActivityLevel",
+        "IsRequired": true
+      },
+      {
+        "Name": "target",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "alreadyKnowCalories",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
     "Method": "\u003CMapIdentityApi\u003Eb__1_3",
     "RelativePath": "confirmEmail",

@@ -393,6 +393,81 @@
         }
       }
     },
+    "/calories": {
+      "get": {
+        "tags": [
+          "Backend"
+        ],
+        "parameters": [
+          {
+            "name": "weightInKg",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "heightInCm",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "isMale",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "age",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "activitylevel",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UserActivityLevel"
+            }
+          },
+          {
+            "name": "target",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "alreadyKnowCalories",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/": {
       "get": {
         "tags": [
@@ -676,6 +751,18 @@
           }
         },
         "additionalProperties": false
+      },
+      "UserActivityLevel": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
       }
     },
     "securitySchemes": {

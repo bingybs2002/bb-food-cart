@@ -3,7 +3,7 @@ using Backend.EndPoints.Admin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
-
+using Backend.EndPoints.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +18,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<IdentityUser>(options =>
 {
     options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6;
+    options.Password.RequiredLength = 4;
     options.Password.RequireDigit = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
@@ -84,12 +84,14 @@ using (var scope = app.Services.CreateScope())
 app.MapIdentityApi<IdentityUser>();
 
 
-
 app.AdminStatus();
+app.CaloriesUtilities();
 
 
 app.MapSwagger();
 app.UseSwaggerUI();
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Homepage");
 
 app.Run();
+
+
