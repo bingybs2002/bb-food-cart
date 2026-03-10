@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "Auth Demo",
-    "version": "v1"
+    "title": "Backend",
+    "version": "1.0"
   },
   "paths": {
     "/register": {
@@ -763,14 +763,6 @@
         ],
         "type": "integer",
         "format": "int32"
-      }
-    },
-    "securitySchemes": {
-      "Bearer": {
-        "type": "http",
-        "description": "Please enter a token",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

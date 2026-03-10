@@ -9,5 +9,13 @@ namespace Backend.Data
         public AuthDbContext(DbContextOptions options) : base(options)
         {
         }
+
+        //Overwrite auth to store under "auth" schema
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.HasDefaultSchema("auth");
+        }
     }
 }

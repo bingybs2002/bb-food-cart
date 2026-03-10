@@ -23,7 +23,7 @@ namespace Backend.EndPoints.Admin
                 await UserManager.AddToRoleAsync(user, "Admin");
 
                 return Results.Ok("User Promoted To Admin");
-            });
+            }).RequireAuthorization();
 
             app.MapGet("/CheckAdminStatus/{email}", async (string email, UserManager<IdentityUser> userManager) =>
             {

@@ -18,49 +18,17 @@ builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<IdentityUser>(options =>
 {
     options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 4;
+    options.Password.RequiredLength = 0;
     options.Password.RequireDigit = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
+    options.Password.RequiredUniqueChars = 0;
 }).AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AuthDbContext>();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Auth Demo",
-        Version = "v1"
-    });
-
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        In = ParameterLocation.Header,
-        Description = "Please enter a token",
-        Type = SecuritySchemeType.Http,
-        BearerFormat = "JWT",
-        Scheme = "bearer"
-    });
-/*
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            Array.Empty<string>()
-        }
-    });
-*/
-});
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -87,6 +55,27 @@ app.MapIdentityApi<IdentityUser>();
 app.AdminStatus();
 app.CaloriesUtilities();
 
+app.MapPost("/register", async (
+    UserManager<IdentityUser> userManager,
+    string email,
+    string password) =>
+{
+    var user = new IdentityUser
+    {
+        UserName = email,
+        Email = email
+    };
+
+    var result = await userManager.CreateAsync(user, password);
+
+    if (!result.Succeeded)
+        return Results.BadRequest(result.Errors);
+
+    // Assign default role
+    await userManager.AddToRoleAsync(user, "User");
+
+    return Results.Ok("User created");
+});
 
 app.MapSwagger();
 app.UseSwaggerUI();
