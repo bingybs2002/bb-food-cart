@@ -1,7 +1,6 @@
 ﻿using Backend.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi;
 
 namespace Backend.EndPoints.Admin
 {

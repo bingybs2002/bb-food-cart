@@ -1,0 +1,18 @@
+Register
+
+{
+  "phoneNumber": "9179297785",
+  "password": "9179297785",
+  "cosignee": "Bingsong Yu",
+  "allergies": 6,
+  "streetAddress": "2123 Friendship Street",
+  "city": "Philadelphia",
+  "state": "Pa",
+  "zipCode": "19149"
+}
+
+Login
+{
+  "phoneNumber": "9179297785",
+  "password": "bingbing"
+}

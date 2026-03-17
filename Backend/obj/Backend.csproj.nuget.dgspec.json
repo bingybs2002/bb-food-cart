@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/bing/Projects/bb-food-cart/Backend/Backend.csproj": {}
+    "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "/home/bing/Projects/bb-food-cart/Backend/Backend.csproj": {
+    "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bing/Projects/bb-food-cart/Backend/Backend.csproj",
+        "projectUniqueName": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "/home/bing/Projects/bb-food-cart/Backend/Backend.csproj",
-        "packagesPath": "/home/bing/.nuget/packages/",
-        "outputPath": "/home/bing/Projects/bb-food-cart/Backend/obj/",
+        "projectPath": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\bingy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/bing/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\bingy\\Projects\\bb-food-cart\\Backend\\NuGet.Config",
+          "C:\\Users\\bingy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "/usr/lib64/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,53 +40,45 @@
           ]
         },
         "restoreAuditProperties": {
-          "enableAudit": "true",
+          "enableAudit": "false",
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[10.0.5, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[10.0.3, )"
+              "version": "[10.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.3, )"
+              "version": "[10.0.5, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[3.4.0, )"
             },
             "Npgsql": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.2, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[10.0.1, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
               "target": "Package",
               "version": "[1.1.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[10.1.4, )"
-            },
-            "Swashbuckle.AspNetCore.Swagger": {
-              "target": "Package",
-              "version": "[10.1.4, )"
-            },
-            "Swashbuckle.AspNetCore.SwaggerGen": {
-              "target": "Package",
-              "version": "[10.1.4, )"
-            },
-            "Swashbuckle.AspNetCore.SwaggerUI": {
-              "target": "Package",
-              "version": "[10.1.4, )"
             }
           },
           "imports": [
@@ -103,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
