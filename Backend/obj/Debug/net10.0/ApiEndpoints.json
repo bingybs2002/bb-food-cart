@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_3",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_5",
     "RelativePath": "",
     "HttpMethod": "GET",
     "IsController": false,
@@ -18,8 +18,32 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Accounts.Register",
-    "Method": "ChangePasswordAsync",
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_6",
+    "RelativePath": "Allergies/{number}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "number",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_7",
     "RelativePath": "change-password",
     "HttpMethod": "POST",
     "IsController": false,
@@ -27,7 +51,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.EndPoints.Accounts.Register\u002BChangePasswordRequest",
+        "Type": "Backend.Auth.ChangePasswordRequest",
         "IsRequired": true
       }
     ],
@@ -40,8 +64,8 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Accounts.Register",
-    "Method": "ForgotPasswordAsync",
+    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_3",
     "RelativePath": "forgot-password",
     "HttpMethod": "POST",
     "IsController": false,
@@ -49,7 +73,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.EndPoints.Accounts.Register\u002BForgetPasswordRequest",
+        "Type": "Backend.Auth.ForgotPasswordRequest",
         "IsRequired": true
       }
     ],
@@ -62,8 +86,8 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Accounts.Register",
-    "Method": "LoginAsync",
+    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_1",
     "RelativePath": "login",
     "HttpMethod": "POST",
     "IsController": false,
@@ -71,7 +95,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.EndPoints.Accounts.Register\u002BLoginRequest",
+        "Type": "Backend.Auth.LoginRequest",
         "IsRequired": true
       }
     ],
@@ -84,19 +108,13 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Accounts.Register",
-    "Method": "LogoutAsync",
+    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_6",
     "RelativePath": "logout",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.EndPoints.Accounts.Register\u002BLogoutRequest",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Void",
@@ -106,8 +124,8 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Accounts.Register",
-    "Method": "GetMeAsync",
+    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_5",
     "RelativePath": "me",
     "HttpMethod": "GET",
     "IsController": false,
@@ -122,8 +140,8 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Accounts.Register",
-    "Method": "RefreshAsync",
+    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_2",
     "RelativePath": "refresh",
     "HttpMethod": "POST",
     "IsController": false,
@@ -131,7 +149,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.EndPoints.Accounts.Register\u002BRefreshRequest",
+        "Type": "Backend.Auth.RefreshRequest",
         "IsRequired": true
       }
     ],
@@ -144,8 +162,8 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Accounts.Register",
-    "Method": "RegisterAsync",
+    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_0",
     "RelativePath": "register",
     "HttpMethod": "POST",
     "IsController": false,
@@ -153,7 +171,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.EndPoints.Accounts.Register\u002BRegisterCustomerRequest",
+        "Type": "Backend.Auth.RegisterCustomerRequest",
         "IsRequired": true
       }
     ],
@@ -166,8 +184,8 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Accounts.Register",
-    "Method": "ResetPasswordAsync",
+    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_4",
     "RelativePath": "reset-password",
     "HttpMethod": "POST",
     "IsController": false,
@@ -175,7 +193,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.EndPoints.Accounts.Register\u002BResetPasswordRequest",
+        "Type": "Backend.Auth.ResetPasswordRequest",
         "IsRequired": true
       }
     ],

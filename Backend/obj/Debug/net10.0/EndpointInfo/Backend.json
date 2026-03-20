@@ -2,6 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "BB Food Cart API",
+    "description": "Backend API for authentication and food-cart operations.",
     "version": "v1"
   },
   "paths": {
@@ -24,10 +25,40 @@
         }
       }
     },
+    "/Allergies/{number}": {
+      "get": {
+        "tags": [
+          "Backend"
+        ],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/register": {
       "post": {
         "tags": [
-          "Register"
+          "Backend"
         ],
         "requestBody": {
           "content": {
@@ -49,7 +80,7 @@
     "/login": {
       "post": {
         "tags": [
-          "Register"
+          "Backend"
         ],
         "requestBody": {
           "content": {
@@ -71,7 +102,7 @@
     "/refresh": {
       "post": {
         "tags": [
-          "Register"
+          "Backend"
         ],
         "requestBody": {
           "content": {
@@ -93,13 +124,13 @@
     "/forgot-password": {
       "post": {
         "tags": [
-          "Register"
+          "Backend"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ForgetPasswordRequest"
+                "$ref": "#/components/schemas/ForgotPasswordRequest"
               }
             }
           },
@@ -115,7 +146,7 @@
     "/reset-password": {
       "post": {
         "tags": [
-          "Register"
+          "Backend"
         ],
         "requestBody": {
           "content": {
@@ -137,7 +168,7 @@
     "/me": {
       "get": {
         "tags": [
-          "Register"
+          "Backend"
         ],
         "responses": {
           "200": {
@@ -149,17 +180,8 @@
     "/logout": {
       "post": {
         "tags": [
-          "Register"
+          "Backend"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LogoutRequest"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -170,7 +192,7 @@
     "/change-password": {
       "post": {
         "tags": [
-          "Register"
+          "Backend"
         ],
         "requestBody": {
           "content": {
@@ -222,7 +244,7 @@
         },
         "additionalProperties": false
       },
-      "ForgetPasswordRequest": {
+      "ForgotPasswordRequest": {
         "type": "object",
         "properties": {
           "phoneNumber": {
@@ -240,16 +262,6 @@
             "nullable": true
           },
           "password": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LogoutRequest": {
-        "type": "object",
-        "properties": {
-          "refreshToken": {
             "type": "string",
             "nullable": true
           }
@@ -325,21 +337,20 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "Enter a valid JWT bearer token.",
-        "scheme": "Bearer",
+        "description": "Enter: Bearer {your JWT access token}",
+        "scheme": "bearer",
         "bearerFormat": "JWT"
       }
     }
   },
   "security": [
-    { }
+    {
+      "Bearer": [ ]
+    }
   ],
   "tags": [
     {
       "name": "Backend"
-    },
-    {
-      "name": "Register"
     }
   ]
 }

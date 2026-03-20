@@ -12,5 +12,6 @@ public class Authentication
     public DateTime CreatedAtUTC { get; set; }
     public DateTime ExpiresAtUTC { get; set; }
     public DateTime? RevokedAtUTC { get; set; }
-    public bool IsActive => RevokedAtUTC is null && ExpiresAtUTC > DateTime.UtcNow;
+    public bool IsActive => RevokedAtUTC is null 
+        && ExpiresAtUTC > DateTime.UtcNow;
 }
