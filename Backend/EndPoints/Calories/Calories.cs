@@ -1,6 +1,6 @@
 ﻿// Daily calories needs based on Mifflin-St Jeor Equation
 // 10% aggresive bulking/losing goals.
-namespace Backend.HelperFunctions
+namespace Backend.EndPoints.Calories
 {
 
     public class Calories

@@ -1,9 +1,8 @@
 using System.Security.Claims;
 using System.Text.Json;
 using Backend.Auth;
-using Backend.EndPointMapping;
 
-namespace Backend.EndPointMapping;
+namespace Backend.EndPoints.Account;
 
 public static class AccountEndpoints
 {

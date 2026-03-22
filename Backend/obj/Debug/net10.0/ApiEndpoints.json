@@ -42,7 +42,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_7",
     "RelativePath": "change-password",
     "HttpMethod": "POST",
@@ -64,7 +64,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_3",
     "RelativePath": "forgot-password",
     "HttpMethod": "POST",
@@ -86,7 +86,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_1",
     "RelativePath": "login",
     "HttpMethod": "POST",
@@ -108,7 +108,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_6",
     "RelativePath": "logout",
     "HttpMethod": "POST",
@@ -124,7 +124,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_5",
     "RelativePath": "me",
     "HttpMethod": "GET",
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_2",
     "RelativePath": "refresh",
     "HttpMethod": "POST",
@@ -162,7 +162,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_0",
     "RelativePath": "register",
     "HttpMethod": "POST",
@@ -184,7 +184,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPointMapping.AccountEndpoints\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_4",
     "RelativePath": "reset-password",
     "HttpMethod": "POST",

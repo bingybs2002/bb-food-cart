@@ -1,7 +1,7 @@
 using System.Text;
 using Backend.Auth;
 using Backend.Data;
-using Backend.EndPointMapping;
+using Backend.EndPoints.Account;
 using Backend.Models;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
@@ -26,11 +26,6 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
 
 var dataProtection = builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(dataProtectionDirectory);
-
-if (OperatingSystem.IsWindows())
-{
-    dataProtection.ProtectKeysWithDpapi();
-}
 
 builder.Services.Configure<JwtOptions>(jwtSection);
 builder.Services.AddScoped<IAuthTokenService, AuthTokenService>();
