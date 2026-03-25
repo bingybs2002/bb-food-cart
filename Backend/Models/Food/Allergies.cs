@@ -1,5 +1,6 @@
 namespace Backend.Models;
-
+//Enum bitmasking, allows one enum to
+//express multiple meanings combined
 [Flags]
 public enum Allergies
 {

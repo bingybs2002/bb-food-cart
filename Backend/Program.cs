@@ -1,19 +1,18 @@
 using System.Text;
+
 using Backend.Auth;
 using Backend.Data;
-using Backend.EndPoints.Account;
 using Backend.Models;
-using Microsoft.AspNetCore.DataProtection;
+using Backend.Testing;
+using Backend.EndPoints.Account;
+
+using Microsoft.OpenApi;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi;
+using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-builder.Logging.AddDebug();
 
 var jwtSection = builder.Configuration.GetSection("Jwt");
 var jwtOptions = jwtSection.Get<JwtOptions>() 
@@ -21,7 +20,7 @@ var jwtOptions = jwtSection.Get<JwtOptions>()
 var dataProtectionDirectory = new DirectoryInfo(Path.
     Combine(builder.Environment.ContentRootPath, ".keys"));
 
-builder.Services.AddDbContext<AuthDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Connection")));
 
 var dataProtection = builder.Services.AddDataProtection()
@@ -52,7 +51,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddIdentityCore<IdentityUser>(options =>
     {
         options.Password.RequireNonAlphanumeric = false;
-        options.Password.RequiredLength = 6;
+        options.Password.RequiredLength = 4;
         options.Password.RequireDigit = false;
         options.Password.RequireLowercase = false;
         options.Password.RequireUppercase = false;
@@ -60,7 +59,7 @@ builder.Services.AddIdentityCore<IdentityUser>(options =>
         options.User.RequireUniqueEmail = false;
     })
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<AuthDbContext>()
+    .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -106,23 +105,8 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<AuthDbContext>();
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-    await dbContext.Database.MigrateAsync();
-
-    foreach (var role in new[] { "Admin", "User" })
-    {
-        if (!await roleManager.RoleExistsAsync(role))
-        {
-            await roleManager.CreateAsync(new IdentityRole(role));
-        }
-    }
-}
 app.MapGet("/", () => "Homepage");
 app.MapGet("/Allergies/{number}", (int number) => $"ALLERGY ENUM CONVERSION TOOL\nTesting Allergy Enums: \nInput: {number}: \n{(Allergies)number} ");
-
+await Backend.Testing.Admin.SeedAdmin(app.Services);
 app.MapAccountEndpoints();
 app.Run();

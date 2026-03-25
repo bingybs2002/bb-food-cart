@@ -2,7 +2,7 @@ namespace Backend.Models.Food;
 
 public class Nutrition
 {
-    public int? Calories { get; set; }
-    public int? Protein { get; set; }
-    public int? Carbs { get; set; }
+    public required int Calories { get; set; }
+    public required int Protein { get; set; }
+    public required int Carbs { get; set; }
 }

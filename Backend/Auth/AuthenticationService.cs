@@ -1,9 +1,12 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Backend.Auth.DTOs;
 using Backend.Data;
 using Backend.Models.Account;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,11 +26,11 @@ public interface IAuthenticationService
 
 public sealed class AuthenticationService : IAuthenticationService
 {
-    private readonly AuthDbContext _dbContext;
+    private readonly AppDbContext _dbContext;
     private readonly UserManager<IdentityUser> _userManager;
     private readonly IAuthTokenService _authTokenService;
 
-    public AuthenticationService(AuthDbContext dbContext, UserManager<IdentityUser> userManager, IAuthTokenService authTokenService)
+    public AuthenticationService(AppDbContext dbContext, UserManager<IdentityUser> userManager, IAuthTokenService authTokenService)
     {
         _dbContext = dbContext;
         _userManager = userManager;
@@ -65,7 +68,7 @@ public sealed class AuthenticationService : IAuthenticationService
             return Results.BadRequest(roleResult.Errors);
         }
 
-        var customer = new Customer
+        var customer = new AccountUser
         {
             UserId = user.Id,
             User = user,
@@ -240,7 +243,7 @@ public sealed class AuthenticationService : IAuthenticationService
         return Results.Ok(new OperationMessageResponse("Password updated successfully."));
     }
 
-    private async Task<AuthResponse> CreateAndStoreTokensAsync(IdentityUser user, Customer? customer)
+    private async Task<AuthResponse> CreateAndStoreTokensAsync(IdentityUser user, AccountUser? customer)
     {
         var tokens = await _authTokenService.CreateTokenAsync(user);
         _dbContext.RefreshTokens.Add(new RefreshToken
@@ -263,7 +266,7 @@ public sealed class AuthenticationService : IAuthenticationService
         return string.IsNullOrWhiteSpace(userId) ? null : await _userManager.FindByIdAsync(userId);
     }
 
-    private Task<Customer?> FindCustomerAsync(string userId) =>
+    private Task<AccountUser?> FindCustomerAsync(string userId) =>
         _dbContext.Customers.SingleOrDefaultAsync(existingCustomer => existingCustomer.UserId == userId);
 
     private static string NormalizePhoneNumber(string phoneNumber) =>

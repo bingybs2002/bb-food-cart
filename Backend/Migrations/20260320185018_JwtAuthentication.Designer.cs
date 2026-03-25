@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Backend.Migrations
 {
-    [DbContext(typeof(AuthDbContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20260320185018_JwtAuthentication")]
     partial class JwtAuthentication
     {

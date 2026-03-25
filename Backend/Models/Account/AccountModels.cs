@@ -1,19 +1,22 @@
 using Backend.Models.Food;
+using Backend.Models.Cart;
+
 using Microsoft.AspNetCore.Identity;
 
 namespace Backend.Models.Account;
 
-public class Customer
+public class AccountUser
 {
-    public int Id { get; set; }
-    public string UserId { get; set; } = default!;
-    public IdentityUser User { get; set; } = default!;
+    public int Id { get; set; }//Pk
+    public string? UserId { get; set; }//Fk -> IdentityUser.Id
+    public IdentityUser? User { get; set; }//Navigation -> Identity User Auth
     public required string Cosignee { get; set; }
     public Allergies Allergies { get; set; }
     public required string StreetAddress { get; set; }
     public required string City { get; set; }
     public required string State { get; set; }
     public required string ZipCode { get; set; }
+    public ShoppingCart? ShoppingCart { get; set; }//Navigation -> Cart
 }
 
 public class RefreshToken

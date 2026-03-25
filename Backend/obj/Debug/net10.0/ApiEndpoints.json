@@ -51,7 +51,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.Auth.ChangePasswordRequest",
+        "Type": "Backend.Auth.DTOs.ChangePasswordRequest",
         "IsRequired": true
       }
     ],
@@ -73,7 +73,29 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.Auth.ForgotPasswordRequest",
+        "Type": "Backend.Auth.DTOs.ForgotPasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_8",
+    "RelativePath": "is-admin",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.UserRole",
         "IsRequired": true
       }
     ],
@@ -95,7 +117,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.Auth.LoginRequest",
+        "Type": "Backend.Auth.DTOs.LoginRequest",
         "IsRequired": true
       }
     ],
@@ -141,6 +163,28 @@
   },
   {
     "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_9",
+    "RelativePath": "promote-to-admin",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.UserRole",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_2",
     "RelativePath": "refresh",
     "HttpMethod": "POST",
@@ -149,7 +193,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.Auth.RefreshRequest",
+        "Type": "Backend.Auth.DTOs.RefreshRequest",
         "IsRequired": true
       }
     ],
@@ -171,7 +215,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.Auth.RegisterCustomerRequest",
+        "Type": "Backend.Auth.DTOs.RegisterCustomerRequest",
         "IsRequired": true
       }
     ],
@@ -193,7 +237,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Backend.Auth.ResetPasswordRequest",
+        "Type": "Backend.Auth.DTOs.ResetPasswordRequest",
         "IsRequired": true
       }
     ],
