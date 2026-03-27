@@ -43,12 +43,39 @@
   },
   {
     "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
-    "Method": "GetShoppingCartByLoggedInCustomer",
-    "RelativePath": "Cart/ShoppingCart/my/cart",
+    "Method": "ModifyItemByName",
+    "RelativePath": "Cart/ShoppingCart",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "newItem",
+        "Type": "Backend.Models.Food.Food",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
+    "Method": "GetShoppingCartByCustomerPhone",
+    "RelativePath": "Cart/ShoppingCart/Admin/Cart/{phoneNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "phoneNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "Backend.Models.Cart.ShoppingCart",
@@ -63,18 +90,28 @@
   },
   {
     "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
-    "Method": "GetShoppingCartByCustomerPhone",
-    "RelativePath": "Cart/ShoppingCart/phone/{phoneNumber}",
-    "HttpMethod": "GET",
+    "Method": "InsertItemsToMenu",
+    "RelativePath": "Cart/ShoppingCart/cart/insert",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "phoneNumber",
-        "Type": "System.String",
+        "Name": "items",
+        "Type": "System.Collections.Generic.List\u00601[[Backend.EndPoints.Cart.ShoppingCartController\u002BCreateFoodDto, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
+    "Method": "GetShoppingCartByLoggedInCustomer",
+    "RelativePath": "Cart/ShoppingCart/my/cart",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "Backend.Models.Cart.ShoppingCart",

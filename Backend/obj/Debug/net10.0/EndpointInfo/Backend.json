@@ -255,7 +255,7 @@
         }
       }
     },
-    "/Cart/ShoppingCart/phone/{phoneNumber}": {
+    "/Cart/ShoppingCart/Admin/Cart/{phoneNumber}": {
       "get": {
         "tags": [
           "ShoppingCart"
@@ -322,6 +322,86 @@
           }
         }
       }
+    },
+    "/Cart/ShoppingCart/cart/insert": {
+      "post": {
+        "tags": [
+          "ShoppingCart"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateFoodDto"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateFoodDto"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateFoodDto"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Cart/ShoppingCart": {
+      "put": {
+        "tags": [
+          "ShoppingCart"
+        ],
+        "parameters": [
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Food"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Food"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Food"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -356,12 +436,33 @@
         },
         "additionalProperties": false
       },
+      "CreateFoodDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "allergies": {
+            "$ref": "#/components/schemas/Allergies"
+          },
+          "foodType": {
+            "$ref": "#/components/schemas/FoodType"
+          },
+          "isSoldOut": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "Food": {
         "required": [
           "foodType",
-          "id",
-          "name",
-          "nutrition"
+          "name"
         ],
         "type": "object",
         "properties": {
@@ -395,7 +496,8 @@
           },
           "cartId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "cart": {
             "$ref": "#/components/schemas/ShoppingCart"

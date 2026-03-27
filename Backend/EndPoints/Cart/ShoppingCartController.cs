@@ -3,9 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Backend.Data;
 using Backend.Models.Cart;
 using Microsoft.AspNetCore.Authorization;
-using Backend.Auth.DTOs;
+using Backend.Models.Food;
 using System.Security.Claims;
 using Backend.Migrations;
+using Backend.Models;
 
 namespace Backend.EndPoints.Cart;
 
@@ -14,6 +15,28 @@ namespace Backend.EndPoints.Cart;
 [ApiController]
 public class ShoppingCartController : ControllerBase
 {
+    public class ShoppingCartResponseDto
+    {
+        public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public List<FoodDto> Foods { get; set; } = new();
+    }
+
+    public class FoodDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+    }
+
+    public class CreateFoodDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public Allergies Allergies { get; set; } = Allergies.None;
+        public FoodType FoodType { get; set; }
+        public bool IsSoldOut { get; set; } = false;
+    }
+
     private readonly AppDbContext _cartContext;
     public ShoppingCartController(AppDbContext cartContext)
     {
@@ -21,8 +44,7 @@ public class ShoppingCartController : ControllerBase
     }
 
     //Find the shopping cart by customer id. If no, create one.
-    [HttpGet("phone/{phoneNumber}")]
-    [Authorize(Roles = "Admin")]
+    [HttpGet("Admin/Cart/{phoneNumber}"), Authorize(Roles = "Admin")]
     public async Task<ActionResult<ShoppingCart>> GetShoppingCartByCustomerPhone(string phoneNumber)
     {
         var normalizedPhone = new string(phoneNumber.Where(char.IsDigit).ToArray());
@@ -50,8 +72,7 @@ public class ShoppingCartController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("my/cart")]
-    [Authorize(Roles = "User")]
+    [HttpGet("my/cart"), Authorize(Roles = "User")]
     public async Task<ActionResult<ShoppingCart>> GetShoppingCartByLoggedInCustomer()
     {
        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -60,13 +81,16 @@ public class ShoppingCartController : ControllerBase
         {
             return Unauthorized("User cannot be found");
         }
-        var customer = await _cartContext.Customers.FirstOrDefaultAsync(c => c.UserId == userId);
+        var customer = await _cartContext.Customers.
+            FirstOrDefaultAsync(c => c.UserId == userId);
 
         if (customer == null)
         {
             return NotFound("Customer Account is not found");
         }
-        var cart = await _cartContext.ShoppingCarts.Include(c => c.Foods).FirstOrDefaultAsync(c => c.CustomerId == customer.Id);
+        var cart = await _cartContext.ShoppingCarts
+                .Include(c => c.Foods)
+                .FirstOrDefaultAsync(c => c.CustomerId == customer.Id);
 
         if (cart == null)
         {
@@ -90,16 +114,46 @@ public class ShoppingCartController : ControllerBase
         };
         return Ok(response);
     }
-    public class ShoppingCartResponseDto
+
+    [HttpPost("cart/insert")]
+    [Authorize(Roles = "Admin")]
+    public async Task<ActionResult> InsertItemsToMenu([FromBody] List<CreateFoodDto> items)
     {
-        public int Id { get; set; }
-        public int CustomerId { get; set; }
-        public List<FoodDto> Foods { get; set; } = new();
+        if (items == null || items.Count == 0)
+            return BadRequest("No items were provided.");
+
+        var foods = items.Select(item => new Food
+        {
+            Name = item.Name,
+            Description = item.Description,
+            Allergies = item.Allergies,
+            FoodType = item.FoodType,
+            IsSoldOut = item.IsSoldOut
+        }).ToList();
+
+        await _cartContext.Foods.AddRangeAsync(foods);
+        await _cartContext.SaveChangesAsync();
+
+        return Ok("Items were successfully inserted into the menu.");
     }
 
-    public class FoodDto
+    //Registered admin can edit the item in menu
+    [HttpPut, Authorize(Roles = "Admin")]
+    public  async Task<ActionResult> ModifyItemByName(string Name, Food newItem)
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = "";
+        var olditem = await _cartContext.Foods.
+            FirstOrDefaultAsync(x=>x.Name == Name);
+        if(olditem == null)
+        {
+            return BadRequest($"No item matches the name provided.");
+        }
+        olditem.Name = newItem.Name;
+        olditem.Allergies = newItem.Allergies;
+        olditem.IsSoldOut = newItem.IsSoldOut;
+        olditem.Nutrition = newItem.Nutrition;
+        olditem.Description = newItem.Description;
+        olditem.FoodType = newItem.FoodType;
+        await _cartContext.SaveChangesAsync();
+        return Ok();
     }
 }
