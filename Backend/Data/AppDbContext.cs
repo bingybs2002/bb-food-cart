@@ -11,19 +11,16 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
-    public DbSet<AccountUser> Customers => Set<AccountUser>();
+    public DbSet<UserAccount> Customers => Set<UserAccount>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
-    //public DbSet<Food> Foods => Set<Food>();
-    public DbSet<ShoppingCart> Carts => Set<ShoppingCart>();
-    public DbSet<ShoppingCartItem> CartItems => Set<ShoppingCartItem>();
+    public DbSet<Food> Foods => Set<Food>();
+    public DbSet<ShoppingCart> ShoppingCarts => Set<ShoppingCart>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 
-        builder.HasDefaultSchema("auth");
-
-        builder.Entity<AccountUser>(entity =>
+        builder.Entity<UserAccount>(entity =>
         {
             entity.HasKey(customer => customer.Id);
             entity.Property(customer => customer.Cosignee).IsRequired();
@@ -42,10 +39,9 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
         {
             entity.HasKey(refreshToken => refreshToken.Id);
             entity.Property(refreshToken => refreshToken.Token).IsRequired();
-            entity.HasIndex(refreshToken => refreshToken.Token).IsUnique();
 
             entity.HasOne(refreshToken => refreshToken.User)
-                  .WithMany()
+                  .WithMany()//placeholder? 
                   .HasForeignKey(refreshToken => refreshToken.UserId)
                   .IsRequired();
         });
@@ -59,6 +55,10 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
                   .HasForeignKey<ShoppingCart>(cart => cart.CustomerId);
 
             entity.HasIndex(cart => cart.CustomerId).IsUnique();
+
+            entity.HasMany(cart => cart.Foods).
+                WithOne(cart => cart.Cart).
+                HasForeignKey(cart => cart.CartId);
         });
     }
 }

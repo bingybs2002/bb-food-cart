@@ -3,7 +3,6 @@ using System.Text;
 using Backend.Auth;
 using Backend.Data;
 using Backend.Models;
-using Backend.Testing;
 using Backend.EndPoints.Account;
 
 using Microsoft.OpenApi;
@@ -11,6 +10,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.DataProtection;
+using Backend.Models.Account;
+using Backend.EndPoints.Cart;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -90,6 +91,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -105,8 +108,28 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 
+//check if role "user, admin" exists. If not, create one. 
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider
+        .GetRequiredService<RoleManager<IdentityRole>>();
+
+    var roles = new[] { "Admin", "User" };
+
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+        {
+            await roleManager.CreateAsync(new IdentityRole(role));
+        }
+    }
+}
+
 app.MapGet("/", () => "Homepage");
 app.MapGet("/Allergies/{number}", (int number) => $"ALLERGY ENUM CONVERSION TOOL\nTesting Allergy Enums: \nInput: {number}: \n{(Allergies)number} ");
-await Backend.Testing.Admin.SeedAdmin(app.Services);
+await Admin.SeedAdmin(app.Services);
 app.MapAccountEndpoints();
+
+app.MapControllers();
+
 app.Run();

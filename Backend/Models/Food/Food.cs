@@ -1,4 +1,6 @@
 using Backend.Models;
+using Backend.Models.Cart;
+using Backend.Testing;
 
 namespace Backend.Models.Food
 { 
@@ -11,6 +13,8 @@ namespace Backend.Models.Food
         public required Nutrition Nutrition { get; set; }
         public Allergies Allergies { get; set; } = Allergies.None;
         public required FoodType FoodType { get; set; }
-        public bool isSoldOut { get; set; } = false;
+        public bool IsSoldOut { get; set; } = false;
+        public int CartId { get; set; }
+        public ShoppingCart Cart { get; set; } = null!;
     }
 }

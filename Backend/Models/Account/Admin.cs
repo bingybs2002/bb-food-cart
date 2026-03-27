@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Testing
+namespace Backend.Models.Account
 {
     public static class Admin
     {
@@ -12,9 +12,14 @@ namespace Backend.Testing
 
             var userManager = scope.ServiceProvider.
                 GetRequiredService<UserManager<IdentityUser>>();
+
             var adminPhone = "9179"; 
             var adminPassword = "9179";
-            var existAdmin = await userManager.Users.SingleOrDefaultAsync(x=>x.PhoneNumber==adminPhone || x.UserName == adminPhone);
+
+            var existAdmin = await userManager
+                .Users.SingleOrDefaultAsync(x=>
+                x.PhoneNumber==adminPhone || x.UserName == adminPhone);
+
             if(existAdmin != null)
             {
 

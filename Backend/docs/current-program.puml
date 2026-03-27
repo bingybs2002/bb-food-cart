@@ -1,0 +1,220 @@
+@startuml
+title BB Food Cart Backend - Current Program UML
+
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+package "Startup" {
+  class Program {
+    +ConfigureServices()
+    +ConfigurePipeline()
+  }
+}
+
+package "Endpoints" {
+  class AccountEndpoints {
+    +MapAccountEndpoints(routes)
+  }
+
+  class CartEndpoint {
+    +MapCartEndpoints(routes)
+  }
+
+  class EndpointCalories {
+    +CaloriesUtilities(routes)
+  }
+}
+
+package "Auth" {
+  interface IAuthenticationService {
+    +RegisterAsync(request)
+    +LoginAsync(request)
+    +RefreshAsync(request)
+    +ForgotPasswordAsync(request)
+    +ResetPasswordAsync(request)
+    +GetCurrentUserAsync(principal)
+    +LogoutAsync(principal, request)
+    +ChangePasswordAsync(principal, request)
+  }
+
+  class AuthenticationService {
+    -_dbContext : AppDbContext
+    -_userManager : UserManager<IdentityUser>
+    -_authTokenService : IAuthTokenService
+  }
+
+  interface IAuthTokenService {
+    +CreateTokenAsync(user)
+  }
+
+  class AuthTokenService {
+    -_jwtOptions : JwtOptions
+    -_userManager : UserManager<IdentityUser>
+  }
+
+  class JwtOptions {
+    +Issuer : string
+    +Audience : string
+    +Key : string
+    +AccessTokenMinutes : int
+    +RefreshTokenDays : int
+  }
+
+  class RegisterCustomerRequest
+  class LoginRequest
+  class RefreshRequest
+  class ForgotPasswordRequest
+  class ResetPasswordRequest
+  class LogoutRequest
+  class ChangePasswordRequest
+  class UserRole
+
+  class AuthTokens
+  class AuthResponse
+  class CurrentUserResponse
+  class OperationMessageResponse
+}
+
+package "Data" {
+  class AppDbContext {
+    +Customers : DbSet<AccountUser>
+    +RefreshTokens : DbSet<RefreshToken>
+    +Carts : DbSet<ShoppingCart>
+    +CartItems : DbSet<ShoppingCartItem>
+  }
+}
+
+package "Domain Models" {
+  enum Allergies
+  enum FoodType
+
+  class AccountUser {
+    +Id : int
+    +UserId : string?
+    +Cosignee : string
+    +Allergies : Allergies
+    +StreetAddress : string
+    +City : string
+    +State : string
+    +ZipCode : string
+  }
+
+  class RefreshToken {
+    +Id : int
+    +Token : string
+    +UserId : string
+    +CreatedAtUtc : DateTime
+    +ExpiresAtUtc : DateTime
+    +RevokedAtUtc : DateTime?
+    +IsActive : bool
+  }
+
+  class Authentication {
+    +Id : int
+    +Token : string
+    +UserId : string
+    +CreatedAtUTC : DateTime
+    +ExpiresAtUTC : DateTime
+    +RevokedAtUTC : DateTime?
+    +IsActive : bool
+  }
+
+  class ShoppingCart {
+    +Id : int
+    +CustomerId : int
+    +IsCheckedOut : bool
+    +CreatedAt : DateTime
+    +UpdatedAt : DateTime
+  }
+
+  class ShoppingCartItem {
+    +Id : int
+    +CartId : int
+    +FoodId : int
+    +Quantity : int
+  }
+
+  class Food {
+    +Id : int
+    +Name : string
+    +Description : string
+    +NutritionId : int
+    +Allergies : Allergies
+    +FoodType : FoodType
+    +isSoldOut : bool
+  }
+
+  class Nutrition {
+    +Calories : int
+    +Protein : int
+    +Carbs : int
+  }
+
+  class "IdentityUser" as IdentityUser
+  class "IdentityRole" as IdentityRole
+  class "UserManager<IdentityUser>" as UserManagerIdentityUser
+  class "IdentityDbContext<IdentityUser>" as IdentityDbContextIdentityUser
+}
+
+Program --> AppDbContext : registers
+Program --> IAuthenticationService : registers
+Program --> IAuthTokenService : registers
+Program --> AccountEndpoints : maps
+
+AccountEndpoints ..> IAuthenticationService : calls
+AccountEndpoints ..> UserManagerIdentityUser : admin lookup
+CartEndpoint ..> AppDbContext : queries
+CartEndpoint ..> UserManagerIdentityUser : uses
+EndpointCalories ..> Food : domain context
+
+IAuthenticationService <|.. AuthenticationService
+IAuthTokenService <|.. AuthTokenService
+
+AuthenticationService --> AppDbContext
+AuthenticationService --> UserManagerIdentityUser
+AuthenticationService --> IAuthTokenService
+AuthenticationService ..> RegisterCustomerRequest
+AuthenticationService ..> LoginRequest
+AuthenticationService ..> RefreshRequest
+AuthenticationService ..> ForgotPasswordRequest
+AuthenticationService ..> ResetPasswordRequest
+AuthenticationService ..> LogoutRequest
+AuthenticationService ..> ChangePasswordRequest
+AuthenticationService ..> AuthResponse
+AuthenticationService ..> CurrentUserResponse
+AuthenticationService ..> OperationMessageResponse
+
+AuthTokenService --> JwtOptions
+AuthTokenService --> UserManagerIdentityUser
+AuthTokenService ..> AuthTokens
+
+AppDbContext --|> IdentityDbContextIdentityUser
+AppDbContext --> AccountUser : DbSet
+AppDbContext --> RefreshToken : DbSet
+AppDbContext --> ShoppingCart : DbSet
+AppDbContext --> ShoppingCartItem : DbSet
+
+IdentityUser "1" <-- "0..*" RefreshToken : belongs to
+IdentityUser "1" <-- "0..1" AccountUser : linked auth user
+AccountUser "1" -- "0..1" ShoppingCart : owns
+ShoppingCart "1" *-- "0..*" ShoppingCartItem : contains
+ShoppingCartItem ..> Food : references by FoodId
+Food *-- "1" Nutrition : has
+AccountUser --> Allergies
+Food --> Allergies
+Food --> FoodType
+
+note right of Authentication
+Legacy model currently present in the codebase.
+The active token persistence path uses RefreshToken.
+end note
+
+note bottom of Program
+Observed runtime wiring in Program.cs:
+- EF Core + PostgreSQL
+- ASP.NET Identity
+- JWT Bearer authentication
+- Swagger in development
+end note
+
+@enduml

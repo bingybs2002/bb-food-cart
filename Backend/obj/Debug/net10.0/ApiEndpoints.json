@@ -42,6 +42,52 @@
     ]
   },
   {
+    "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
+    "Method": "GetShoppingCartByLoggedInCustomer",
+    "RelativePath": "Cart/ShoppingCart/my/cart",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Backend.Models.Cart.ShoppingCart",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
+    "Method": "GetShoppingCartByCustomerPhone",
+    "RelativePath": "Cart/ShoppingCart/phone/{phoneNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phoneNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Backend.Models.Cart.ShoppingCart",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapAccountEndpoints\u003Eb__0_7",
     "RelativePath": "change-password",

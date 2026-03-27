@@ -254,6 +254,74 @@
           }
         }
       }
+    },
+    "/Cart/ShoppingCart/phone/{phoneNumber}": {
+      "get": {
+        "tags": [
+          "ShoppingCart"
+        ],
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoppingCart"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoppingCart"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoppingCart"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Cart/ShoppingCart/my/cart": {
+      "get": {
+        "tags": [
+          "ShoppingCart"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoppingCart"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoppingCart"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoppingCart"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -288,12 +356,132 @@
         },
         "additionalProperties": false
       },
+      "Food": {
+        "required": [
+          "foodType",
+          "id",
+          "name",
+          "nutrition"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "nutritionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nutrition": {
+            "$ref": "#/components/schemas/Nutrition"
+          },
+          "allergies": {
+            "$ref": "#/components/schemas/Allergies"
+          },
+          "foodType": {
+            "$ref": "#/components/schemas/FoodType"
+          },
+          "isSoldOut": {
+            "type": "boolean"
+          },
+          "cartId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cart": {
+            "$ref": "#/components/schemas/ShoppingCart"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FoodType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "ForgotPasswordRequest": {
         "type": "object",
         "properties": {
           "phoneNumber": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -308,6 +496,33 @@
           "password": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Nutrition": {
+        "required": [
+          "calories",
+          "carbs",
+          "protein"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "calories": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "protein": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "carbs": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -377,6 +592,83 @@
         },
         "additionalProperties": false
       },
+      "ShoppingCart": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/UserAccount"
+          },
+          "isCheckedOut": {
+            "type": "boolean"
+          },
+          "foods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Food"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserAccount": {
+        "required": [
+          "city",
+          "cosignee",
+          "state",
+          "streetAddress",
+          "zipCode"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/IdentityUser"
+          },
+          "cosignee": {
+            "type": "string",
+            "nullable": true
+          },
+          "allergies": {
+            "$ref": "#/components/schemas/Allergies"
+          },
+          "streetAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "zipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "shoppingCart": {
+            "$ref": "#/components/schemas/ShoppingCart"
+          }
+        },
+        "additionalProperties": false
+      },
       "UserRole": {
         "type": "object",
         "properties": {
@@ -409,6 +701,9 @@
   "tags": [
     {
       "name": "Backend"
+    },
+    {
+      "name": "ShoppingCart"
     }
   ]
 }

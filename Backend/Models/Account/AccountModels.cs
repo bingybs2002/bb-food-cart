@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Backend.Models.Account;
 
-public class AccountUser
+public class UserAccount
 {
     public int Id { get; set; }//Pk
     public string? UserId { get; set; }//Fk -> IdentityUser.Id

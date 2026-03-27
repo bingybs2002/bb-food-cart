@@ -68,7 +68,7 @@ public sealed class AuthenticationService : IAuthenticationService
             return Results.BadRequest(roleResult.Errors);
         }
 
-        var customer = new AccountUser
+        var customer = new UserAccount
         {
             UserId = user.Id,
             User = user,
@@ -243,7 +243,7 @@ public sealed class AuthenticationService : IAuthenticationService
         return Results.Ok(new OperationMessageResponse("Password updated successfully."));
     }
 
-    private async Task<AuthResponse> CreateAndStoreTokensAsync(IdentityUser user, AccountUser? customer)
+    private async Task<AuthResponse> CreateAndStoreTokensAsync(IdentityUser user, UserAccount? customer)
     {
         var tokens = await _authTokenService.CreateTokenAsync(user);
         _dbContext.RefreshTokens.Add(new RefreshToken
@@ -266,7 +266,7 @@ public sealed class AuthenticationService : IAuthenticationService
         return string.IsNullOrWhiteSpace(userId) ? null : await _userManager.FindByIdAsync(userId);
     }
 
-    private Task<AccountUser?> FindCustomerAsync(string userId) =>
+    private Task<UserAccount?> FindCustomerAsync(string userId) =>
         _dbContext.Customers.SingleOrDefaultAsync(existingCustomer => existingCustomer.UserId == userId);
 
     private static string NormalizePhoneNumber(string phoneNumber) =>

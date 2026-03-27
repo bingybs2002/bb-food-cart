@@ -1,14 +1,13 @@
 ﻿using Backend.Models.Account;
+using Backend.Models.Food;
 namespace Backend.Models.Cart
 {
     public class ShoppingCart
     {
-        public int Id { get; set; }//PK
-        public int CustomerId { get; set; }//Fk -> AccountUser.Id
-        public AccountUser Customer { get; set; } = default!;//Navigation property
+        public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public UserAccount Customer { get; set; } = null!;//one to one
         public bool IsCheckedOut { get; set; }
-        public DateTime CreatedAt{ get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public List<ShoppingCartItem> Items { get; set; } = new();//Navigation property, one to many
+        public List<Food.Food> Foods { get; set; } = new List<Food.Food>();//one to many
     }
 }
