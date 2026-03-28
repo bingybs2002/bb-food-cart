@@ -1,4 +1,4 @@
-namespace Backend.Models.Food;
+namespace Backend.Models.Foods;
 
 public enum FoodType
 {

@@ -18,6 +18,244 @@
     ]
   },
   {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_7",
+    "RelativePath": "account/change-password",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.ChangePasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_3",
+    "RelativePath": "account/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.ForgotPasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_8",
+    "RelativePath": "account/is-admin",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.UserRole",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_1",
+    "RelativePath": "account/login",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_6",
+    "RelativePath": "account/logout",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_5",
+    "RelativePath": "account/me",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_9",
+    "RelativePath": "account/promote-to-admin",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.UserRole",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_2",
+    "RelativePath": "account/refresh",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.RefreshRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_0",
+    "RelativePath": "account/register",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.RegisterCustomerRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapAccountEndpoints\u003Eb__0_4",
+    "RelativePath": "account/reset-password",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Auth.DTOs.ResetPasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Account"
+    ]
+  },
+  {
     "ContainingType": "Program\u002B\u003C\u003Ec",
     "Method": "\u003C\u003CMain\u003E$\u003Eb__0_6",
     "RelativePath": "Allergies/{number}",
@@ -42,9 +280,29 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
+    "ContainingType": "Backend.EndPoints.Cart.ShoppingCart",
+    "Method": "GetShoppingCartByLoggedInCustomer",
+    "RelativePath": "Cart/myCart",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Backend.EndPoints.Cart.ShoppingCartDTO\u002BShoppingCartResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Backend.EndPoints.Cart.AdminCart",
     "Method": "ModifyItemByName",
-    "RelativePath": "Cart/ShoppingCart",
+    "RelativePath": "cartAdmin/edit/{Name}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -52,20 +310,20 @@
       {
         "Name": "Name",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "newItem",
-        "Type": "Backend.Models.Food.Food",
+        "Type": "Backend.Models.Foods.Food",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
-    "Method": "GetShoppingCartByCustomerPhone",
-    "RelativePath": "Cart/ShoppingCart/Admin/Cart/{phoneNumber}",
+    "ContainingType": "Backend.EndPoints.Cart.AdminCart",
+    "Method": "GetCustomerCartByPhone",
+    "RelativePath": "cartAdmin/find/{phoneNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -78,7 +336,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Backend.Models.Cart.ShoppingCart",
+        "Type": "Backend.EndPoints.Cart.AdminCartDTO\u002BAdminShoppingCartDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -89,247 +347,19 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
+    "ContainingType": "Backend.EndPoints.Cart.AdminCart",
     "Method": "InsertItemsToMenu",
-    "RelativePath": "Cart/ShoppingCart/cart/insert",
+    "RelativePath": "cartAdmin/insert",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "items",
-        "Type": "System.Collections.Generic.List\u00601[[Backend.EndPoints.Cart.ShoppingCartController\u002BCreateFoodDto, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Backend.EndPoints.Cart.AdminCartDTO\u002BAdminCreateFoodDto, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Cart.ShoppingCartController",
-    "Method": "GetShoppingCartByLoggedInCustomer",
-    "RelativePath": "Cart/ShoppingCart/my/cart",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "Backend.Models.Cart.ShoppingCart",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_7",
-    "RelativePath": "change-password",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.Auth.DTOs.ChangePasswordRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_3",
-    "RelativePath": "forgot-password",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.Auth.DTOs.ForgotPasswordRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_8",
-    "RelativePath": "is-admin",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.Auth.DTOs.UserRole",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_1",
-    "RelativePath": "login",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.Auth.DTOs.LoginRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_6",
-    "RelativePath": "logout",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_5",
-    "RelativePath": "me",
-    "HttpMethod": "GET",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_9",
-    "RelativePath": "promote-to-admin",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.Auth.DTOs.UserRole",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_2",
-    "RelativePath": "refresh",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.Auth.DTOs.RefreshRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_0",
-    "RelativePath": "register",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.Auth.DTOs.RegisterCustomerRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Account.AccountEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapAccountEndpoints\u003Eb__0_4",
-    "RelativePath": "reset-password",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "Backend.Auth.DTOs.ResetPasswordRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
   }
 ]

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gacha")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0eeab9c10fe66f4aee30d4e184db06e8e00663b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af50c20cb62108a51fc103b8034d07784d3ede64")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gacha")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gacha")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

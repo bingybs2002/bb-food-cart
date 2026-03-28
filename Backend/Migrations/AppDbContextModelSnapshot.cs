@@ -96,6 +96,35 @@ namespace Backend.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("Backend.Models.Cart.CartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("FoodId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ShoppingCartId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FoodId");
+
+                    b.HasIndex("ShoppingCartId");
+
+                    b.ToTable("CartItem");
+                });
+
             modelBuilder.Entity("Backend.Models.Cart.ShoppingCart", b =>
                 {
                     b.Property<int>("Id")
@@ -118,7 +147,7 @@ namespace Backend.Migrations
                     b.ToTable("ShoppingCarts");
                 });
 
-            modelBuilder.Entity("Backend.Models.Food.Food", b =>
+            modelBuilder.Entity("Backend.Models.Foods.Food", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -129,7 +158,7 @@ namespace Backend.Migrations
                     b.Property<int>("Allergies")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CartId")
+                    b.Property<int?>("CartId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Description")
@@ -398,6 +427,25 @@ namespace Backend.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Backend.Models.Cart.CartItem", b =>
+                {
+                    b.HasOne("Backend.Models.Foods.Food", "Food")
+                        .WithMany()
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Backend.Models.Cart.ShoppingCart", "ShoppingCart")
+                        .WithMany("Items")
+                        .HasForeignKey("ShoppingCartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+
+                    b.Navigation("ShoppingCart");
+                });
+
             modelBuilder.Entity("Backend.Models.Cart.ShoppingCart", b =>
                 {
                     b.HasOne("Backend.Models.Account.UserAccount", "Customer")
@@ -409,13 +457,11 @@ namespace Backend.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("Backend.Models.Food.Food", b =>
+            modelBuilder.Entity("Backend.Models.Foods.Food", b =>
                 {
                     b.HasOne("Backend.Models.Cart.ShoppingCart", "Cart")
-                        .WithMany("Foods")
-                        .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("CartId");
 
                     b.HasOne("Backend.Testing.Nutrition", "Nutrition")
                         .WithMany()
@@ -486,7 +532,7 @@ namespace Backend.Migrations
 
             modelBuilder.Entity("Backend.Models.Cart.ShoppingCart", b =>
                 {
-                    b.Navigation("Foods");
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

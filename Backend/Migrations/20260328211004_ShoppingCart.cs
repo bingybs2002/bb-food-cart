@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Backend.Migrations
 {
     /// <inheritdoc />
-    public partial class cartsupdate : Migration
+    public partial class ShoppingCart : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -221,7 +221,7 @@ namespace Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ShoppingCart",
+                name: "ShoppingCarts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -231,9 +231,9 @@ namespace Backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ShoppingCart", x => x.Id);
+                    table.PrimaryKey("PK_ShoppingCarts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ShoppingCart_Customers_CustomerId",
+                        name: "FK_ShoppingCarts_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
@@ -252,7 +252,7 @@ namespace Backend.Migrations
                     Allergies = table.Column<int>(type: "integer", nullable: false),
                     FoodType = table.Column<int>(type: "integer", nullable: false),
                     IsSoldOut = table.Column<bool>(type: "boolean", nullable: false),
-                    CartId = table.Column<int>(type: "integer", nullable: false)
+                    CartId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -264,9 +264,36 @@ namespace Backend.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Foods_ShoppingCart_CartId",
+                        name: "FK_Foods_ShoppingCarts_CartId",
                         column: x => x.CartId,
-                        principalTable: "ShoppingCart",
+                        principalTable: "ShoppingCarts",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CartItem",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ShoppingCartId = table.Column<int>(type: "integer", nullable: false),
+                    FoodId = table.Column<int>(type: "integer", nullable: false),
+                    Quantity = table.Column<int>(type: "integer", nullable: false),
+                    UnitPrice = table.Column<decimal>(type: "numeric", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CartItem", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CartItem_Foods_FoodId",
+                        column: x => x.FoodId,
+                        principalTable: "Foods",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CartItem_ShoppingCarts_ShoppingCartId",
+                        column: x => x.ShoppingCartId,
+                        principalTable: "ShoppingCarts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -309,6 +336,16 @@ namespace Backend.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_CartItem_FoodId",
+                table: "CartItem",
+                column: "FoodId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CartItem_ShoppingCartId",
+                table: "CartItem",
+                column: "ShoppingCartId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Customers_UserId",
                 table: "Customers",
                 column: "UserId");
@@ -329,8 +366,8 @@ namespace Backend.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShoppingCart_CustomerId",
-                table: "ShoppingCart",
+                name: "IX_ShoppingCarts_CustomerId",
+                table: "ShoppingCarts",
                 column: "CustomerId",
                 unique: true);
         }
@@ -354,7 +391,7 @@ namespace Backend.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Foods");
+                name: "CartItem");
 
             migrationBuilder.DropTable(
                 name: "RefreshTokens");
@@ -363,10 +400,13 @@ namespace Backend.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Foods");
+
+            migrationBuilder.DropTable(
                 name: "Nutrition");
 
             migrationBuilder.DropTable(
-                name: "ShoppingCart");
+                name: "ShoppingCarts");
 
             migrationBuilder.DropTable(
                 name: "Customers");

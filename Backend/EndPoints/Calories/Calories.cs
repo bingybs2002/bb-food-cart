@@ -23,14 +23,14 @@ namespace Backend.EndPoints.Calories
             VeryActive                 //Physical job or intense training,
                                        //intense exercise 6 to 7 times/week
         }
-        public static double calculateBMR(double weightInKg, double heightInCm, 
-                                           bool IsMale, int age, 
-                                           UserActivityLevel activityLevel, 
-                                           int UserTrainingTarget, 
+        public static double calculateBMR(double weightInKg, double heightInCm,
+                                           bool IsMale, int age,
+                                           UserActivityLevel activityLevel,
+                                           int UserTrainingTarget,
                                            int alreadyKnowCalories = 0)
         {
             double[] ActivityLevelToMultiplier = { 0, 1.2, 1.375, 1.55, 1.725, 1.9 };
-            if (alreadyKnowCalories<0)
+            if (alreadyKnowCalories < 0)
             {
                 throw new ArgumentOutOfRangeException("Please enter a valid range");
             }
@@ -38,11 +38,11 @@ namespace Backend.EndPoints.Calories
             {
                 return alreadyKnowCalories;
             }
-            if(weightInKg <= 0)
+            if (weightInKg <= 0)
             {
                 throw new ArgumentOutOfRangeException("Please enter a valid Weight.");
             }
-            if(heightInCm <= 0)
+            if (heightInCm <= 0)
             {
                 throw new ArgumentOutOfRangeException("Please enter a valid Height.");
             }
@@ -52,10 +52,11 @@ namespace Backend.EndPoints.Calories
             double multiplier = activityLevel == UserActivityLevel.None
                 ? 1.0 : ActivityLevelToMultiplier[(int)activityLevel];
             double dailyBMR = bmr * multiplier;
-            if(UserTrainingTarget == 0)
+            if (UserTrainingTarget == 0)
             {
                 return dailyBMR;
-            }else if(UserTrainingTarget == 1)
+            }
+            else if (UserTrainingTarget == 1)
             {
                 return dailyBMR * 1.1;
             }

@@ -1,4 +1,4 @@
-namespace Backend.Testing;
+namespace Backend.Models.Foods;
 
 public class Nutrition
 {

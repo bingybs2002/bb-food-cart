@@ -1,22 +1,19 @@
-using System.Text;
-
 using Backend.Auth;
 using Backend.Data;
-using Backend.Models;
 using Backend.EndPoints.Account;
-
-using Microsoft.OpenApi;
+using Backend.Models;
+using Backend.Models.Account;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.DataProtection;
-using Backend.Models.Account;
-using Backend.EndPoints.Cart;
+using Microsoft.OpenApi;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var jwtSection = builder.Configuration.GetSection("Jwt");
-var jwtOptions = jwtSection.Get<JwtOptions>() 
+var jwtOptions = jwtSection.Get<JwtOptions>()
     ?? throw new InvalidOperationException("Invalid JWT configuration.");
 var dataProtectionDirectory = new DirectoryInfo(Path.
     Combine(builder.Environment.ContentRootPath, ".keys"));
@@ -42,7 +39,7 @@ builder.Services.AddAuthentication(Microsoft.AspNetCore.Authentication.
             ValidateIssuerSigningKey = true,
             ValidIssuer = jwtOptions.Issuer,
             ValidAudience = jwtOptions.Audience,
-            IssuerSigningKey = new 
+            IssuerSigningKey = new
                  SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Key)),
             ClockSkew = TimeSpan.Zero
         };
@@ -86,7 +83,7 @@ builder.Services.AddSwaggerGen(options =>
     options.AddSecurityDefinition("Bearer", bearerScheme);
     options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
     {
-        { new OpenApiSecuritySchemeReference("Bearer", document, null), 
+        { new OpenApiSecuritySchemeReference("Bearer", document, null),
             new List<string>() }
     });
 });

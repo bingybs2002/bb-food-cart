@@ -1,26 +1,27 @@
+using Backend.Models.Account;
+using Backend.Models.Cart;
+using Backend.Models.Foods;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Backend.Models.Account;
-using Backend.Models.Cart;
-using Backend.Models.Food;
 
 namespace Backend.Data;
 
 public class AppDbContext : IdentityDbContext<IdentityUser>
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<UserAccount> Customers => Set<UserAccount>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
     public DbSet<Food> Foods => Set<Food>();
     public DbSet<ShoppingCart> ShoppingCarts => Set<ShoppingCart>();
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(builder);
+        base.OnModelCreating(modelBuilder);
 
-        builder.Entity<UserAccount>(entity =>
+        //Declare that the required namefields are required for userAccount
+        modelBuilder.Entity<UserAccount>(entity =>
         {
             entity.HasKey(customer => customer.Id);
             entity.Property(customer => customer.Cosignee).IsRequired();
@@ -35,7 +36,8 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
                   .IsRequired();
         });
 
-        builder.Entity<RefreshToken>(entity =>
+
+        modelBuilder.Entity<RefreshToken>(entity =>
         {
             entity.HasKey(refreshToken => refreshToken.Id);
             entity.Property(refreshToken => refreshToken.Token).IsRequired();
@@ -46,19 +48,16 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
                   .IsRequired();
         });
 
-        builder.Entity<ShoppingCart>(entity =>
-        {
-            entity.HasKey(cart => cart.Id);
+        //shopping cart (1 to many) items
+        modelBuilder.Entity<ShoppingCart>()
+             .HasMany(s => s.Items)
+             .WithOne(s => s.ShoppingCart)
+             .HasForeignKey(e => e.ShoppingCartId);
 
-            entity.HasOne(cart => cart.Customer)
-                  .WithOne(customer => customer.ShoppingCart)
-                  .HasForeignKey<ShoppingCart>(cart => cart.CustomerId);
-
-            entity.HasIndex(cart => cart.CustomerId).IsUnique();
-
-            entity.HasMany(cart => cart.Foods).
-                WithOne(cart => cart.Cart).
-                HasForeignKey(cart => cart.CartId);
-        });
+        //shopping cart (1 to 1) customer
+        modelBuilder.Entity<UserAccount>()
+            .HasOne(s => s.ShoppingCart)
+            .WithOne(s => s.Customer)
+            .HasForeignKey<ShoppingCart>(s => s.CustomerId);
     }
 }

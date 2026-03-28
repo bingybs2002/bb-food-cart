@@ -1,12 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Gacha\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\projects\\bb-food-cart\\gacha\\endpoints\\gachadelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:endpoints\\gachadelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|c:\\users\\bingy\\projects\\bb-food-cart\\gacha\\endpoints\\gachacreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26340AE-ABA8-140D-A4B1-2373387AE27F}|Gacha.csproj|solutionrelative:endpoints\\gachacreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GachaDelete.cs",
+              "DocumentMoniker": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Gacha\\EndPoints\\GachaDelete.cs",
+              "RelativeDocumentMoniker": "EndPoints\\GachaDelete.cs",
+              "ToolTip": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Gacha\\EndPoints\\GachaDelete.cs",
+              "RelativeToolTip": "EndPoints\\GachaDelete.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T20:00:45.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GachaCreate.cs",
+              "DocumentMoniker": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Gacha\\EndPoints\\GachaCreate.cs",
+              "RelativeDocumentMoniker": "EndPoints\\GachaCreate.cs",
+              "ToolTip": "C:\\Users\\bingy\\Projects\\bb-food-cart\\Gacha\\EndPoints\\GachaCreate.cs",
+              "RelativeToolTip": "EndPoints\\GachaCreate.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T19:49:40.551Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

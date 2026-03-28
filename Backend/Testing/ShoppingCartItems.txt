@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Acai Bowl",
+    "description": "This thick, creamy, and refreshing high-protein acai bowl recipe is packed with over 39 grams of protein and made in just 5 minutes. It's the perfect homemade acai bowl for breakfast, post-workout, or a healthy dessert—and tastes like a smoothie bar, but better (and cheaper!).",
+    "allergies": 38,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 464,
+    "protein": 39,
+    "carb": 46
+  }
+]
+

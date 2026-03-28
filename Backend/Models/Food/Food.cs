@@ -1,8 +1,6 @@
-using Backend.Models;
 using Backend.Models.Cart;
-using Backend.Testing;
 
-namespace Backend.Models.Food
+namespace Backend.Models.Foods
 {
     public class Food
     {

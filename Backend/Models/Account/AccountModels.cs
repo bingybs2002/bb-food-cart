@@ -1,4 +1,3 @@
-using Backend.Models.Food;
 using Backend.Models.Cart;
 
 using Microsoft.AspNetCore.Identity;

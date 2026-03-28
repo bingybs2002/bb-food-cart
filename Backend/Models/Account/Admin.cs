@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Models.Account
@@ -13,14 +12,14 @@ namespace Backend.Models.Account
             var userManager = scope.ServiceProvider.
                 GetRequiredService<UserManager<IdentityUser>>();
 
-            var adminPhone = "9179"; 
+            var adminPhone = "9179";
             var adminPassword = "9179";
 
             var existAdmin = await userManager
-                .Users.SingleOrDefaultAsync(x=>
-                x.PhoneNumber==adminPhone || x.UserName == adminPhone);
+                .Users.SingleOrDefaultAsync(x =>
+                x.PhoneNumber == adminPhone || x.UserName == adminPhone);
 
-            if(existAdmin != null)
+            if (existAdmin != null)
             {
 
             }

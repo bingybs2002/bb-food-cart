@@ -1,0 +1,9 @@
+{"phoneNumber": "1234567833", "password": "Password33", "cosignee": "User33", "allergies": 2, "streetAddress": "33 Main St", "city": "City", "state": "State", "zipCode": "10033"}
+
+
+{
+  "phoneNumber": "1234567833",
+  "password": "Password33"
+}
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwNWZhNzIxZC00ZGZhLTRjNDctYWYwNC0yNGIwYzE5MDQ0MTkiLCJ1bmlxdWVfbmFtZSI6IjEyMzQ1Njc4MzMiLCJqdGkiOiJiY2E1N2UwNS1kMjA4LTRjNTUtYmZkMi0zY2JhZWVjZWE0ZjAiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjA1ZmE3MjFkLTRkZmEtNGM0Ny1hZjA0LTI0YjBjMTkwNDQxOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMTIzNDU2NzgzMyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJuYmYiOjE3NzQ3Mzc4NjksImV4cCI6MTc3NDk1Mzg2OSwiaXNzIjoiYmItZm9vZCIsImF1ZCI6ImJiLWZvb2QtY2xpZW50In0.1Jy55ATAA9L3eNt5CEC7ccUT-GeE2-WWm5SGesuqE48
