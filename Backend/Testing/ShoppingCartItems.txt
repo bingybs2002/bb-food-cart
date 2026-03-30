@@ -8,6 +8,58 @@
     "calories": 464,
     "protein": 39,
     "carb": 46
-  }
+  },
+  {
+    "name": "Snickerdodle Oat milk Smoothie",
+    "description": "This creamy oat milk smoothie has all the cozy vibes of a Snickerdoodle cookie but in sippable form! Made with banana, peanut butter, a dash of cinnamon, and creamy oat milk, it's a dairy-free treat that's perfect for breakfast, a midday pick-me-up, or even a light dessert.",
+    "allergies": 5,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 284,
+    "protein": 8,
+    "carb": 16
+}
 ]
 
+{
+    "name": "Acai Bowl",
+    "description": "This thick, creamy, and refreshing high-protein acai bowl recipe is packed with over 39 grams of protein and made in just 5 minutes. It's the perfect homemade acai bowl for breakfast, post-workout, or a healthy dessert—and tastes like a smoothie bar, but better (and cheaper!).",
+    "allergies": 38,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 464,
+    "protein": 39,
+    "carb": 46
+}
+
+
+
+	
+Response body
+Download
+[
+  {
+    "id": 3,
+    "name": "Acai Bowl",
+    "description": "This thick, creamy, and refreshing high-protein acai bowl recipe is packed with over 39 grams of protein and made in just 5 minutes. It's the perfect homemade acai bowl for breakfast, post-workout, or a healthy dessert—and tastes like a smoothie bar, but better (and cheaper!).",
+    "nutritionId": 3,
+    "nutrition": null,
+    "allergies": 38,
+    "foodType": 1,
+    "isSoldOut": false,
+    "cartId": null,
+    "cart": null
+  },
+  {
+    "id": 4,
+    "name": "Snickerdodle Oat milk Smoothie",
+    "description": "This creamy oat milk smoothie has all the cozy vibes of a Snickerdoodle cookie but in sippable form! Made with banana, peanut butter, a dash of cinnamon, and creamy oat milk, it's a dairy-free treat that's perfect for breakfast, a midday pick-me-up, or even a light dessert.",
+    "nutritionId": 4,
+    "nutrition": null,
+    "allergies": 5,
+    "foodType": 1,
+    "isSoldOut": false,
+    "cartId": null,
+    "cart": null
+  }
+]

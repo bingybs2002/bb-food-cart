@@ -1,7 +1,8 @@
 ﻿using Backend.Models;
 using Backend.Models.Foods;
+using static Backend.EndPoints.ShoppingCart.Cart.DTO.AdminCartDTO;
 
-namespace Backend.EndPoints.Cart;
+namespace Backend.EndPoints.ShoppingCart.Cart.DTO;
 
 public class ShoppingCartDTO
 {
@@ -15,6 +16,7 @@ public class ShoppingCartDTO
     {
         public int Id { get; set; }
         public string Name { get; set; } = "";
+        public int Quantity { get; set; }
     }
     public class CreateFoodDto
     {
@@ -23,5 +25,15 @@ public class ShoppingCartDTO
         public Allergies Allergies { get; set; } = Allergies.None;
         public FoodType FoodType { get; set; }
         public bool IsSoldOut { get; set; } = false;
+    }
+    public class CartItemDto
+    {
+        public string FoodName { get; set; }
+        public int Quantity { get; set; }
+    }
+    public class ChangeItemQuantityDTO
+    {
+        public string FoodName { get; set; }
+        public int Quantity { get; set; }
     }
 }

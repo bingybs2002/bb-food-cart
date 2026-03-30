@@ -1,7 +1,7 @@
 ﻿using Backend.Models;
 using Backend.Models.Foods;
 
-namespace Backend.EndPoints.Cart;
+namespace Backend.EndPoints.ShoppingCart.Cart.DTO;
 
 public class AdminCartDTO
 {
@@ -25,6 +25,6 @@ public class AdminCartDTO
         public bool IsSoldOut { get; set; } = false;
         public int Calories { get; set; }
         public int Protein { get; set; }
-        public int Carb { get; set; }
+        public int Carbs { get; set; }
     }
 }

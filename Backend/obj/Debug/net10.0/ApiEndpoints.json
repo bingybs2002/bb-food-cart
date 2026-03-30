@@ -280,7 +280,39 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Cart.ShoppingCart",
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.ShoppingCart",
+    "Method": "AddToCart",
+    "RelativePath": "Cart/AddToCart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Backend.EndPoints.ShoppingCart.Cart.DTO.ShoppingCartDTO\u002BCartItemDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.ShoppingCart",
+    "Method": "ChangeItemQuantity",
+    "RelativePath": "Cart/ChangeItemQuantity",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Backend.EndPoints.ShoppingCart.Cart.DTO.ShoppingCartDTO\u002BChangeItemQuantityDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.ShoppingCart",
     "Method": "GetShoppingCartByLoggedInCustomer",
     "RelativePath": "Cart/myCart",
     "HttpMethod": "GET",
@@ -289,7 +321,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "Backend.EndPoints.Cart.ShoppingCartDTO\u002BShoppingCartResponseDto",
+        "Type": "Backend.EndPoints.ShoppingCart.Cart.DTO.ShoppingCartDTO\u002BShoppingCartResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -300,30 +332,9 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Cart.AdminCart",
-    "Method": "ModifyItemByName",
-    "RelativePath": "cartAdmin/edit/{Name}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "newItem",
-        "Type": "Backend.Models.Foods.Food",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend.EndPoints.Cart.AdminCart",
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminCart",
     "Method": "GetCustomerCartByPhone",
-    "RelativePath": "cartAdmin/find/{phoneNumber}",
+    "RelativePath": "cartAdmin/{phoneNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -336,7 +347,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Backend.EndPoints.Cart.AdminCartDTO\u002BAdminShoppingCartDto",
+        "Type": "Backend.EndPoints.ShoppingCart.Cart.DTO.AdminCartDTO\u002BAdminShoppingCartDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -347,16 +358,63 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.Cart.AdminCart",
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Items.AdminItem",
     "Method": "InsertItemsToMenu",
-    "RelativePath": "cartAdmin/insert",
+    "RelativePath": "itemAdmin/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "items",
-        "Type": "System.Collections.Generic.List\u00601[[Backend.EndPoints.Cart.AdminCartDTO\u002BAdminCreateFoodDto, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Backend.EndPoints.ShoppingCart.Cart.DTO.AdminCartDTO\u002BAdminCreateFoodDto, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Items.AdminItem",
+    "Method": "DeleteItem",
+    "RelativePath": "itemAdmin/delete/{Name}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Items.AdminItem",
+    "Method": "ReadItemFromMenu",
+    "RelativePath": "itemAdmin/Read",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Items.AdminItem",
+    "Method": "ModifyItemByName",
+    "RelativePath": "itemAdmin/update/{Name}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "newItem",
+        "Type": "Backend.EndPoints.ShoppingCart.Cart.DTO.AdminCartDTO\u002BAdminCreateFoodDto",
         "IsRequired": true
       }
     ],

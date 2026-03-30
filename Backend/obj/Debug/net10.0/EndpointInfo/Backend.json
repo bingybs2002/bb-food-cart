@@ -206,7 +206,7 @@
         }
       }
     },
-    "/cartAdmin/find/{phoneNumber}": {
+    "/cartAdmin/{phoneNumber}": {
       "get": {
         "tags": [
           "AdminCart"
@@ -245,10 +245,62 @@
         }
       }
     },
-    "/cartAdmin/edit/{Name}": {
+    "/itemAdmin/Create": {
+      "post": {
+        "tags": [
+          "AdminItem"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AdminCreateFoodDto"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AdminCreateFoodDto"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AdminCreateFoodDto"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/itemAdmin/Read": {
+      "get": {
+        "tags": [
+          "AdminItem"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/itemAdmin/update/{Name}": {
       "put": {
         "tags": [
-          "AdminCart"
+          "AdminItem"
         ],
         "parameters": [
           {
@@ -264,17 +316,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Food"
+                "$ref": "#/components/schemas/AdminCreateFoodDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Food"
+                "$ref": "#/components/schemas/AdminCreateFoodDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Food"
+                "$ref": "#/components/schemas/AdminCreateFoodDto"
               }
             }
           }
@@ -286,39 +338,21 @@
         }
       }
     },
-    "/cartAdmin/insert": {
-      "post": {
+    "/itemAdmin/delete/{Name}": {
+      "delete": {
         "tags": [
-          "AdminCart"
+          "AdminItem"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/AdminCreateFoodDto"
-                }
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/AdminCreateFoodDto"
-                }
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/AdminCreateFoodDto"
-                }
-              }
+        "parameters": [
+          {
+            "name": "Name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -403,6 +437,68 @@
           }
         }
       }
+    },
+    "/Cart/AddToCart": {
+      "post": {
+        "tags": [
+          "ShoppingCart"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartItemDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartItemDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartItemDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Cart/ChangeItemQuantity": {
+      "post": {
+        "tags": [
+          "ShoppingCart"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeItemQuantityDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeItemQuantityDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeItemQuantityDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -435,7 +531,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "carb": {
+          "carbs": {
             "type": "integer",
             "format": "int32"
           }
@@ -493,34 +589,30 @@
         "type": "integer",
         "format": "int32"
       },
-      "CartItem": {
+      "CartItemDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "shoppingCartId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "shoppingCart": {
-            "$ref": "#/components/schemas/ShoppingCart"
-          },
-          "foodId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "food": {
-            "$ref": "#/components/schemas/Food"
+          "foodName": {
+            "type": "string",
+            "nullable": true
           },
           "quantity": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeItemQuantityDTO": {
+        "type": "object",
+        "properties": {
+          "foodName": {
+            "type": "string",
+            "nullable": true
           },
-          "unitPrice": {
-            "type": "number",
-            "format": "double"
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -539,52 +631,6 @@
         },
         "additionalProperties": false
       },
-      "Food": {
-        "required": [
-          "foodType",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "nutritionId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nutrition": {
-            "$ref": "#/components/schemas/Nutrition"
-          },
-          "allergies": {
-            "$ref": "#/components/schemas/Allergies"
-          },
-          "foodType": {
-            "$ref": "#/components/schemas/FoodType"
-          },
-          "isSoldOut": {
-            "type": "boolean"
-          },
-          "cartId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "cart": {
-            "$ref": "#/components/schemas/ShoppingCart"
-          }
-        },
-        "additionalProperties": false
-      },
       "FoodDto": {
         "type": "object",
         "properties": {
@@ -595,6 +641,10 @@
           "name": {
             "type": "string",
             "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -619,69 +669,6 @@
         },
         "additionalProperties": false
       },
-      "IdentityUser": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "userName": {
-            "type": "string",
-            "nullable": true
-          },
-          "normalizedUserName": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "normalizedEmail": {
-            "type": "string",
-            "nullable": true
-          },
-          "emailConfirmed": {
-            "type": "boolean"
-          },
-          "passwordHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "securityStamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "concurrencyStamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumberConfirmed": {
-            "type": "boolean"
-          },
-          "twoFactorEnabled": {
-            "type": "boolean"
-          },
-          "lockoutEnd": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lockoutEnabled": {
-            "type": "boolean"
-          },
-          "accessFailedCount": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
       "LoginRequest": {
         "type": "object",
         "properties": {
@@ -692,33 +679,6 @@
           "password": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Nutrition": {
-        "required": [
-          "calories",
-          "carbs",
-          "protein"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "calories": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "protein": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "carbs": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -788,33 +748,6 @@
         },
         "additionalProperties": false
       },
-      "ShoppingCart": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "customer": {
-            "$ref": "#/components/schemas/UserAccount"
-          },
-          "isCheckedOut": {
-            "type": "boolean"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CartItem"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ShoppingCartResponseDto": {
         "type": "object",
         "properties": {
@@ -832,56 +765,6 @@
               "$ref": "#/components/schemas/FoodDto"
             },
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserAccount": {
-        "required": [
-          "city",
-          "cosignee",
-          "state",
-          "streetAddress",
-          "zipCode"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
-            "type": "string",
-            "nullable": true
-          },
-          "user": {
-            "$ref": "#/components/schemas/IdentityUser"
-          },
-          "cosignee": {
-            "type": "string",
-            "nullable": true
-          },
-          "allergies": {
-            "$ref": "#/components/schemas/Allergies"
-          },
-          "streetAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "city": {
-            "type": "string",
-            "nullable": true
-          },
-          "state": {
-            "type": "string",
-            "nullable": true
-          },
-          "zipCode": {
-            "type": "string",
-            "nullable": true
-          },
-          "shoppingCart": {
-            "$ref": "#/components/schemas/ShoppingCart"
           }
         },
         "additionalProperties": false
@@ -921,6 +804,9 @@
     },
     {
       "name": "AdminCart"
+    },
+    {
+      "name": "AdminItem"
     },
     {
       "name": "Backend"
