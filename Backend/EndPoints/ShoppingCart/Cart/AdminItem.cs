@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.EndPoints.ShoppingCart.Items;
+namespace Backend.EndPoints.ShoppingCart.Cart;
 
 
 [Route("itemAdmin")]

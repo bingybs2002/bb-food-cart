@@ -313,6 +313,22 @@
   },
   {
     "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.ShoppingCart",
+    "Method": "DeleteItem",
+    "RelativePath": "Cart/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Backend.EndPoints.ShoppingCart.Cart.DTO.ShoppingCartDTO\u002BDeleteItemDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.ShoppingCart",
     "Method": "GetShoppingCartByLoggedInCustomer",
     "RelativePath": "Cart/myCart",
     "HttpMethod": "GET",
@@ -358,7 +374,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.EndPoints.ShoppingCart.Items.AdminItem",
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminItem",
     "Method": "InsertItemsToMenu",
     "RelativePath": "itemAdmin/Create",
     "HttpMethod": "POST",
@@ -374,7 +390,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend.EndPoints.ShoppingCart.Items.AdminItem",
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminItem",
     "Method": "DeleteItem",
     "RelativePath": "itemAdmin/delete/{Name}",
     "HttpMethod": "DELETE",
@@ -390,7 +406,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend.EndPoints.ShoppingCart.Items.AdminItem",
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminItem",
     "Method": "ReadItemFromMenu",
     "RelativePath": "itemAdmin/Read",
     "HttpMethod": "GET",
@@ -400,7 +416,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend.EndPoints.ShoppingCart.Items.AdminItem",
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminItem",
     "Method": "ModifyItemByName",
     "RelativePath": "itemAdmin/update/{Name}",
     "HttpMethod": "PUT",

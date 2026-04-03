@@ -1,11 +1,10 @@
 ﻿using Backend.Data;
 using Backend.EndPoints.ShoppingCart.Cart.DTO;
 using Backend.Models.Cart;
-
+using Backend.Models.Foods;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices;
 using System.Security.Claims;
 
 namespace Backend.EndPoints.ShoppingCart.Cart;
@@ -19,7 +18,7 @@ public class ShoppingCart : ControllerBase
     {
         _cartContext = cartContext;
     }
-   
+
     //Get shopping cart by the logged in customer. If no shopping cart
     //is found, return badrequest
     [HttpGet("myCart"), Authorize(Roles = "User")]
@@ -118,7 +117,7 @@ public class ShoppingCart : ControllerBase
         return Ok("Item added to cart successfully.");
     }
     //if 0, remove item. If >0, update item quantity.
-    [HttpPost("ChangeItemQuantity"),Authorize(Roles = "Users, Admin")]
+    [HttpPost("ChangeItemQuantity"),Authorize(Roles = "User, Admin")]
     public async Task<ActionResult> ChangeItemQuantity(ShoppingCartDTO.ChangeItemQuantityDTO dto)
     {
         if (dto == null) return BadRequest("Request body is required.");
@@ -167,5 +166,26 @@ public class ShoppingCart : ControllerBase
         await _cartContext.SaveChangesAsync();
 
         return Ok("Item quantity updated.");
+    }
+
+    [HttpDelete("DeleteItem"), Authorize(Roles="Admin,User")]
+    public async Task<ActionResult> DeleteItem(ShoppingCartDTO.DeleteItemDTO dto)
+    {
+        if (dto.FoodName == null) return BadRequest("please enter the item you want to delete.");
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userId == null) return BadRequest("User not found.");
+        var customer = await _cartContext.Customers.FirstOrDefaultAsync(c => c.UserId == userId);
+        if (customer == null) { return NotFound("Customer not found"); }
+        var Cart = await _cartContext.ShoppingCarts
+            .Include(c => c.Items).ThenInclude(i => i.Food)
+            .FirstOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
+        if (Cart == null) return NotFound("Shopping Cart not found");
+        var cartItem = Cart.Items.FirstOrDefault(i=> i.Food.Name == dto.FoodName);
+        if (cartItem == null) return NotFound("Item not found in cart by the given name!");
+        var itemName = cartItem.Food.Name;
+        cartItem.Quantity = 0;
+        _cartContext.Remove(cartItem);
+        await _cartContext.SaveChangesAsync();
+        return Ok($"Item {itemName} successfully deleted.");
     }
 }

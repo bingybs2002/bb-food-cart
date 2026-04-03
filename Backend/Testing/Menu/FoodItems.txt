@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Electrolyte Water",
+    "description": "Helps replenish fluids and electrolytes after a workout while keeping calories low.",
+    "allergies": 0,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 10,
+    "protein": 0,
+    "carbs": 2
+  },
+  {
+    "name": "Sparkling Water with Citrus",
+    "description": "A crisp zero-calorie drink that helps you stay refreshed without adding sugar.",
+    "allergies": 0,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0
+  },
+  {
+    "name": "Coconut Water",
+    "description": "A light hydration option with natural electrolytes to support recovery after exercise.",
+    "allergies": 0,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 45,
+    "protein": 0,
+    "carbs": 9
+  },
+  {
+    "name": "Bottle of Water",
+    "description": "The simplest way to stay hydrated and support energy, recovery, and appetite control.",
+    "allergies": 0,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0
+  },
+  {
+    "name": "Banana Protein Shake",
+    "description": "Provides protein for muscle recovery with extra carbs to help refuel after training.",
+    "allergies": 4,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 180,
+    "protein": 20,
+    "carbs": 18
+  },
+  {
+    "name": "Strawberry Protein Shake",
+    "description": "A satisfying post-workout shake that supports recovery while keeping hunger in check.",
+    "allergies": 4,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 170,
+    "protein": 20,
+    "carbs": 16
+  },
+  {
+    "name": "Green Tea",
+    "description": "A light drink choice that fits easily into a cutting plan and gives a gentle caffeine boost.",
+    "allergies": 0,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0
+  },
+  {
+    "name": "Black Tea",
+    "description": "A simple low-calorie drink that can help with focus and energy during a busy day.",
+    "allergies": 0,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 0,
+    "protein": 0,
+    "carbs": 0
+  },
+  {
+    "name": "Low Sugar Protein Shake",
+    "description": "High in protein and lower in sugar, making it a strong option for dieting and recovery.",
+    "allergies": 4,
+    "foodType": 1,
+    "isSoldOut": false,
+    "calories": 150,
+    "protein": 25,
+    "carbs": 6
+  },
+  {
+    "name": "BBQ Cauliflower",
+    "description": "A lighter plant-based option that adds flavor and fiber without being too heavy.",
+    "allergies": 0,
+    "foodType": 2,
+    "isSoldOut": false,
+    "calories": 140,
+    "protein": 4,
+    "carbs": 18
+  },
+  {
+    "name": "Grilled Chicken Bites",
+    "description": "Lean protein to support muscle maintenance while staying friendly to a fat-loss plan.",
+    "allergies": 0,
+    "foodType": 2,
+    "isSoldOut": false,
+    "calories": 190,
+    "protein": 28,
+    "carbs": 2
+  },
+  {
+    "name": "Steamed Dumpling",
+    "description": "A portion-friendly snack that works best when you want something filling without going overboard.",
+    "allergies": 32,
+    "foodType": 2,
+    "isSoldOut": false,
+    "calories": 160,
+    "protein": 6,
+    "carbs": 24
+  },
+  {
+    "name": "Kung Pao Chicken with Rice",
+    "description": "A full meal with protein and carbs that can help refuel after a harder training session.",
+    "allergies": 17,
+    "foodType": 0,
+    "isSoldOut": false,
+    "calories": 520,
+    "protein": 28,
+    "carbs": 52
+  },
+  {
+    "name": "Brocolli Chicken with Rice",
+    "description": "A balanced meal that combines protein and carbs for recovery while still feeling lighter than fried options.",
+    "allergies": 16,
+    "foodType": 0,
+    "isSoldOut": false,
+    "calories": 460,
+    "protein": 30,
+    "carbs": 48
+  },
+  {
+    "name": "Black Pepper Beef Tender with Rice",
+    "description": "A hearty high-protein meal that fits best when you need something more filling after intense activity.",
+    "allergies": 16,
+    "foodType": 0,
+    "isSoldOut": false,
+    "calories": 610,
+    "protein": 32,
+    "carbs": 50
+  }
+]

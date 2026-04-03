@@ -36,4 +36,8 @@ public class ShoppingCartDTO
         public string FoodName { get; set; }
         public int Quantity { get; set; }
     }
+    public class DeleteItemDTO
+    {
+        public required string FoodName { get; set; }
+    }
 }
