@@ -3,6 +3,7 @@ using Backend.Data;
 using Backend.EndPoints.Account;
 using Backend.Models;
 using Backend.Models.Account;
+using Backend.Models.Gacha;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -128,5 +129,5 @@ await Admin.SeedAdmin(app.Services);
 app.MapAccountEndpoints();
 
 app.MapControllers();
-
+app.GachaLuckyPicker();
 app.Run();

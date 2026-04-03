@@ -409,6 +409,100 @@
         }
       }
     },
+    "/Gacha/insert": {
+      "post": {
+        "tags": [
+          "Gacha"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GachaItemType"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Gacha/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Gacha"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Gacha/delete-all": {
+      "delete": {
+        "tags": [
+          "Gacha"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Gacha/pick": {
+      "get": {
+        "tags": [
+          "Gacha"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Gacha/all-items": {
+      "get": {
+        "tags": [
+          "Gacha"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GachaItemType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Cart/myCart": {
       "get": {
         "tags": [
@@ -621,6 +715,9 @@
         "format": "int32"
       },
       "CartItemDto": {
+        "required": [
+          "foodName"
+        ],
         "type": "object",
         "properties": {
           "foodName": {
@@ -635,6 +732,9 @@
         "additionalProperties": false
       },
       "ChangeItemQuantityDTO": {
+        "required": [
+          "foodName"
+        ],
         "type": "object",
         "properties": {
           "foodName": {
@@ -712,6 +812,41 @@
           }
         },
         "additionalProperties": false
+      },
+      "GachaItemType": {
+        "required": [
+          "itemName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "itemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemRarity": {
+            "$ref": "#/components/schemas/ItemRarity"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItemRarity": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "LoginRequest": {
         "type": "object",
@@ -854,6 +989,9 @@
     },
     {
       "name": "Backend"
+    },
+    {
+      "name": "Gacha"
     },
     {
       "name": "ShoppingCart"

@@ -1,9 +1,12 @@
 using Backend.Models.Account;
 using Backend.Models.Cart;
 using Backend.Models.Foods;
+using Backend.Models.Gacha;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using static Backend.Models.Gacha.GachaModel;
 
 namespace Backend.Data;
 
@@ -15,6 +18,7 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
     public DbSet<Food> Foods => Set<Food>();
     public DbSet<ShoppingCart> ShoppingCarts => Set<ShoppingCart>();
+    public DbSet<GachaItemType> GachaItems { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

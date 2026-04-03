@@ -28,12 +28,12 @@ public class ShoppingCartDTO
     }
     public class CartItemDto
     {
-        public string FoodName { get; set; }
+        public required string FoodName { get; set; }
         public int Quantity { get; set; }
     }
     public class ChangeItemQuantityDTO
     {
-        public string FoodName { get; set; }
+        public required string FoodName { get; set; }
         public int Quantity { get; set; }
     }
     public class DeleteItemDTO
