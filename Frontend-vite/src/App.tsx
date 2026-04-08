@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button"
 import {Route, Routes, Link} from "react-router-dom"
 import LoginPage from "./Pages/LoginPage"
 import SignupPage from "./Pages/SignupPage"
+import HomePage from "./Pages/HomePage"
+import GachaRulesPage from "./Pages/Gacha/GachRulesPage"
 
-function Homepage() {
+function MainPage() {
   return (
         <div className="flex min-h-svh p-6">
           <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
@@ -24,9 +26,11 @@ function Homepage() {
 export default function App(){
   return(
     <Routes>
-      <Route path="/" element={<Homepage />} />
+      <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/homepage" element={<HomePage />} />
+      <Route path="/Gacha/Rules" element={<GachaRulesPage />} />
     </Routes>
   )
 }
