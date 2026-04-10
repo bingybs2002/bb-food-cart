@@ -61,6 +61,17 @@ builder.Services.AddIdentityCore<IdentityUser>(options =>
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ViteFrontend", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -103,6 +114,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -127,6 +139,8 @@ app.MapGet("/", () => "Homepage");
 app.MapGet("/Allergies/{number}", (int number) => $"ALLERGY ENUM CONVERSION TOOL\nTesting Allergy Enums: \nInput: {number}: \n{(Allergies)number} ");
 await Admin.SeedAdmin(app.Services);
 app.MapAccountEndpoints();
+
+app.UseCors("ViteFrontend");
 
 app.MapControllers();
 app.GachaLuckyPicker();

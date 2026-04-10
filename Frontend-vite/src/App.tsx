@@ -6,6 +6,8 @@ import HomePage from "./Pages/HomePage"
 import GachaRulesPage from "./Pages/Gacha/GachRulesPage"
 
 function MainPage() {
+  var accessToken = localStorage.getItem("accessToken")
+  var accessTokenExpirationData = localStorage.getItem("accessTokenExpiresAtUtc")
   return (
         <div className="flex min-h-svh p-6">
           <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">

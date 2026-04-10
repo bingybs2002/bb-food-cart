@@ -47,7 +47,8 @@ export function LoginForm({
         return
       }
 
-      localStorage.setItem("token", data.token)
+      localStorage.setItem("accessToken", data.accessToken)
+      localStorage.setItem("accessTokenExpire", data.accessTokenExpireAtUtc)
 
       // Optional: store user info too if your API returns it
       // localStorage.setItem("user", JSON.stringify(data.user))

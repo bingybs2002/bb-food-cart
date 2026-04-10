@@ -28,7 +28,7 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
         modelBuilder.Entity<UserAccount>(entity =>
         {
             entity.HasKey(customer => customer.Id);
-            entity.Property(customer => customer.Cosignee).IsRequired();
+            entity.Property(customer => customer.UserName).IsRequired();
             entity.Property(customer => customer.StreetAddress).IsRequired();
             entity.Property(customer => customer.City).IsRequired();
             entity.Property(customer => customer.State).IsRequired();

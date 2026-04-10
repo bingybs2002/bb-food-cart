@@ -70,7 +70,7 @@ public sealed class AuthenticationService : IAuthenticationService
         {
             UserId = user.Id,
             User = user,
-            Cosignee = request.Cosignee,
+            UserName = request.Cosignee,
             Allergies = request.Allergies,
             StreetAddress = request.StreetAddress,
             City = request.City,

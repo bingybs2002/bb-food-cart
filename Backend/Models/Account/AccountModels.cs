@@ -9,7 +9,7 @@ public class UserAccount
     public int Id { get; set; }//Pk
     public string? UserId { get; set; }//Fk -> IdentityUser.Id
     public IdentityUser? User { get; set; }//Navigation -> Identity User Auth
-    public required string Cosignee { get; set; }
+    public required string UserName { get; set; }
     public Allergies Allergies { get; set; }
     public required string StreetAddress { get; set; }
     public required string City { get; set; }

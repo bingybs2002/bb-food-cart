@@ -8,7 +8,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "bb-food-api": ["http://localhost:63196"]
+      "VITE_API_BASE_URL": ["http://localhost:63196"]
     }
   }
 }

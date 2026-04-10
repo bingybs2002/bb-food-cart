@@ -515,3 +515,4 @@ C:\Users\bingy\Projects\bb-food-cart\Backend\obj\Debug\net10.0\Backend.MvcApplic
 C:\Users\bingy\Projects\bb-food-cart\Backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\bingy\Projects\bb-food-cart\Backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\bingy\Projects\bb-food-cart\Backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\bingy\Projects\bb-food-cart\Backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
