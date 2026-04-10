@@ -20,7 +20,6 @@ import {
     DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
 import { ChevronDown, Divide, Plus, User2 } from "lucide-react"
-import logo from "@/assets/bb food cart.png" 
 import { Separator } from "./ui/separator"
 
 export function AppSidebar() {
@@ -29,7 +28,7 @@ export function AppSidebar() {
 {/*Header*/}
         <SidebarHeader>
             <div className="flex justify-center">
-                <img src={logo} alt="bb food cart.png" className=" w-30 h-auto " />
+                <img src="./../../public/bbFoodCart.png" alt="bb food cart.png" className=" w-30 h-auto " />
                 <a href="#" className="flex items-center text-2xl">
                 BB Food Cart
                 </a>
