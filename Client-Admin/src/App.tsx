@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import {Route, Routes, Link} from "react-router-dom"
-import LoginPage from "./Pages/LoginPage"
-import SignupPage from "./Pages/SignupPage"
+import LoginPage from "./Pages/Auth/LoginPage"
+import SignupPage from "./Pages/Auth/SignupPage"
 import AdminPanel from "./Pages/AdminPanel"
 import GachaRulesPage from "./Pages/Gacha/GachRulesPage"
 

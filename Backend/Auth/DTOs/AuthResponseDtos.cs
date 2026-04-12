@@ -21,6 +21,7 @@ public sealed record CurrentUserResponse(
     string UserId,
     string? PhoneNumber,
     IEnumerable<string> Roles,
-    UserAccount? Customer);
+    UserAccount? Customer
+   );
 
 public sealed record OperationMessageResponse(string Message);

@@ -1,15 +1,18 @@
 using Backend.Auth;
 using Backend.Data;
 using Backend.EndPoints.Account;
+using Backend.EndPoints.Gacha;
 using Backend.Models;
-using Backend.Models.Account;
-using Backend.Models.Gacha;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using System.Text;
+using Backend.Testing;
+using Backend.Testing.Gacha;
+using Backend.Testing.Accounts;
+using Backend.Testing.Menu;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -133,15 +136,33 @@ using (var scope = app.Services.CreateScope())
             await roleManager.CreateAsync(new IdentityRole(role));
         }
     }
+
+    //seeding gacha items
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await SeedGacha.SeedAsync(db);
 }
 
 app.MapGet("/", () => "Homepage");
 app.MapGet("/Allergies/{number}", (int number) => $"ALLERGY ENUM CONVERSION TOOL\nTesting Allergy Enums: \nInput: {number}: \n{(Allergies)number} ");
-await Admin.SeedAdmin(app.Services);
+await SeedAccounts.SeedAdmin(app.Services);
 app.MapAccountEndpoints();
 
 app.UseCors("ViteFrontend");
 
 app.MapControllers();
 app.GachaLuckyPicker();
+
+
+app.Lifetime.ApplicationStarted.Register(() =>
+{
+    Task.Run(async () =>
+    {
+        using var scope = app.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+        await SeedAccounts.SeedUser(db);
+        await SeedMenu.SeedMenuItems(db);
+    });
+});
+
 app.Run();

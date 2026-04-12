@@ -11,7 +11,6 @@ public sealed record RegisterCustomerRequest(
     string City,
     string State,
     string ZipCode);
-
 public sealed record LoginRequest(string PhoneNumber, string Password);
 public sealed record RefreshRequest(string RefreshToken);
 public sealed record ForgotPasswordRequest(string PhoneNumber);

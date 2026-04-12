@@ -3,7 +3,7 @@ using static Backend.Models.Gacha.GachaModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Backend.Models.Gacha
+namespace Backend.EndPoints.Gacha
 {
     public static class Gacha
     {

@@ -69,10 +69,6 @@ namespace Backend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Cosignee")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("text");
@@ -82,6 +78,10 @@ namespace Backend.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("text");
 

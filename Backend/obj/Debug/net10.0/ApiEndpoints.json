@@ -374,7 +374,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.Models.Gacha.Gacha\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Gacha.Gacha\u002B\u003C\u003Ec",
     "Method": "\u003CGachaLuckyPicker\u003Eb__0_4",
     "RelativePath": "Gacha/all-items",
     "HttpMethod": "GET",
@@ -395,7 +395,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.Models.Gacha.Gacha\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Gacha.Gacha\u002B\u003C\u003Ec",
     "Method": "\u003CGachaLuckyPicker\u003Eb__0_2",
     "RelativePath": "Gacha/delete-all",
     "HttpMethod": "DELETE",
@@ -414,7 +414,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.Models.Gacha.Gacha\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Gacha.Gacha\u002B\u003C\u003Ec",
     "Method": "\u003CGachaLuckyPicker\u003Eb__0_1",
     "RelativePath": "Gacha/delete/{id}",
     "HttpMethod": "DELETE",
@@ -439,7 +439,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.Models.Gacha.Gacha\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Gacha.Gacha\u002B\u003C\u003Ec",
     "Method": "\u003CGachaLuckyPicker\u003Eb__0_0",
     "RelativePath": "Gacha/insert",
     "HttpMethod": "POST",
@@ -464,7 +464,7 @@
     ]
   },
   {
-    "ContainingType": "Backend.Models.Gacha.Gacha\u002B\u003C\u003Ec",
+    "ContainingType": "Backend.EndPoints.Gacha.Gacha\u002B\u003C\u003Ec",
     "Method": "\u003CGachaLuckyPicker\u003Eb__0_3",
     "RelativePath": "Gacha/pick",
     "HttpMethod": "GET",
@@ -486,6 +486,22 @@
     "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminItem",
     "Method": "InsertItemsToMenu",
     "RelativePath": "itemAdmin/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "items",
+        "Type": "System.Collections.Generic.List\u00601[[Backend.EndPoints.ShoppingCart.Cart.DTO.AdminCartDTO\u002BAdminCreateFoodDto, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminItem",
+    "Method": "InsertItemsToMenuSeed",
+    "RelativePath": "itemAdmin/Create-SEED",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

@@ -45,6 +45,30 @@ public class AdminItem : ControllerBase
 
         return Ok("Items were successfully inserted into the menu.");
     }
+    [HttpPost("Create-SEED")]
+    public async Task<ActionResult> InsertItemsToMenuSeed
+    ([FromBody] List<AdminCartDTO.AdminCreateFoodDto> items)
+    {
+        var foods = items.Select(item => new Food
+        {
+            Name = item.Name,
+            Description = item.Description,
+            Allergies = item.Allergies,
+            FoodType = item.FoodType,
+            IsSoldOut = item.IsSoldOut,
+            Nutrition = new Nutrition
+            {
+                Calories = item.Calories,
+                Protein = item.Protein,
+                Carbs = item.Carbs
+            },
+        }).ToList();
+
+        await _cartContext.Foods.AddRangeAsync(foods);
+        await _cartContext.SaveChangesAsync();
+
+        return Ok("Items were successfully inserted into the menu.");
+    }
     [HttpGet("Read")]
     public async Task<ActionResult> ReadItemFromMenu()
     {
