@@ -1,1 +1,4 @@
-{"phoneNumber": "1234567867", "password": "Password67"}
+the default admin seeded:
+
+9179
+9179

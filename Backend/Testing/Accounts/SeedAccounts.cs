@@ -34,10 +34,11 @@ namespace Backend.Testing.Accounts
 
             if (existAdmin != null)
             {
-
+                Console.WriteLine("Admin already seeded. Skipping...");
             }
             else
             {
+                Console.WriteLine("Seeding admin account...");
                 existAdmin = new IdentityUser
                 {
                     UserName = adminPhone,
@@ -57,7 +58,10 @@ namespace Backend.Testing.Accounts
 
         public static async Task SeedUser(AppDbContext db)
         {
-            if (db.Customers.Any()) { return; }
+            if (db.Customers.Any()) { 
+                Console.WriteLine("Users already seeded. Skipping...");
+                return; 
+            }
 
             var json = await File.ReadAllTextAsync("Testing/Accounts/Customer.json");
 
@@ -70,6 +74,7 @@ namespace Backend.Testing.Accounts
 
             if (items == null)
             {
+                Console.WriteLine("Invalid JSON format. No users to seed."); 
                 return;
             }
 
@@ -77,7 +82,6 @@ namespace Backend.Testing.Accounts
 
             foreach (var i in items)
             {
-                // basic validation to avoid sending null phone numbers
                 if (string.IsNullOrWhiteSpace(i?.PhoneNumber))
                 {
                     Console.WriteLine("Skipping user with missing phone number.");
