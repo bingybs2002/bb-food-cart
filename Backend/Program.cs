@@ -143,7 +143,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapGet("/", () => "Homepage");
-app.MapGet("/Allergies/{number}", (int number) => $"ALLERGY ENUM CONVERSION TOOL\nTesting Allergy Enums: \nInput: {number}: \n{(Allergies)number} ");
+app.MapGet("/Allergies/{number}", (int number) => $"{(Allergies)number} ");
 await SeedAccounts.SeedAdmin(app.Services);
 app.MapAccountEndpoints();
 

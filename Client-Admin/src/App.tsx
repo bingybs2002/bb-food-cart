@@ -4,6 +4,7 @@ import LoginPage from "./Pages/Auth/LoginPage"
 import SignupPage from "./Pages/Auth/SignupPage"
 import AdminPanel from "./Pages/AdminPanel"
 import GachaRulesPage from "./Pages/Gacha/GachRulesPage"
+import Utilities from "./Pages/Utilities"
 
 function MainPage() {
   const accessToken = localStorage.getItem("accessToken")
@@ -41,6 +42,7 @@ export default function App(){
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/homepage" element={<AdminPanel />} />
       <Route path="/Gacha/Rules" element={<GachaRulesPage />} />
+      <Route path="/Utilities" element={<Utilities/>}/>
     </Routes>
   )
 }

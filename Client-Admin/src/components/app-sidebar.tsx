@@ -28,7 +28,7 @@ export function AppSidebar() {
 {/*Header*/}
         <SidebarHeader>
             <div className="flex justify-center">
-                <img src="./../../public/bbFoodCart.png" alt="bb food cart.png" className=" w-30 h-auto " />
+                <img src="/bbFoodCart.png" alt="bb food cart.png" className=" w-30 h-auto " />
                 <a href="#" className="flex items-center text-2xl">
                 BB Food Cart
                 </a>
@@ -39,7 +39,7 @@ export function AppSidebar() {
 {/*Content*/}
         <SidebarContent className="py-4">
         <SidebarGroup className="space-y-5">
-
+            
             <div>
             <SidebarGroupLabel className="ml-2 text-medium font-bold">
                 Orders
@@ -98,6 +98,20 @@ export function AppSidebar() {
                 </SidebarMenu>
             </SidebarGroupContent>
             </div>
+
+           <div>
+            <SidebarGroupLabel className="ml-2 text-medium font-bold">
+                Utilities
+            </SidebarGroupLabel>
+            <SidebarGroupContent className="ml-4">
+                <SidebarMenu className="space-y-1">
+                <SidebarMenuItem><Link to="/Utilities/AllergicEnumConverter">Allergic enum converter</Link></SidebarMenuItem>
+                <SidebarMenuItem><Link to="">User Profile</Link></SidebarMenuItem>
+                <SidebarMenuItem><Link to="">User Order history</Link></SidebarMenuItem>
+                </SidebarMenu>
+            </SidebarGroupContent>
+            </div>
+
         </SidebarGroup>
         </SidebarContent>
 
@@ -107,7 +121,7 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton>
               <User2 />
-              Username
+              Adminstrator
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
