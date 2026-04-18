@@ -21,6 +21,9 @@ public class ShoppingCart : ControllerBase
 
     //Get shopping cart by the logged in customer. If no shopping cart
     //is found, return badrequest
+    
+    //TODO: Better logic is to filter the shopping cart table, search for the 
+    //customer id and return the last one.
     [HttpGet("myCart"), Authorize(Roles = "User")]
     public async Task<ActionResult<ShoppingCartDTO.ShoppingCartResponseDto>> 
         GetShoppingCartByLoggedInCustomer()
@@ -39,8 +42,9 @@ public class ShoppingCart : ControllerBase
         }
         var cart = await _cartContext.ShoppingCarts
                 .Include(c => c.Items)
-                .ThenInclude(i=>i.Food)
-                .FirstOrDefaultAsync(c => c.CustomerId == customer.Id);
+                .ThenInclude(i => i.Food)
+                .OrderBy(c => c.CreatedDate)
+                .LastOrDefaultAsync(c => c.CustomerId == customer.Id);
         if (cart == null) return Ok("Add item to cart first!");
         var response = new ShoppingCartDTO.ShoppingCartResponseDto
         {
@@ -81,7 +85,8 @@ public class ShoppingCart : ControllerBase
 
         var cart = await _cartContext.ShoppingCarts
             .Include(c => c.Items)
-            .FirstOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
+            .OrderBy(c=>c.CreatedDate)
+            .LastOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
 
         if (cart == null)
         {
@@ -116,6 +121,7 @@ public class ShoppingCart : ControllerBase
 
         return Ok("Item added to cart successfully.");
     }
+
     //if 0, remove item. If >0, update item quantity.
     [HttpPost("ChangeItemQuantity"),Authorize(Roles = "User, Admin")]
     public async Task<ActionResult> ChangeItemQuantity(ShoppingCartDTO.ChangeItemQuantityDTO dto)
@@ -139,10 +145,9 @@ public class ShoppingCart : ControllerBase
             return NotFound("Customer Account is not found");
         }
         var cart = await _cartContext.ShoppingCarts
-                .Include(c => c.Items)
-                .ThenInclude(i=>i.Food)
-                .FirstOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
-
+                  .Include(c => c.Items)
+                  .OrderBy(c => c.CreatedDate)
+                  .LastOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
         if (cart == null)
         {
             return NotFound("Shopping cart not found.");
@@ -168,7 +173,7 @@ public class ShoppingCart : ControllerBase
         return Ok("Item quantity updated.");
     }
 
-    [HttpDelete("DeleteItem"), Authorize(Roles="Admin,User")]
+    [HttpDelete("DeleteItem"), Authorize(Roles="User")]
     public async Task<ActionResult> DeleteItem(ShoppingCartDTO.DeleteItemDTO dto)
     {
         if (dto.FoodName == null) return BadRequest("please enter the item you want to delete.");
@@ -178,7 +183,8 @@ public class ShoppingCart : ControllerBase
         if (customer == null) { return NotFound("Customer not found"); }
         var Cart = await _cartContext.ShoppingCarts
             .Include(c => c.Items).ThenInclude(i => i.Food)
-            .FirstOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
+            .OrderBy(c => c.CreatedDate)
+            .LastOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
         if (Cart == null) return NotFound("Shopping Cart not found");
         var cartItem = Cart.Items.FirstOrDefault(i=> i.Food.Name == dto.FoodName);
         if (cartItem == null) return NotFound("Item not found in cart by the given name!");
@@ -187,5 +193,59 @@ public class ShoppingCart : ControllerBase
         _cartContext.Remove(cartItem);
         await _cartContext.SaveChangesAsync();
         return Ok($"Item {itemName} successfully deleted.");
+    }
+
+    [HttpGet("CheckOut"),Authorize(Roles="User")]
+    public async Task<ActionResult> CheckOut()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var customer = await _cartContext.Customers.FirstOrDefaultAsync(c => c.UserId == userId);
+        if (customer == null) { return NotFound("Customer not found"); }
+        var cart = await _cartContext.ShoppingCarts
+            .Include(c => c.Items).ThenInclude(i => i.Food)
+            .OrderBy(c => c.CreatedDate)
+            .LastOrDefaultAsync(c => c.CustomerId == customer.Id);
+        if (cart == null) return NotFound("Shopping cart not found!");
+        if (cart.IsCheckedOut == true)
+        {
+            return BadRequest("Internal error: The cart is checked out but the cart is not renewed.");
+        }
+        cart.IsCheckedOut = true;
+        var newcart = new Models.Cart.ShoppingCart
+        {
+            CustomerId = customer.Id,
+            IsCheckedOut = false,
+        };
+        _cartContext.ShoppingCarts.Add(newcart);
+        await _cartContext.SaveChangesAsync();
+        return Ok("Successfully Checked Out");
+    }
+    [HttpGet("CancelOrder"),Authorize(Roles="User")]
+    public async Task<ActionResult> CancelOrder()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var customer = await _cartContext.Customers.FirstOrDefaultAsync(c => c.UserId == userId);
+        if (customer == null) { return NotFound("Customer not found"); }
+        var cart = await _cartContext.ShoppingCarts
+            .Include(c => c.Items).ThenInclude(i => i.Food)
+            .OrderBy(c => c.CreatedDate)
+            .LastOrDefaultAsync(c => c.CustomerId == customer.Id);
+        if (cart == null) return NotFound("Shopping cart not found!");
+        if (cart.IsCheckedOut == true)
+        {
+            return BadRequest("Internal error: The cart is checked out but the cart is not renewed.");
+        }
+        cart.Items.Clear();
+        cart.IsCheckedOut = true;
+
+        var newcart = new Models.Cart.ShoppingCart
+        {
+            CustomerId = customer.Id,
+            IsCheckedOut = false
+        };
+
+        _cartContext.ShoppingCarts.Add(newcart);
+        await _cartContext.SaveChangesAsync();
+        return Ok("Order Cancelled.");
     }
 }

@@ -104,6 +104,9 @@ namespace Backend.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int>("FoodId")
                         .HasColumnType("integer");
 
@@ -133,7 +136,13 @@ namespace Backend.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int>("CustomerId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("FoodId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("IsCheckedOut")
@@ -141,8 +150,9 @@ namespace Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId")
-                        .IsUnique();
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("FoodId");
 
                     b.ToTable("ShoppingCarts");
                 });
@@ -179,8 +189,6 @@ namespace Backend.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CartId");
 
                     b.HasIndex("NutritionId");
 
@@ -472,27 +480,25 @@ namespace Backend.Migrations
             modelBuilder.Entity("Backend.Models.Cart.ShoppingCart", b =>
                 {
                     b.HasOne("Backend.Models.Account.UserAccount", "Customer")
-                        .WithOne("ShoppingCart")
-                        .HasForeignKey("Backend.Models.Cart.ShoppingCart", "CustomerId")
+                        .WithMany("ShoppingCart")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Backend.Models.Foods.Food", null)
+                        .WithMany("Cart")
+                        .HasForeignKey("FoodId");
 
                     b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("Backend.Models.Foods.Food", b =>
                 {
-                    b.HasOne("Backend.Models.Cart.ShoppingCart", "Cart")
-                        .WithMany()
-                        .HasForeignKey("CartId");
-
                     b.HasOne("Backend.Models.Foods.Nutrition", "Nutrition")
                         .WithMany()
                         .HasForeignKey("NutritionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Cart");
 
                     b.Navigation("Nutrition");
                 });
@@ -556,6 +562,11 @@ namespace Backend.Migrations
             modelBuilder.Entity("Backend.Models.Cart.ShoppingCart", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Backend.Models.Foods.Food", b =>
+                {
+                    b.Navigation("Cart");
                 });
 #pragma warning restore 612, 618
         }

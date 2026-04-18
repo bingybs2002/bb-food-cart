@@ -10,5 +10,6 @@ namespace Backend.Models.Cart
         public Food Food { get; set; } = null!;
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.UtcNow;
     }
 }

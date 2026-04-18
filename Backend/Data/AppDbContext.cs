@@ -52,16 +52,20 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
                   .IsRequired();
         });
 
-        //shopping cart (1 to many) items
+
+        //shopping cart (one to many) items
         modelBuilder.Entity<ShoppingCart>()
              .HasMany(s => s.Items)
              .WithOne(s => s.ShoppingCart)
              .HasForeignKey(e => e.ShoppingCartId);
 
-        //shopping cart (1 to 1) customer
+        //shopping cart (many to 1) customer
         modelBuilder.Entity<UserAccount>()
-            .HasOne(s => s.ShoppingCart)
-            .WithOne(s => s.Customer)
-            .HasForeignKey<ShoppingCart>(s => s.CustomerId);
+            .HasMany(s => s.ShoppingCart)
+           .WithOne(s=>s.Customer)
+           .HasPrincipalKey(s=>s.Id)
+           .HasForeignKey(s=>s.CustomerId);
+
+        
     }
 }

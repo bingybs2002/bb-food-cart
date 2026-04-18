@@ -7,6 +7,7 @@ namespace Backend.Models.Cart
         public int CustomerId { get; set; }
         public UserAccount Customer { get; set; } = null!;//one to one
         public bool IsCheckedOut { get; set; }
-        public List<CartItem> Items { get; set; } = new();
+        public List<CartItem> Items { get; set; } = [];
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     }
 }

@@ -15,7 +15,7 @@ public class UserAccount
     public required string City { get; set; }
     public required string State { get; set; }
     public required string ZipCode { get; set; }
-    public ShoppingCart? ShoppingCart { get; set; }//Navigation -> Cart
+    public List<ShoppingCart> ShoppingCart { get; set; } = [];//Navigation -> Cart
 }
 
 public class RefreshToken

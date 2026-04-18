@@ -655,4 +655,5 @@ C:\Users\bing\Projects\bb-food-cart\Backend\obj\Debug\net10.0\Backend.genruntime
 C:\Users\bing\Projects\bb-food-cart\Backend\obj\Debug\net10.0\ref\Backend.dll
 C:\Users\bing\Projects\bb-food-cart\Backend\bin\Debug\net10.0\Testing\Accounts\Customer.json
 C:\Users\bing\Projects\bb-food-cart\Backend\bin\Debug\net10.0\Testing\Accounts\Login.json
-C:\Users\bing\Projects\bb-food-cart\Backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\Bing\Projects\bb-food-cart\Backend\bin\Debug\net10.0\dotnet-tools.json
+C:\Users\Bing\Projects\bb-food-cart\Backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

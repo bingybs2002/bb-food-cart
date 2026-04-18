@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260328211004_ShoppingCart")]
-    partial class ShoppingCart
+    [Migration("20260418132822_X")]
+    partial class X
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,10 +72,6 @@ namespace Backend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Cosignee")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("text");
@@ -85,6 +81,10 @@ namespace Backend.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -106,6 +106,9 @@ namespace Backend.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("FoodId")
                         .HasColumnType("integer");
@@ -136,7 +139,13 @@ namespace Backend.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int>("CustomerId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("FoodId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("IsCheckedOut")
@@ -144,8 +153,9 @@ namespace Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId")
-                        .IsUnique();
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("FoodId");
 
                     b.ToTable("ShoppingCarts");
                 });
@@ -183,14 +193,12 @@ namespace Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CartId");
-
                     b.HasIndex("NutritionId");
 
                     b.ToTable("Foods");
                 });
 
-            modelBuilder.Entity("Backend.Testing.Nutrition", b =>
+            modelBuilder.Entity("Backend.Models.Foods.Nutrition", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -210,6 +218,29 @@ namespace Backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Nutrition");
+                });
+
+            modelBuilder.Entity("Backend.Models.Gacha.GachaModel+GachaItemType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ItemName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("ItemRarity")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GachaItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -452,27 +483,25 @@ namespace Backend.Migrations
             modelBuilder.Entity("Backend.Models.Cart.ShoppingCart", b =>
                 {
                     b.HasOne("Backend.Models.Account.UserAccount", "Customer")
-                        .WithOne("ShoppingCart")
-                        .HasForeignKey("Backend.Models.Cart.ShoppingCart", "CustomerId")
+                        .WithMany("ShoppingCart")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Backend.Models.Foods.Food", null)
+                        .WithMany("Cart")
+                        .HasForeignKey("FoodId");
 
                     b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("Backend.Models.Foods.Food", b =>
                 {
-                    b.HasOne("Backend.Models.Cart.ShoppingCart", "Cart")
-                        .WithMany()
-                        .HasForeignKey("CartId");
-
-                    b.HasOne("Backend.Testing.Nutrition", "Nutrition")
+                    b.HasOne("Backend.Models.Foods.Nutrition", "Nutrition")
                         .WithMany()
                         .HasForeignKey("NutritionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Cart");
 
                     b.Navigation("Nutrition");
                 });
@@ -536,6 +565,11 @@ namespace Backend.Migrations
             modelBuilder.Entity("Backend.Models.Cart.ShoppingCart", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Backend.Models.Foods.Food", b =>
+                {
+                    b.Navigation("Cart");
                 });
 #pragma warning restore 612, 618
         }

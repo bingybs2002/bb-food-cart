@@ -297,6 +297,16 @@
   },
   {
     "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.ShoppingCart",
+    "Method": "CancelOrder",
+    "RelativePath": "Cart/CancelOrder",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.ShoppingCart",
     "Method": "ChangeItemQuantity",
     "RelativePath": "Cart/ChangeItemQuantity",
     "HttpMethod": "POST",
@@ -309,6 +319,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.ShoppingCart",
+    "Method": "CheckOut",
+    "RelativePath": "Cart/CheckOut",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
