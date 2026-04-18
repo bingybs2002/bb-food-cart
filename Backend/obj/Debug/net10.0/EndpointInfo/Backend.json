@@ -28,7 +28,29 @@
         }
       }
     },
-    "/account/login": {
+    "/account/userLogin": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/account/adminLogin": {
       "post": {
         "tags": [
           "Account"

@@ -13,7 +13,8 @@ namespace Backend.Auth;
 public interface IAuthenticationService
 {
     Task<IResult> RegisterAsync(RegisterCustomerRequest request);
-    Task<IResult> LoginAsync(LoginRequest request);
+    Task<IResult> UserLoginAsync(LoginRequest request);
+    Task<IResult> AdminLoginAsync(LoginRequest request);
     Task<IResult> RefreshAsync(RefreshRequest request);
     Task<IResult> ForgotPasswordAsync(ForgotPasswordRequest request);
     Task<IResult> ResetPasswordAsync(ResetPasswordRequest request);
@@ -94,7 +95,8 @@ public sealed class AuthenticationService : IAuthenticationService
         }
     }
 
-    public async Task<IResult> LoginAsync(LoginRequest request)
+    
+    public async Task<IResult> UserLoginAsync(LoginRequest request)
     {
         var normalizedPhoneNumber = NormalizePhoneNumber(request.PhoneNumber);
         var user = await _userManager.Users.SingleOrDefaultAsync(existingUser =>
@@ -104,7 +106,29 @@ public sealed class AuthenticationService : IAuthenticationService
         {
             return Results.BadRequest(new OperationMessageResponse("Invalid phone number or password."));
         }
+        if(await _userManager.IsInRoleAsync(user, "Admin"))
+        {
+            return Results.BadRequest("Admin, please redirect to AdminLoginAsync");
+        }
+        var customer = await FindCustomerAsync(user.Id);
+        var response = await CreateAndStoreTokensAsync(user, customer);
+        await _dbContext.SaveChangesAsync();
+        return Results.Ok(response);
+    }
+    public async Task<IResult> AdminLoginAsync(LoginRequest request)
+    {
+        var normalizedPhoneNumber = NormalizePhoneNumber(request.PhoneNumber);
+        var user = await _userManager.Users.SingleOrDefaultAsync(existingUser =>
+            existingUser.PhoneNumber == normalizedPhoneNumber || existingUser.UserName == normalizedPhoneNumber);
 
+        if (user is null || !await _userManager.CheckPasswordAsync(user, request.Password))
+        {
+            return Results.BadRequest(new OperationMessageResponse("Invalid phone number or password."));
+        }
+        if (!await _userManager.IsInRoleAsync(user, "Admin"))
+        {
+            return Results.BadRequest("User, please use UserLogin");
+        }
         var customer = await FindCustomerAsync(user.Id);
         var response = await CreateAndStoreTokensAsync(user, customer);
         await _dbContext.SaveChangesAsync();

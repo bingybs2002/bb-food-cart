@@ -15,9 +15,12 @@ public static class AccountEndpoints
         r.MapPost("/register", (RegisterCustomerRequest request,
                                      IAuthenticationService service) =>
                 service.RegisterAsync(request));
-        r.MapPost("/login", (LoginRequest request,
+        r.MapPost("/userLogin", (LoginRequest request,
                                   IAuthenticationService service) =>
-                service.LoginAsync(request));
+                service.UserLoginAsync(request));
+        r.MapPost("/adminLogin", (LoginRequest request,
+                                  IAuthenticationService service) =>
+                service.AdminLoginAsync(request));
         r.MapPost("/refresh", (RefreshRequest request,
                                     IAuthenticationService service) =>
                 service.RefreshAsync(request));
