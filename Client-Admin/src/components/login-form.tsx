@@ -27,7 +27,7 @@ export function LoginForm({
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/account/login`,
+        `${import.meta.env.VITE_API_BASE_URL}/account/adminLogin`,
         {
           method: "POST",
           headers: {

@@ -710,6 +710,30 @@
           }
         }
       }
+    },
+    "/Stat/salesToday": {
+      "get": {
+        "tags": [
+          "Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Stat/salesInLast7Days": {
+      "get": {
+        "tags": [
+          "Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1081,6 +1105,9 @@
     },
     {
       "name": "ShoppingCart"
+    },
+    {
+      "name": "Stats"
     }
   ]
 }
