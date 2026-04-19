@@ -3,23 +3,15 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarTrigger,
+  SidebarMenuItem
 } from "@/components/ui/sidebar"
 import {Link} from "react-router-dom"
-import {
-    DropdownMenu, 
-    DropdownMenuTrigger, 
-    DropdownMenuContent,
-    DropdownMenuItem,
-} from "@/components/ui/dropdown-menu"
-import { ChevronDown, Divide, Plus, User2 } from "lucide-react"
+import { User2 } from "lucide-react"
 import { Separator } from "./ui/separator"
 
 export function AppSidebar() {
@@ -27,12 +19,14 @@ export function AppSidebar() {
     <Sidebar>
 {/*Header*/}
         <SidebarHeader>
+          <Link to="/">
             <div className="flex justify-center">
-                <img src="/bbFoodCart.png" alt="bb food cart.png" className=" w-30 h-auto " />
+                <img src="/bbFoodCart.png"  className=" w-30 h-auto " />
                 <a href="#" className="flex items-center text-2xl">
                 BB Food Cart
                 </a>
             </div>
+          </Link>
             <Separator/>
         </SidebarHeader>
 
@@ -76,7 +70,7 @@ export function AppSidebar() {
                 <SidebarMenu className="space-y-1">
                 <SidebarMenuItem><Link to="">Mock Testing</Link></SidebarMenuItem>
                 <SidebarMenuItem><Link to="">Prize Pool</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">Rules</Link></SidebarMenuItem>
+                <SidebarMenuItem><Link to="/Gacha/Rules">Rules</Link></SidebarMenuItem>
                 <SidebarMenuItem><Link to="">History</Link></SidebarMenuItem>
                 <SidebarMenuItem><Link to="">Add items</Link></SidebarMenuItem>
                 <SidebarMenuItem><Link to="">Delete item</Link></SidebarMenuItem>

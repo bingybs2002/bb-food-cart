@@ -12,7 +12,9 @@ function MainPage() {
   const isExpired = !expiredTime || new Date(expiredTime) < new Date()
   if (accessToken && !isExpired) {
     return <AdminPanel />
-
+  }
+  if(accessToken&&isExpired){
+    localStorage.clear()
   }
   return (
         <div className="flex min-h-svh p-6">

@@ -80,7 +80,8 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-
+          
+        <h6 className="text-lg font-bold text-heading text-center">Sales & Statistics</h6>
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
           <div className="rounded-xl border-2 border-white p-4">
             <p className="mb-4 text-center font-semibold">Week Performance</p>
@@ -100,6 +101,40 @@ export default function HomePage() {
                 <Bar dataKey="Orders" fill="var(--color-Orders)" radius={4} />
               </BarChart>
             </ChartContainer>
+          </div>
+
+          <div className="flex justify-center rounded-xl border-2 border-white p-4">
+            
+            <div>
+
+          <h1 className="text-center">{today.toDateString()}</h1>
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+              className="rounded-lg border mt-2"
+            />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4 items-start">
+            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
+              <h2 className="text-lg text-gray-500">Sales Today</h2>
+              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
+            </div>
+
+            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
+              <h2 className="text-lg text-gray-500">Sales Last Week</h2>
+              <p className="mt-2 text-3xl font-bold">{salesIn7Days}</p>
+            </div>
+          </div>
+        </div>
+
+        <h6 className="text-lg font-bold text-heading text-center mt-5">Menu and Items</h6>
+        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="rounded-xl border-2 border-white p-4">
+            <p className="mb-4 text-center font-semibold">Sold Out</p>
+
           </div>
 
           <div className="flex justify-center rounded-xl border-2 border-white p-4">
@@ -124,13 +159,24 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="mt-8">
-          <h1>
-            Today is: {today.toDateString()}
-            <br />
-            {today.getDate()}
-          </h1>
-        </div>
+       <div className="mt-10 border-white border-2">
+        <h1 className="text-center">Menu Statistics</h1>
+         <div className="flex flex-col gap-4 items-start">
+            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
+              <h2 className="text-lg text-gray-500">Gacha Statistics</h2>
+              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
+              <div></div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4 items-start">
+            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
+              <h2 className="text-lg text-gray-500">Gacha Statistics</h2>
+              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
+            </div>
+          </div>
+
+      </div>
 
       <div className="mt-10 border-white border-2">
         <h1>Gacha Statistics</h1>
@@ -149,22 +195,6 @@ export default function HomePage() {
           </div>
       </div>
 
-       <div className="mt-10 border-white border-2">
-        <h1>Menu Statistics</h1>
-         <div className="flex flex-col gap-4 items-start">
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
-              <h2 className="text-lg text-gray-500">Gacha Statistics</h2>
-              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-4 items-start">
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
-              <h2 className="text-lg text-gray-500">Gacha Statistics</h2>
-              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
-            </div>
-          </div>
-      </div>
 
         <SidebarTrigger className="absolute bottom-5 ml-auto h-10 w-40 border-2 border-white" />
       </main>

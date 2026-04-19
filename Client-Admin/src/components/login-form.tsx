@@ -48,7 +48,7 @@ export function LoginForm({
       }
 
       localStorage.setItem("accessToken", data.accessToken)
-      localStorage.setItem("accessTokenExpire", data.accessTokenExpireAtUtc)
+      localStorage.setItem("accessTokenExpiresAtUtc", data.accessTokenExpiresAtUtc)
       localStorage.setItem("userId", data.userId)
       navigate("/homepage")
     } catch {

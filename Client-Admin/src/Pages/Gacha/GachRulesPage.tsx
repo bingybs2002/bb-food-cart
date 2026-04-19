@@ -20,7 +20,7 @@ export default function GachaRulesPage() {
         </p>
 
         <p className="mt-2">
-          For every <strong>$25</strong> spent,
+          For a single order purchase of $40, 
           a customer gets <strong>1 Gacha roll</strong>.
         </p>
 

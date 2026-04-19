@@ -11,7 +11,7 @@ export default function SignupPage() {
             <div className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <GalleryVerticalEnd className="size-4" />
             </div>
-            Acme Inc.
+            BB Food Cart
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
@@ -22,9 +22,9 @@ export default function SignupPage() {
       </div>
       <div className="relative hidden bg-muted lg:block">
         <img
-          src="/placeholder.svg"
+          src="bbFoodCart.png"
           alt="Image"
-          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.3] dark:grayscale"
         />
       </div>
     </div>
