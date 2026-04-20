@@ -1,4 +1,4 @@
-﻿using Backend.Data;
+using Backend.Data;
 using Backend.EndPoints.ShoppingCart.Cart.DTO;
 using Backend.Models.Account;
 using Backend.Models.Cart;
@@ -6,7 +6,6 @@ using Backend.Models.Foods;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Scaffolding.Internal;
 using System.Security.Claims;
 
 namespace Backend.EndPoints.ShoppingCart.Cart;
@@ -21,8 +20,7 @@ public class ShoppingCart : ControllerBase
         _cartContext = cartContext;
     }
 
-    //returns the current user
-    private async Task<UserAccount?> GetUserAsync()
+    private async Task<UserAccount?> GetCurrectCustomerAsync()
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         if(string.IsNullOrEmpty(userId))
@@ -33,28 +31,27 @@ public class ShoppingCart : ControllerBase
             .FirstOrDefaultAsync(c=>c.UserId == userId);
     }
 
-    private async Task<Models.Cart.ShoppingCart?> GetLatestCartByUser()
-    {
-        var customer = await GetUserAsync();
-        if (customer == null)
-        {
-            Console.WriteLine("Customer Not Found!");
-            return null;
-        }
-        return await _cartContext.ShoppingCarts
-                .Include(c => c.Items)
-                .ThenInclude(i => i.Food)
-                .OrderBy(c => c.CreatedDate)
-                .LastOrDefaultAsync(c => c.CustomerId == customer.Id);
-    }
-
-    //get the shoppping cart for custoemr
+    //Get shopping cart by the logged in customer. If no shopping cart
+    //is found, return badrequest
+    
+    //TODO: Better logic is to filter the shopping cart table, search for the 
+    //customer id and return the last one.
     [HttpGet("myCart"), Authorize(Roles = "User")]
     public async Task<ActionResult<ShoppingCartDTO.ShoppingCartResponseDto>> 
         GetShoppingCartByLoggedInCustomer()
     {
-        var cart = await GetLatestCartByUser();
-        if (cart == null) return BadRequest("Add item to cart first!");
+        var customer = GetCurrectCustomerAsync();
+
+        if (customer == null)
+        {
+            return NotFound("Customer Account is not found");
+        }
+        var cart = await _cartContext.ShoppingCarts
+                .Include(c => c.Items)
+                .ThenInclude(i => i.Food)
+                .OrderBy(c => c.CreatedDate)
+                .LastOrDefaultAsync(c => c.CustomerId == customer.Id);
+        if (cart == null) return Ok("Add item to cart first!");
         var response = new ShoppingCartDTO.ShoppingCartResponseDto
         {
             Id = cart.Id,
@@ -76,7 +73,12 @@ public class ShoppingCart : ControllerBase
         if (dto == null) return BadRequest("Request body is required.");
         if (dto.Quantity <= 0) return BadRequest("Quantity must be greater than 0.");
 
-        var customer = await GetUserAsync();
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId))
+            return Unauthorized("User not found.");
+
+        var customer = await _cartContext.Customers
+            .FirstOrDefaultAsync(c => c.UserId == userId);
 
         if (customer == null) return NotFound("Customer account not found.");
 
@@ -87,7 +89,10 @@ public class ShoppingCart : ControllerBase
 
         if (food.IsSoldOut) return BadRequest("This item is sold out.");
 
-        var cart = await GetLatestCartByUser();
+        var cart = await _cartContext.ShoppingCarts
+            .Include(c => c.Items)
+            .OrderBy(c=>c.CreatedDate)
+            .LastOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
 
         if (cart == null)
         {
@@ -101,11 +106,11 @@ public class ShoppingCart : ControllerBase
             await _cartContext.SaveChangesAsync();
         }
 
-        var duplicateItem = cart.Items.FirstOrDefault(i => i.FoodId == food.Id);
+        var existingItem = cart.Items.FirstOrDefault(i => i.FoodId == food.Id);
 
-        if (duplicateItem != null)
+        if (existingItem != null)
         {
-            duplicateItem.Quantity += dto.Quantity;
+            existingItem.Quantity += dto.Quantity;
         }
         else
         {
@@ -119,6 +124,7 @@ public class ShoppingCart : ControllerBase
         }
 
         await _cartContext.SaveChangesAsync();
+
         return Ok("Item added to cart successfully.");
     }
 
@@ -127,10 +133,27 @@ public class ShoppingCart : ControllerBase
     public async Task<ActionResult> ChangeItemQuantity(ShoppingCartDTO.ChangeItemQuantityDTO dto)
     {
         if (dto == null) return BadRequest("Request body is required.");
-        if (string.IsNullOrWhiteSpace(dto.FoodName)) return BadRequest("FoodName is required.");
-        if (dto.Quantity < 0) return BadRequest("Quantity cannot be negative.");
+        if (string.IsNullOrWhiteSpace(dto.FoodName))
+            return BadRequest("FoodName is required.");
+        if (dto.Quantity < 0)
+            return BadRequest("Quantity cannot be negative.");
 
-        var cart = await GetLatestCartByUser();
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized("User not found by UserId at ChangeItemQuantity");
+        }
+        var customer = await _cartContext.Customers.
+            FirstOrDefaultAsync(c => c.UserId == userId);
+
+        if (customer == null)
+        {
+            return NotFound("Customer Account is not found");
+        }
+        var cart = await _cartContext.ShoppingCarts
+                  .Include(c => c.Items)
+                  .OrderBy(c => c.CreatedDate)
+                  .LastOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
         if (cart == null)
         {
             return NotFound("Shopping cart not found.");
@@ -160,7 +183,14 @@ public class ShoppingCart : ControllerBase
     public async Task<ActionResult> DeleteItem(ShoppingCartDTO.DeleteItemDTO dto)
     {
         if (dto.FoodName == null) return BadRequest("please enter the item you want to delete.");
-        var Cart = await GetLatestCartByUser();
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userId == null) return BadRequest("User not found.");
+        var customer = await _cartContext.Customers.FirstOrDefaultAsync(c => c.UserId == userId);
+        if (customer == null) { return NotFound("Customer not found"); }
+        var Cart = await _cartContext.ShoppingCarts
+            .Include(c => c.Items).ThenInclude(i => i.Food)
+            .OrderBy(c => c.CreatedDate)
+            .LastOrDefaultAsync(c => c.CustomerId == customer.Id && !c.IsCheckedOut);
         if (Cart == null) return NotFound("Shopping Cart not found");
         var cartItem = Cart.Items.FirstOrDefault(i=> i.Food.Name == dto.FoodName);
         if (cartItem == null) return NotFound("Item not found in cart by the given name!");
@@ -174,9 +204,13 @@ public class ShoppingCart : ControllerBase
     [HttpGet("CheckOut"),Authorize(Roles="User")]
     public async Task<ActionResult> CheckOut()
     {
-        var customer = await GetUserAsync();
-        if(customer == null) { return BadRequest("Customer not found!"); }
-        var cart = await GetLatestCartByUser();
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var customer = await _cartContext.Customers.FirstOrDefaultAsync(c => c.UserId == userId);
+        if (customer == null) { return NotFound("Customer not found"); }
+        var cart = await _cartContext.ShoppingCarts
+            .Include(c => c.Items).ThenInclude(i => i.Food)
+            .OrderBy(c => c.CreatedDate)
+            .LastOrDefaultAsync(c => c.CustomerId == customer.Id);
         if (cart == null) return NotFound("Shopping cart not found!");
         if (cart.IsCheckedOut == true)
         {
@@ -198,9 +232,13 @@ public class ShoppingCart : ControllerBase
     [HttpGet("CancelOrder"),Authorize(Roles="User")]
     public async Task<ActionResult> CancelOrder()
     {
-        var customer = await GetUserAsync();
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var customer = await _cartContext.Customers.FirstOrDefaultAsync(c => c.UserId == userId);
         if (customer == null) { return NotFound("Customer not found"); }
-        var cart = await GetLatestCartByUser();
+        var cart = await _cartContext.ShoppingCarts
+            .Include(c => c.Items).ThenInclude(i => i.Food)
+            .OrderBy(c => c.CreatedDate)
+            .LastOrDefaultAsync(c => c.CustomerId == customer.Id);
         if (cart == null) return NotFound("Shopping cart not found!");
         if (cart.IsCheckedOut == true)
         {

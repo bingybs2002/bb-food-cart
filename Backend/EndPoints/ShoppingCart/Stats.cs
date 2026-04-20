@@ -21,13 +21,13 @@ public class Stats : ControllerBase
     {
         var Today = DateTime.UtcNow;
         var salesToday = await _statContext.ShoppingCarts
-            .Where(c => c.IsCheckedOut && c.CreatedDate==Today)
+            .Where(c => c.IsCheckedOut && c.CreatedDate>Today.AddDays(-1))
             .GroupBy(c => c.CreatedDate)
             .Select(g => new { Day = g.Key, Transactions = g.Count() })
             .OrderBy(r => r.Day)
             .ToListAsync();
-        
-        return Ok(salesToday.Count());
+        var sales = salesToday.Sum(x => x.Transactions); 
+        return Ok(sales);
     }
 
     //[HttpGet("salesToday"),Authorize(Roles ="Admin")]
@@ -49,6 +49,14 @@ public class Stats : ControllerBase
             })
             .OrderBy(x => x.Day)
             .ToListAsync();
-        return Ok(salesLast7days.Count());
+
+        var sales = salesLast7days.Sum(x => x.Transactions);
+        return Ok(sales);
+    }
+
+    [HttpGet("MostPopularItem")]
+    public async Task<ActionResult> MostPopularItem()
+    {
+        var result = await _statContext.
     }
 }

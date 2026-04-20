@@ -19,6 +19,7 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
     public DbSet<Food> Foods => Set<Food>();
     public DbSet<ShoppingCart> ShoppingCarts => Set<ShoppingCart>();
     public DbSet<GachaItemType> GachaItems { get; set; } = null!;
+   // public DbSet<CartItem> CartItems => Set<CartItem>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
