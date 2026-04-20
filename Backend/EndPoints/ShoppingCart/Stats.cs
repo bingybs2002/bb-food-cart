@@ -1,8 +1,9 @@
 ﻿using Backend.Data;
+using Backend.Models.Cart;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using System.Text.Json;
 namespace Backend.EndPoints.ShoppingCart;
 
 [Route("Stat")]
@@ -57,6 +58,41 @@ public class Stats : ControllerBase
     [HttpGet("MostPopularItem")]
     public async Task<ActionResult> MostPopularItem()
     {
-        var result = await _statContext.
+        var PopularItem = await _statContext.CartItems
+            .GroupBy(c => c.FoodId)
+            .Select(g => new
+            {
+                FoodId = g.Key,
+                TotalSold = g.Sum(x => x.Quantity)
+            })
+            .OrderByDescending(x => x.TotalSold)
+            .FirstOrDefaultAsync();
+        if (PopularItem == null) return BadRequest("Statistics are not high enough for this.");
+
+        var food = await _statContext.Foods
+            .FirstOrDefaultAsync(f => f.Id == PopularItem.FoodId);
+        if (food==null) { return BadRequest("Cannot find the food tag"); }
+        var nutrition = await _statContext.Nutrition
+            .FirstOrDefaultAsync(f => f.Id == food.Id);
+        if (nutrition == null) { return BadRequest("Cannot find the nutrition tag."); }
+        var ret = new
+        {
+            food.Name,
+            nutrition.Calories,
+            nutrition.Carbs,
+            nutrition.Protein,
+            PopularItem.TotalSold
+        };
+        return Ok(ret);
+    }
+
+    [HttpGet("SoldOutItems")]
+    public async Task<ActionResult> SoldOutItems()
+    {
+        var cart = await _statContext.CartItems
+            .Where(c => c.Food.IsSoldOut == true)
+            .ToListAsync();
+        if (!cart.Any()) { return Ok("No sold out items!"); }
+        return Ok("cart");
     }
 }

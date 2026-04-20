@@ -3,6 +3,7 @@ using System;
 using Backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260420005542_FoodNutrition")]
+    partial class FoodNutrition
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,31 +196,7 @@ namespace Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NutritionId");
-
                     b.ToTable("Foods");
-                });
-
-            modelBuilder.Entity("Backend.Models.Foods.Nutrition", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Calories")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Carbs")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Protein")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Nutrition");
                 });
 
             modelBuilder.Entity("Backend.Models.Gacha.GachaModel+GachaItemType", b =>
@@ -497,11 +476,30 @@ namespace Backend.Migrations
 
             modelBuilder.Entity("Backend.Models.Foods.Food", b =>
                 {
-                    b.HasOne("Backend.Models.Foods.Nutrition", "Nutrition")
-                        .WithMany()
-                        .HasForeignKey("NutritionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.OwnsOne("Backend.Models.Foods.Nutrition", "Nutrition", b1 =>
+                        {
+                            b1.Property<int>("FoodId")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Calories")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Carbs")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Id")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Protein")
+                                .HasColumnType("integer");
+
+                            b1.HasKey("FoodId");
+
+                            b1.ToTable("Foods");
+
+                            b1.WithOwner()
+                                .HasForeignKey("FoodId");
+                        });
 
                     b.Navigation("Nutrition");
                 });

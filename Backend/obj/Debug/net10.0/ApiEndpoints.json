@@ -608,6 +608,16 @@
   },
   {
     "ContainingType": "Backend.EndPoints.ShoppingCart.Stats",
+    "Method": "MostPopularItem",
+    "RelativePath": "Stat/MostPopularItem",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Stats",
     "Method": "SalesPerWeek",
     "RelativePath": "Stat/salesInLast7Days",
     "HttpMethod": "GET",

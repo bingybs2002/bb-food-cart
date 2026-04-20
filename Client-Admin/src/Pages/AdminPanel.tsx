@@ -12,16 +12,27 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart"
 
+const API = import.meta.env.VITE_API_BASE_URL
+
 type SalesDay = {
   day: string
   transactions: number
+}
+
+type PopularItemtype={
+  name: string
+  calories: number
+  carbs: number
+  protein: number
+  totalSold: number
 }
 
 export default function HomePage() {
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [salesToday, setSalesToday] = useState(0)
   const [salesIn7Days, setSalesIn7Days] = useState(0)
-
+  const [popularItem, setPopularItem] = useState<PopularItemtype | null>(null)
+  const [SoldOutItems, setSoldOutItems] = useState<string[]>([])
   const today = new Date()
 
   const chartConfig = {
@@ -47,20 +58,32 @@ export default function HomePage() {
   })
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/Stat/salesToday`)
+    fetch(`${API}/Stat/salesToday`)
       .then((res) => res.json())
       .then((data) => setSalesToday(data))
   }, [])
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/Stat/salesInLast7Days`)
+    fetch(`${API}/Stat/salesInLast7Days`)
       .then((res) => res.json())
-      .then((data: SalesDay[]) => {
-        const total = data.reduce((sum, item) => sum + item.transactions, 0)
-        setSalesIn7Days(total)
-      })
+      .then((data)=>setSalesIn7Days(data))
   }, [])
 
+useEffect(() => {
+  fetch(`${API}/Stat/MostPopularItem`)
+    .then((res) => {
+      if (!res.ok) throw new Error("Failed to fetch most popular item")
+      return res.json()
+    })
+    .then((data) => setPopularItem(data))
+    .catch((err) => console.error(err))
+}, [])
+
+  useEffect(() => {
+    fetch(`${API}/Stat/SoldOutItems`)
+      .then((res) => res.json())
+      .then((data)=>setSoldOutItems(data))
+  }, [])
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -104,9 +127,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center rounded-xl border-2 border-white p-4">
-            
             <div>
-
           <h1 className="text-center">{today.toDateString()}</h1>
             <Calendar
               mode="single"
@@ -118,81 +139,60 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-4 items-start">
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
+            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md h-full">
               <h2 className="text-lg text-gray-500">Sales Today</h2>
               <p className="mt-2 text-3xl font-bold">{salesToday}</p>
             </div>
 
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
+            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md h-full">
               <h2 className="text-lg text-gray-500">Sales Last Week</h2>
               <p className="mt-2 text-3xl font-bold">{salesIn7Days}</p>
             </div>
           </div>
         </div>
 
-        <h6 className="text-lg font-bold text-heading text-center mt-5">Menu and Items</h6>
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div className="rounded-xl border-2 border-white p-4">
-            <p className="mb-4 text-center font-semibold">Sold Out</p>
+        <h6 className="text-lg font-bold text-heading text-center mt-5">
+          Menu and Items
+        </h6>
 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+          <div className="rounded-xl border-2 border-white p-4 w-full">
+            <p className="mb-4 text-center font-semibold">Sold Out Items</p>
+
+            {SoldOutItems.length > 0 ? (
+              <ul className="space-y-1">
+                {SoldOutItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>No sold out items</p>
+            )}
           </div>
 
-          <div className="flex justify-center rounded-xl border-2 border-white p-4">
-            <Calendar
-              mode="single"
-              selected={date}
-              onSelect={setDate}
-              className="rounded-lg border"
-            />
-          </div>
-
-          <div className="flex flex-col gap-4 items-start">
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
-              <h2 className="text-lg text-gray-500">Sales Today</h2>
-              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
-            </div>
-
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
-              <h2 className="text-lg text-gray-500">Sales Last Week</h2>
-              <p className="mt-2 text-3xl font-bold">{salesIn7Days}</p>
-            </div>
+          <div className="rounded-xl border-2 border-white p-4 w-full">
+            <p className="mb-4 text-center font-semibold">Most Popular Items</p>
+              {popularItem ? (
+                <div className="space-y-1">
+                  <p>Name: {popularItem.name}</p>
+                  <p>Total Sold: {popularItem.totalSold}</p>
+                  <p>Calories: {popularItem.calories}</p>
+                  <p>Carbs: {popularItem.carbs}</p>
+                  <p>Protein: {popularItem.protein}</p>
+                </div>
+              ) : (
+                <p>No data</p>
+              )}
           </div>
         </div>
 
-       <div className="mt-10 border-white border-2">
-        <h1 className="text-center">Menu Statistics</h1>
-         <div className="flex flex-col gap-4 items-start">
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
-              <h2 className="text-lg text-gray-500">Gacha Statistics</h2>
-              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
-              <div></div>
-            </div>
-          </div>
 
-          <div className="flex flex-col gap-4 items-start">
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
-              <h2 className="text-lg text-gray-500">Gacha Statistics</h2>
-              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
-            </div>
-          </div>
+      <div className="mt-10">
+         <h6 className="text-lg font-bold text-heading text-center mt-5">
+        Gacha Statistics
+        </h6>
 
-      </div>
 
-      <div className="mt-10 border-white border-2">
-        <h1>Gacha Statistics</h1>
-         <div className="flex flex-col gap-4 items-start">
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
-              <h2 className="text-lg text-gray-500">Gacha Statistics</h2>
-              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-4 items-start">
-            <div className="w-60 rounded-2xl border-2 border-white p-6 text-center shadow-md">
-              <h2 className="text-lg text-gray-500">Gacha Statistics</h2>
-              <p className="mt-2 text-3xl font-bold">{salesToday}</p>
-            </div>
-          </div>
       </div>
 
 

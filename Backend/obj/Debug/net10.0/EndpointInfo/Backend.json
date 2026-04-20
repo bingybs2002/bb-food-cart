@@ -734,6 +734,18 @@
           }
         }
       }
+    },
+    "/Stat/MostPopularItem": {
+      "get": {
+        "tags": [
+          "Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

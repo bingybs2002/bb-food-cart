@@ -19,8 +19,9 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
     public DbSet<Food> Foods => Set<Food>();
     public DbSet<ShoppingCart> ShoppingCarts => Set<ShoppingCart>();
     public DbSet<GachaItemType> GachaItems { get; set; } = null!;
-   // public DbSet<CartItem> CartItems => Set<CartItem>();
+    public DbSet<CartItem> CartItems => Set<CartItem>();
 
+    public DbSet<Nutrition> Nutrition => Set<Nutrition>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -67,6 +68,5 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
            .HasPrincipalKey(s=>s.Id)
            .HasForeignKey(s=>s.CustomerId);
 
-        
     }
 }
