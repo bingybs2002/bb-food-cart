@@ -11,7 +11,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
-
+import axios from 'axios'
 const API = import.meta.env.VITE_API_BASE_URL
 
 type SalesDay = {
@@ -27,12 +27,17 @@ type PopularItemtype={
   totalSold: number
 }
 
+type SoldOutItemType={
+  id: number
+  name: string
+}
+
 export default function HomePage() {
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [salesToday, setSalesToday] = useState(0)
   const [salesIn7Days, setSalesIn7Days] = useState(0)
   const [popularItem, setPopularItem] = useState<PopularItemtype | null>(null)
-  const [SoldOutItems, setSoldOutItems] = useState<string[]>([])
+  const [SoldOutItems, setSoldOutItems] = useState<SoldOutItemType[]>([])
   const today = new Date()
 
   const chartConfig = {
@@ -84,6 +89,9 @@ useEffect(() => {
       .then((res) => res.json())
       .then((data)=>setSoldOutItems(data))
   }, [])
+
+
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -158,16 +166,13 @@ useEffect(() => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
           <div className="rounded-xl border-2 border-white p-4 w-full">
             <p className="mb-4 text-center font-semibold">Sold Out Items</p>
-
-            {SoldOutItems.length > 0 ? (
-              <ul className="space-y-1">
-                {SoldOutItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ) : (
-              <p>No sold out items</p>
-            )}
+              {SoldOutItems.length > 0 ? (
+                SoldOutItems.map(item => (
+                  <p key={item.id}>Name: {item.name}</p>
+                ))
+              ) : (
+                <p>No sold out items</p>
+              )}
           </div>
 
           <div className="rounded-xl border-2 border-white p-4 w-full">

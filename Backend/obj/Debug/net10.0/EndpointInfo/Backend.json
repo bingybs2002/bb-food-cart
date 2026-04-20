@@ -531,6 +531,18 @@
         }
       }
     },
+    "/Gacha/TESTING-pick": {
+      "get": {
+        "tags": [
+          "Gacha"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Gacha/pick": {
       "get": {
         "tags": [
@@ -736,6 +748,18 @@
       }
     },
     "/Stat/MostPopularItem": {
+      "get": {
+        "tags": [
+          "Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Stat/SoldOutItems": {
       "get": {
         "tags": [
           "Stats"

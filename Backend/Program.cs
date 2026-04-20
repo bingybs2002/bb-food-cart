@@ -49,7 +49,11 @@ builder.Services.AddAuthentication(Microsoft.AspNetCore.Authentication.
         };
     });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("User", policy => policy.RequireRole("User"));
+    options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+});
 builder.Services.AddIdentityCore<IdentityUser>(options =>
     {
         options.Password.RequireNonAlphanumeric = false;
@@ -63,6 +67,7 @@ builder.Services.AddIdentityCore<IdentityUser>(options =>
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+
 
 builder.Services.AddCors(options =>
 {
@@ -104,6 +109,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddControllers();
+
 
 var app = builder.Build();
 

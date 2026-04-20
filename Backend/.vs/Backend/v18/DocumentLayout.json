@@ -3,40 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\endpoints\\shoppingcart\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:endpoints\\shoppingcart\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\testing\\menu\\menu.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:testing\\menu\\menu.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\testing\\accounts\\customer.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:testing\\accounts\\customer.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\endpoints\\shoppingcart\\cart\\shoppingcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:endpoints\\shoppingcart\\cart\\shoppingcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\endpoints\\gacha\\gacha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:endpoints\\gacha\\gacha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\endpoints\\shoppingcart\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:endpoints\\shoppingcart\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\models\\food\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:models\\food\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\testing\\menu\\menu.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:testing\\menu\\menu.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\endpoints\\shoppingcart\\cart\\dto\\shoppingcartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:endpoints\\shoppingcart\\cart\\dto\\shoppingcartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\testing\\accounts\\seedaccounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:testing\\accounts\\seedaccounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\models\\cart\\shoppingcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -143,10 +139,6 @@
       "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:testing\\accounts\\login.json||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\endpoints\\gacha\\gacha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:endpoints\\gacha\\gacha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|c:\\users\\bing\\projects\\bb-food-cart\\backend\\testing\\gacha\\gachaitems.json||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{5ADA2BB6-BD8A-FBBA-631C-E748BB1D8E69}|Backend.csproj|solutionrelative:testing\\gacha\\gachaitems.json||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
@@ -158,7 +150,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -166,72 +158,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T18:13:02.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Customer.json",
-              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\Customer.json",
-              "RelativeDocumentMoniker": "Testing\\Accounts\\Customer.json",
-              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\Customer.json",
-              "RelativeToolTip": "Testing\\Accounts\\Customer.json",
-              "ViewState": "AgIAAHoBAAAAAAAAAAAAAKcBAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-13T15:18:03.323Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "menu.json",
-              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Menu\\menu.json",
-              "RelativeDocumentMoniker": "Testing\\Menu\\menu.json",
-              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Menu\\menu.json",
-              "RelativeToolTip": "Testing\\Menu\\menu.json",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADQAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-12T12:30:01.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Stats.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Stats.cs",
               "RelativeDocumentMoniker": "EndPoints\\ShoppingCart\\Stats.cs",
               "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Stats.cs",
               "RelativeToolTip": "EndPoints\\ShoppingCart\\Stats.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAAF4AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAQwGIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T19:54:44.274Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ShoppingCartDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\DTO\\ShoppingCartDTO.cs",
-              "RelativeDocumentMoniker": "EndPoints\\ShoppingCart\\Cart\\DTO\\ShoppingCartDTO.cs",
-              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\DTO\\ShoppingCartDTO.cs",
-              "RelativeToolTip": "EndPoints\\ShoppingCart\\Cart\\DTO\\ShoppingCartDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T18:31:34.544Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Food.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Models\\Food\\Food.cs",
               "RelativeDocumentMoniker": "Models\\Food\\Food.cs",
@@ -244,19 +184,82 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
+              "Title": "Gacha.cs",
+              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\Gacha\\Gacha.cs",
+              "RelativeDocumentMoniker": "EndPoints\\Gacha\\Gacha.cs",
+              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\Gacha\\Gacha.cs",
+              "RelativeToolTip": "EndPoints\\Gacha\\Gacha.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T18:17:04.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHMAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T18:30:11.384Z"
+              "WhenOpened": "2026-04-03T18:30:11.384Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
+              "Title": "Customer.json",
+              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\Customer.json",
+              "RelativeDocumentMoniker": "Testing\\Accounts\\Customer.json",
+              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\Customer.json",
+              "RelativeToolTip": "Testing\\Accounts\\Customer.json",
+              "ViewState": "AgIAAHoBAAAAAAAAAAAAALEBAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-13T15:18:03.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "menu.json",
+              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Menu\\menu.json",
+              "RelativeDocumentMoniker": "Testing\\Menu\\menu.json",
+              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Menu\\menu.json",
+              "RelativeToolTip": "Testing\\Menu\\menu.json",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-12T12:30:01.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T18:13:02.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ShoppingCartDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\DTO\\ShoppingCartDTO.cs",
+              "RelativeDocumentMoniker": "EndPoints\\ShoppingCart\\Cart\\DTO\\ShoppingCartDTO.cs",
+              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\DTO\\ShoppingCartDTO.cs",
+              "RelativeToolTip": "EndPoints\\ShoppingCart\\Cart\\DTO\\ShoppingCartDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T18:31:34.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ShoppingCart.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Models\\Cart\\ShoppingCart.cs",
               "RelativeDocumentMoniker": "Models\\Cart\\ShoppingCart.cs",
@@ -268,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "AuthRequestDtos.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Auth\\DTOs\\AuthRequestDtos.cs",
               "RelativeDocumentMoniker": "Auth\\DTOs\\AuthRequestDtos.cs",
@@ -280,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "AuthTokenService.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Auth\\AuthTokenService.cs",
               "RelativeDocumentMoniker": "Auth\\AuthTokenService.cs",
@@ -292,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "AuthenticationService.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Auth\\AuthenticationService.cs",
               "RelativeDocumentMoniker": "Auth\\AuthenticationService.cs",
@@ -304,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "AccountEndpoints.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\Account\\AccountEndpoints.cs",
               "RelativeDocumentMoniker": "EndPoints\\Account\\AccountEndpoints.cs",
@@ -316,7 +319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "AccountModels.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Models\\Account\\AccountModels.cs",
               "RelativeDocumentMoniker": "Models\\Account\\AccountModels.cs",
@@ -328,7 +331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "Authentication.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Models\\Account\\Authentication.cs",
               "RelativeDocumentMoniker": "Models\\Account\\Authentication.cs",
@@ -340,7 +343,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "AdminCart.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\AdminCart.cs",
               "RelativeDocumentMoniker": "EndPoints\\ShoppingCart\\Cart\\AdminCart.cs",
@@ -352,7 +355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "AdminItem.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\AdminItem.cs",
               "RelativeDocumentMoniker": "EndPoints\\ShoppingCart\\Cart\\AdminItem.cs",
@@ -364,7 +367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "Allergies.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Models\\Food\\Allergies.cs",
               "RelativeDocumentMoniker": "Models\\Food\\Allergies.cs",
@@ -376,7 +379,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -388,7 +391,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "CartItem.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Models\\Cart\\CartItem.cs",
               "RelativeDocumentMoniker": "Models\\Cart\\CartItem.cs",
@@ -400,7 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "SeedMenu.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Menu\\SeedMenu.cs",
               "RelativeDocumentMoniker": "Testing\\Menu\\SeedMenu.cs",
@@ -412,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "Login.json",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\Login.json",
               "RelativeDocumentMoniker": "Testing\\Accounts\\Login.json",
@@ -424,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "EndpointCalories.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\Calories\\EndpointCalories.cs",
               "RelativeDocumentMoniker": "EndPoints\\Calories\\EndpointCalories.cs",
@@ -436,7 +439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 33,
               "Title": "Login.json",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\Login.json",
               "RelativeDocumentMoniker": "Testing\\Accounts\\Login.json",
@@ -448,7 +451,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "Calories.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\Calories\\Calories.cs",
               "RelativeDocumentMoniker": "EndPoints\\Calories\\Calories.cs",
@@ -460,7 +463,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "Admin.txt",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\Admin.txt",
               "RelativeDocumentMoniker": "Testing\\Accounts\\Admin.txt",
@@ -472,7 +475,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "menu.json",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Menu\\menu.json",
               "RelativeDocumentMoniker": "Testing\\Menu\\menu.json",
@@ -484,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "GachaItems.json",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Gacha\\GachaItems.json",
               "RelativeDocumentMoniker": "Testing\\Gacha\\GachaItems.json",
@@ -496,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 34,
               "Title": "GachaItems.json",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Gacha\\GachaItems.json",
               "RelativeDocumentMoniker": "Testing\\Gacha\\GachaItems.json",
@@ -508,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "AuthResponseDtos.cs",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Auth\\DTOs\\AuthResponseDtos.cs",
               "RelativeDocumentMoniker": "Auth\\DTOs\\AuthResponseDtos.cs",
@@ -520,7 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "ShoppingCartItems.txt",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Miscellaneous\\ShoppingCartItems.txt",
               "RelativeDocumentMoniker": "Testing\\Miscellaneous\\ShoppingCartItems.txt",
@@ -532,7 +535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "GachaReadMe.txt",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Gacha\\GachaReadMe.txt",
               "RelativeDocumentMoniker": "Testing\\Gacha\\GachaReadMe.txt",
@@ -544,19 +547,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Gacha.cs",
-              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\Gacha\\Gacha.cs",
-              "RelativeDocumentMoniker": "EndPoints\\Gacha\\Gacha.cs",
-              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\Gacha\\Gacha.cs",
-              "RelativeToolTip": "EndPoints\\Gacha\\Gacha.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T18:17:04.56Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -568,7 +559,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "customer1.txt",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Miscellaneous\\customer1.txt",
               "RelativeDocumentMoniker": "Testing\\Miscellaneous\\customer1.txt",
@@ -580,7 +571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 32,
               "Title": "Customer.json",
               "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\Customer.json",
               "RelativeDocumentMoniker": "Testing\\Accounts\\Customer.json",
@@ -599,74 +590,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "66837485-a8ae-4970-9134-808d8be57bfb",
-        "Display": 0,
-        "X": 1056,
-        "Y": 84,
-        "Width": 738,
-        "Height": 1339,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SeedAccounts.cs",
-              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\SeedAccounts.cs",
-              "RelativeDocumentMoniker": "Testing\\Accounts\\SeedAccounts.cs",
-              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Accounts\\SeedAccounts.cs",
-              "RelativeToolTip": "Testing\\Accounts\\SeedAccounts.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T15:18:15.998Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "848157fc-5754-4803-a664-319e8235648b",
-        "Display": 0,
-        "X": 328,
-        "Y": 39,
-        "Width": 738,
-        "Height": 1348,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ShoppingCart.cs",
-              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\ShoppingCart.cs",
-              "RelativeDocumentMoniker": "EndPoints\\ShoppingCart\\Cart\\ShoppingCart.cs",
-              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\ShoppingCart.cs",
-              "RelativeToolTip": "EndPoints\\ShoppingCart\\Cart\\ShoppingCart.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAcwK8AAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T00:36:50.762Z",
-              "EditorCaption": ""
             }
           ]
         }

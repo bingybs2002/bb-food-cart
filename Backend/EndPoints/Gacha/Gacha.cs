@@ -2,6 +2,7 @@
 using static Backend.Models.Gacha.GachaModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Backend.EndPoints.Gacha
 {
@@ -18,7 +19,7 @@ namespace Backend.EndPoints.Gacha
                 await db.SaveChangesAsync();
 
                 return Results.Created("/bulk", items);
-            }).RequireAuthorization(new AuthorizeAttribute { Roles="Admin"});
+            }).RequireAuthorization("Admin");
 
             groups.MapDelete("delete/{id}", async (int id, AppDbContext db) =>
             {
@@ -30,15 +31,15 @@ namespace Backend.EndPoints.Gacha
                 db.GachaItems.Remove(item);
                 await db.SaveChangesAsync();
                 return Results.Ok($"Item.with id {id} deleted");
-            }).RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+            }).RequireAuthorization("Admin");
 
             //DELETE delete all
             groups.MapDelete("delete-all", async (AppDbContext db) =>
             {
                 await db.GachaItems.ExecuteDeleteAsync();
                 return Results.NoContent();
-            }).RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
-            groups.MapGet("pick", async (AppDbContext db) =>
+            }).RequireAuthorization("Admin");
+            groups.MapGet("TESTING-pick", async (AppDbContext db) =>
             {
                 var count = await db.GachaItems.CountAsync();
                 Console.Out.WriteLine("Numaber of Counts: " + count);
@@ -48,6 +49,16 @@ namespace Backend.EndPoints.Gacha
                 Console.Out.WriteLine("Random Generated: " + index);
                 return Results.Ok(result);
             });
+            groups.MapGet("pick", async (AppDbContext db) =>
+            {
+                var count = await db.GachaItems.CountAsync();
+                Console.Out.WriteLine("Numaber of Counts: " + count);
+
+                var index = Random.Shared.Next(1, count + 1);
+                var result = db.GachaItems.FirstOrDefault(x => x.Id == index);
+                Console.Out.WriteLine("Random Generated: " + index);
+                return Results.Ok(result);
+            }).RequireAuthorization("User");
             groups.MapGet("all-items", async (AppDbContext db) =>
                 await db.GachaItems.ToListAsync());
         }

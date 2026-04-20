@@ -89,10 +89,14 @@ public class Stats : ControllerBase
     [HttpGet("SoldOutItems")]
     public async Task<ActionResult> SoldOutItems()
     {
-        var cart = await _statContext.CartItems
-            .Where(c => c.Food.IsSoldOut == true)
+        var foods = await _statContext.Foods
+            .Where(f => f.IsSoldOut == true)
+            .Select(g=> new
+            {
+                g.Id,
+                g.Name
+            })
             .ToListAsync();
-        if (!cart.Any()) { return Ok("No sold out items!"); }
-        return Ok("cart");
+        return Ok(foods);
     }
 }
