@@ -12,7 +12,6 @@ namespace Backend.Models.Foods
         public Allergies Allergies { get; set; } = Allergies.None;
         public required FoodType FoodType { get; set; }
         public bool IsSoldOut { get; set; } = false;
-        public int? CartId { get; set; }
-        public List<ShoppingCart> Cart { get; set; } = [];
+        public List<CartItem> CartItems { get; set; } = [];
     }
 }

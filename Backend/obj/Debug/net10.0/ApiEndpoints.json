@@ -394,8 +394,8 @@
   },
   {
     "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminCart",
-    "Method": "GetCustomerCartByPhone",
-    "RelativePath": "cartAdmin/{phoneNumber}",
+    "Method": "GetCustomerShoppingCartHistory",
+    "RelativePath": "cartAdmin/CustomerShoppingCartHistory/{phoneNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -408,7 +408,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Backend.EndPoints.ShoppingCart.Cart.DTO.AdminCartDTO\u002BAdminShoppingCartDto",
+        "Type": "System.Collections.Generic.List\u00601[[Backend.EndPoints.ShoppingCart.Cart.DTO.AdminCartDTO\u002BAdminShoppingCartDto, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

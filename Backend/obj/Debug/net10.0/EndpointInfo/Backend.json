@@ -228,7 +228,7 @@
         }
       }
     },
-    "/cartAdmin/{phoneNumber}": {
+    "/cartAdmin/CustomerShoppingCartHistory/{phoneNumber}": {
       "get": {
         "tags": [
           "AdminCart"
@@ -249,17 +249,26 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/AdminShoppingCartDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AdminShoppingCartDto"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AdminShoppingCartDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AdminShoppingCartDto"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AdminShoppingCartDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AdminShoppingCartDto"
+                  }
                 }
               }
             }

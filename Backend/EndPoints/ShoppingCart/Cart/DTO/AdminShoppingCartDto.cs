@@ -10,6 +10,7 @@ public class AdminCartDTO
         public int Id { get; set; }
         public int CustomerId { get; set; }
         public List<AdminFoodDto> Foods { get; set; } = new();
+        public DateTime CreatedAtUtc { get; set; }
     }
     public class AdminFoodDto
     {

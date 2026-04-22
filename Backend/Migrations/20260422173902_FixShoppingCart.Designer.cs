@@ -3,6 +3,7 @@ using System;
 using Backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260422173902_FixShoppingCart")]
+    partial class FixShoppingCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,6 +145,9 @@ namespace Backend.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("FoodId")
+                        .HasColumnType("integer");
+
                     b.Property<bool>("IsCancelled")
                         .HasColumnType("boolean");
 
@@ -151,6 +157,8 @@ namespace Backend.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("FoodId");
 
                     b.ToTable("ShoppingCarts");
                 });
@@ -164,6 +172,9 @@ namespace Backend.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Allergies")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("CartId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Description")
@@ -456,7 +467,7 @@ namespace Backend.Migrations
             modelBuilder.Entity("Backend.Models.Cart.CartItem", b =>
                 {
                     b.HasOne("Backend.Models.Foods.Food", "Food")
-                        .WithMany("CartItems")
+                        .WithMany()
                         .HasForeignKey("FoodId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -479,6 +490,10 @@ namespace Backend.Migrations
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Backend.Models.Foods.Food", null)
+                        .WithMany("Cart")
+                        .HasForeignKey("FoodId");
 
                     b.Navigation("Customer");
                 });
@@ -557,7 +572,7 @@ namespace Backend.Migrations
 
             modelBuilder.Entity("Backend.Models.Foods.Food", b =>
                 {
-                    b.Navigation("CartItems");
+                    b.Navigation("Cart");
                 });
 #pragma warning restore 612, 618
         }

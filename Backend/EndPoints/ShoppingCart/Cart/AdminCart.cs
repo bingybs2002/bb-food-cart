@@ -45,38 +45,40 @@ public class AdminCart : ControllerBase
                 .OrderBy(c => c.CreatedDate)
                 .LastOrDefaultAsync(c => c.CustomerId == customer.Id);
     }
-    //Find the shopping cart by customer phone number,
-    //return the items in list.
-    [HttpGet("{phoneNumber}"), Authorize(Roles = "Admin")]
-    public async Task<ActionResult<AdminCartDTO.AdminShoppingCartDto>> 
-        GetCustomerCartByPhone(string phoneNumber)
+    //Find the shopping cart by phone number
+    
+    [HttpGet("CustomerShoppingCartHistory/{phoneNumber}"), Authorize(Roles = "Admin")]
+    public async Task<ActionResult<List<AdminCartDTO.AdminShoppingCartDto>>>
+    GetCustomerShoppingCartHistory(string phoneNumber)
     {
-        var normalizedPhone = new string(phoneNumber.Where(char.IsDigit).ToArray());
+        var customer = await _cartContext.Customers
+            .Include(c => c.User)
+            .FirstOrDefaultAsync(c => c.User != null && c.User.PhoneNumber == phoneNumber);
 
-        var cart = await _cartContext.ShoppingCarts
-            .Include(cart => cart.Customer)
-            .ThenInclude(customer => customer.User)
-            .Include(cart => cart.Items)
-            .ThenInclude(item => item.Food)
-            .FirstOrDefaultAsync(cart =>
-                cart.Customer.User != null &&
-                cart.Customer.User.PhoneNumber != null &&
-                new string(cart.Customer.User.PhoneNumber.Where(char.IsDigit).
-                    ToArray()) == normalizedPhone);
-        if (cart == null)
+        if (customer == null)
         {
-            return Ok("No cart was found, or the phone number is invalid");
+            return NotFound("Customer not found.");
         }
-        var response = new AdminCartDTO.AdminShoppingCartDto
+
+        var carts = await _cartContext.ShoppingCarts
+            .Include(c => c.Items)
+            .ThenInclude(i => i.Food)
+            .Where(c => c.CustomerId == customer.Id)
+            .OrderBy(c => c.CreatedDate)
+            .ToListAsync();
+
+        var response = carts.Select(cart => new AdminCartDTO.AdminShoppingCartDto
         {
             Id = cart.Id,
             CustomerId = cart.CustomerId,
-            Foods = cart.Items.Select(f => new AdminCartDTO.AdminFoodDto
+            Foods = cart.Items.Select(item => new AdminCartDTO.AdminFoodDto
             {
-                Id = f.Food.Id,
-                Name = f.Food.Name
-            }).ToList()
-        };
+                Id = item.Food.Id,
+                Name = item.Food.Name
+            }).ToList(),
+            CreatedAtUtc = cart.CreatedDate
+        }).ToList();
+
         return Ok(response);
     }
     //[HttpGet("OrderHistory"),Authorize(Roles ="Admin")]
@@ -84,7 +86,9 @@ public class AdminCart : ControllerBase
     public async Task<ActionResult> OrderHisotry()
     {
         var ret = await _cartContext.ShoppingCarts
-            .FromSqlRaw(@"SELECT * FROM ""ShoppingCarts""")
+            .Include(c => c.Items)
+            .ThenInclude(c => c.Food)
+            .OrderByDescending(c=>c.CreatedDate)
             .ToListAsync();
         return Ok(ret);
     }
