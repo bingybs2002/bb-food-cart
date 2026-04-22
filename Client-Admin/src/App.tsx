@@ -45,6 +45,7 @@ export default function App(){
       <Route path="/homepage" element={<AdminPanel />} />
       <Route path="/Gacha/Rules" element={<GachaRulesPage />} />
       <Route path="/Utilities" element={<Utilities/>}/>
+
     </Routes>
   )
 }

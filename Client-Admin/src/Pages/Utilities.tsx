@@ -35,7 +35,6 @@ export default function Utilities(){
                 </Field>
                 <Button onClick={getAllergies}/>
                 <p>Allergies: <br/>{allergiesResult}</p>
-  
                 </div>
             </main>
         </SidebarProvider>

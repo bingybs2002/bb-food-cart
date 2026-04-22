@@ -419,6 +419,16 @@
     ]
   },
   {
+    "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminCart",
+    "Method": "OrderHisotry",
+    "RelativePath": "cartAdmin/OrderHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend.EndPoints.Gacha.Gacha\u002B\u003C\u003Ec",
     "Method": "\u003CGachaLuckyPicker\u003Eb__0_5",
     "RelativePath": "Gacha/all-items",

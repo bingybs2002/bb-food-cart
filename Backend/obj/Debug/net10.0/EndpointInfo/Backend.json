@@ -267,6 +267,18 @@
         }
       }
     },
+    "/cartAdmin/OrderHistory": {
+      "get": {
+        "tags": [
+          "AdminCart"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/itemAdmin/Create": {
       "post": {
         "tags": [

@@ -94,7 +94,10 @@ public class Stats : ControllerBase
             .Select(g=> new
             {
                 g.Id,
-                g.Name
+                g.Name,
+                g.Allergies,
+                g.Description,
+                g.Nutrition,
             })
             .ToListAsync();
         return Ok(foods);
