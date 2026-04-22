@@ -81,15 +81,29 @@ public class AdminCart : ControllerBase
 
         return Ok(response);
     }
-    //[HttpGet("OrderHistory"),Authorize(Roles ="Admin")]
     [HttpGet("OrderHistory")]
-    public async Task<ActionResult> OrderHisotry()
+    public async Task<ActionResult> OrderHistory()
     {
         var ret = await _cartContext.ShoppingCarts
             .Include(c => c.Items)
-            .ThenInclude(c => c.Food)
-            .OrderByDescending(c=>c.CreatedDate)
+            .ThenInclude(i => i.Food)
+            .OrderByDescending(c => c.CreatedDate)
+            .Select(c => new
+            {
+                c.Id,
+                c.CustomerId,
+                c.IsCheckedOut,
+                c.CreatedDate,
+                c.IsCancelled,
+                Items = c.Items.Select(i => new
+                {
+                    i.Id,
+                    i.Quantity,
+                    FoodName = i.Food.Name
+                }).ToList()
+            })
             .ToListAsync();
+
         return Ok(ret);
     }
 

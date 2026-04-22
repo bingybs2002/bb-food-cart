@@ -861,6 +861,10 @@
               "$ref": "#/components/schemas/AdminFoodDto"
             },
             "nullable": true
+          },
+          "createdAtUtc": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false

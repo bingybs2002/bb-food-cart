@@ -21,6 +21,10 @@ export const columns: ColumnDef<OrderHistory>[] = [
   {
     accessorKey: "customerId",
     header: "Customer ID",
+    filterFn: (row, columnId, filtervalue)=>{
+      if(filtervalue==="") return true
+      return row.getValue<number>(columnId) === Number(filtervalue)
+    }
   },
   {
     accessorKey: "createdDate",
