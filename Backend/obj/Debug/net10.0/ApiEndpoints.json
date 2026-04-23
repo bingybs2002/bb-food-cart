@@ -420,7 +420,7 @@
   },
   {
     "ContainingType": "Backend.EndPoints.ShoppingCart.Cart.AdminCart",
-    "Method": "OrderHisotry",
+    "Method": "OrderHistory",
     "RelativePath": "cartAdmin/OrderHistory",
     "HttpMethod": "GET",
     "IsController": true,

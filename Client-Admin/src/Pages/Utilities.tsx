@@ -1,11 +1,8 @@
-import { SidebarProvider,SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
-import { Sidebar } from "lucide-react"
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
 import { useState } from "react"
-import { data } from "react-router-dom"
 
 export default function Utilities(){
     const [allergies, setAllergies] = useState("")

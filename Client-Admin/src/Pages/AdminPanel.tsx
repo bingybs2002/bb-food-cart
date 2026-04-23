@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Calendar } from "@/components/ui/calendar"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
@@ -13,11 +13,6 @@ import {
 } from "@/components/ui/chart"
 
 const API = import.meta.env.VITE_API_BASE_URL
-
-type SalesDay = {
-  day: string
-  transactions: number
-}
 
 type PopularItemtype = {
   name: string

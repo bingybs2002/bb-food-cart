@@ -3,7 +3,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 
 
 
-export default function ViewMenu(){
+export default function EditItem(){
   return(
     <SidebarProvider>
       <AppSidebar/>

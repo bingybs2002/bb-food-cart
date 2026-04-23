@@ -11,4 +11,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  define:{
+    global: {
+      API: "http://localhost:5173"
+    }
+  },
 })

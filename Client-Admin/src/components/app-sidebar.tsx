@@ -17,46 +17,43 @@ import { Separator } from "./ui/separator"
 export function AppSidebar() {
   return (
     <Sidebar>
-{/*Header*/}
-        <SidebarHeader>
-          <Link to="/">
-            <div className="flex justify-center">
-                <img src="/bbFoodCart.png"  className=" w-30 h-auto " />
-                <a href="#" className="flex items-center text-2xl">
-                BB Food Cart
-                </a>
-            </div>
-          </Link>
-            <Separator/>
-        </SidebarHeader>
+      <SidebarHeader>
+        <Link to="/">
+          <div className="flex justify-center">
+            <img src="/bbFoodCart.png"  className=" w-30 h-auto " />
+              <a href="#" className="flex items-center text-2xl">
+              BB Food Cart
+              </a>
+          </div>
+        </Link>
+        <Separator/>
+      </SidebarHeader>
 
 {/*Content*/}
-        <SidebarContent className="py-4">
+      <SidebarContent className="py-4">
         <SidebarGroup className="space-y-5">
-            
-            <div>
+          <div>
             <SidebarGroupLabel className="ml-2 text-medium font-bold">
                 Orders
             </SidebarGroupLabel>
             <SidebarGroupContent className="ml-4">
-                <SidebarMenu className="space-y-1">
-                <SidebarMenuItem><Link to="">Order History</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">Shopping Cart Tracker</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">Order History</Link></SidebarMenuItem>
-                </SidebarMenu>
+              <SidebarMenu className="space-y-1">
+              <SidebarMenuItem><Link to="/Orders/OrderHistory">Order History</Link></SidebarMenuItem>
+              <SidebarMenuItem><Link to="">Shopping Cart Tracker</Link></SidebarMenuItem>
+              </SidebarMenu>
             </SidebarGroupContent>
-            </div>
+          </div>
 
-            <div>
+          <div>
             <SidebarGroupLabel className="ml-2 text-medium font-bold">
                 Menu Management
               </SidebarGroupLabel>
               <SidebarGroupContent className="ml-4">
                 <SidebarMenu className="space-y-1">
-                  <SidebarMenuItem><Link to="">View Menu</Link></SidebarMenuItem>
-                  <SidebarMenuItem><Link to="">Add New Item</Link></SidebarMenuItem>
-                  <SidebarMenuItem><Link to="">Edit Existing Item</Link></SidebarMenuItem>
-                  <SidebarMenuItem><Link to="">Delete Item</Link></SidebarMenuItem>
+                  <SidebarMenuItem><Link to="/Menu/ViewMenu">View Menu</Link></SidebarMenuItem>
+                  <SidebarMenuItem><Link to="/Menu/AddItem">Add New Item</Link></SidebarMenuItem>
+                  <SidebarMenuItem><Link to="/Menu/EditItem">Edit Existing Item</Link></SidebarMenuItem>
+                  <SidebarMenuItem><Link to="/Menu/DeleteItem">Delete Item</Link></SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
             </div>
@@ -115,7 +112,7 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton>
               <User2 />
-              Adminstrator
+              Administrator
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

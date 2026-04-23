@@ -6,7 +6,7 @@ type ResolvedTheme = "dark" | "light"
 
 type ThemeProviderProps = {
   children: React.ReactNode
-  defaultTheme?: "dark"
+  defaultTheme?: Theme
   storageKey?: string
   disableTransitionOnChange?: boolean
 }

@@ -1,9 +1,8 @@
 import { columns, type OrderHistory } from "./OrderHistory/columns"
 import { DataTable } from "./OrderHistory/data-table"
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { AppSidebar } from "@/components/app-sidebar"
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppleIcon, Sidebar } from "lucide-react"
+import { SidebarProvider } from "@/components/ui/sidebar"
 const API = import.meta.env.VITE_API_BASE_URL
 
 export default function OrderHistory() {

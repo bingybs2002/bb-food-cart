@@ -6,6 +6,10 @@ import AdminPanel from "./Pages/AdminPanel"
 import GachaRulesPage from "./Pages/Gacha/GachRulesPage"
 import Utilities from "./Pages/Utilities"
 import OrderHistory from "./Pages/Orders/OrderHistory"
+import AddItem from "./Pages/Menu/AddItem"
+import ViewMenu from "./Pages/Menu/ViewMenu"
+import DeleteItem from "./Pages/Menu/DeleteItem"
+import EditItem from "./Pages/Menu/EditItem"
 function MainPage() {
   const accessToken = localStorage.getItem("accessToken")
   const expiredTime = localStorage.getItem("accessTokenExpiresAtUtc")
@@ -20,7 +24,7 @@ function MainPage() {
         <div className="flex min-h-svh p-6">
           <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
             <div>
-              <h1 className="font-medium">BB-FOOD is in developement!</h1>
+              <h1 className="font-medium">BB-FOOD is in development!</h1>
               <p>Would add features later as they are being developed. If you are in this page,
                 it would've mean that you are either not logged in or the session has expired.
                 Please login again, or create an account. 
@@ -46,6 +50,10 @@ export default function App(){
       <Route path="/Gacha/Rules" element={<GachaRulesPage />} />
       <Route path="/Utilities" element={<Utilities/>}/>
       <Route path="/Orders/OrderHistory" element={<OrderHistory/>}/>
+      <Route path="/Menu/AddItem" element={<AddItem/>}/>
+      <Route path="/Menu/EditItem" element={<EditItem/>}/>
+      <Route path="/Menu/DeleteItem" element={<DeleteItem/>}/>
+      <Route path="/Menu/ViewMenu" element={<ViewMenu/>}/>
     </Routes>
   )
 }
