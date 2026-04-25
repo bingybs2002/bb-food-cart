@@ -124,6 +124,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors("ViteFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -154,7 +155,6 @@ app.MapGet("/Allergies/{number}", (int number) => $"{(Allergies)number} ");
 await SeedAccounts.SeedAdmin(app.Services);
 app.MapAccountEndpoints();
 
-app.UseCors("ViteFrontend");
 
 app.MapControllers();
 app.GachaLuckyPicker();

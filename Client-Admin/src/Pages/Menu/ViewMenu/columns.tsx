@@ -15,6 +15,13 @@ export type MenuItems = {
   isSoldOut: boolean
 }
 
+  const foodTypeMap: Record<number, string> ={
+      0: "Meal",
+      1: "Beverage",
+      2: "Side",
+      3: "Combo",
+  }
+
 export const columns: ColumnDef<MenuItems>[] = [
   {
     accessorKey: "id",
@@ -26,16 +33,13 @@ export const columns: ColumnDef<MenuItems>[] = [
     
   },
   {
-    accessorKey: "description",
-    header: "Description",
-  },
-  {
     accessorKey: "nutrition",
     header: "Nutrition",
   },
   {
     accessorKey: "foodType",
     header: "Food Type",
+    cell:({row}) => foodTypeMap[row.getValue("foodType") as number]
   },
   {
     accessorKey: "isSoldOut",
