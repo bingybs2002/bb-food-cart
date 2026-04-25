@@ -21,6 +21,18 @@ export default function AddItem(){
     .then((res)=>res.json())
     .then((data: MenuItems[])=>SetMenu(data))
   })
+
+  const [addItemForm, setAddItemForm] = useState({
+    name: "",
+    description: "",
+    allergies: "",
+    foodType: "",
+    isSoldOut: "",
+    calories: "",
+    proteins: "",
+    carbs: ""
+  })
+
   return(
     <SidebarProvider>
       <AppSidebar/>
