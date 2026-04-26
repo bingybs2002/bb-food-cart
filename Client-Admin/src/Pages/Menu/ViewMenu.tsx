@@ -13,11 +13,13 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+const API = import.meta.env.VITE_API_BASE_URL
+
 export default function ViewMenu(){
   const [Menu, SetMenu] = useState<MenuItems[]>([])
 
   useEffect(()=>{
-    fetch(`https://localhost:63196/itemAdmin/Read`)
+    fetch(`${API}/itemAdmin/Read`)
     .then((res)=>res.json())
     .then((data: MenuItems[])=>SetMenu(data))
   })

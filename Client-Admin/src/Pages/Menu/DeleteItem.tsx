@@ -13,14 +13,71 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+
+const API = import.meta.env.VITE_API_BASE_URL
+
 export default function DeleteItem(){
   const [Menu, SetMenu] = useState<MenuItems[]>([])
 
-  useEffect(()=>{
-    fetch(`https://localhost:63196/itemAdmin/Read`)
-    .then((res)=>res.json())
-    .then((data: MenuItems[])=>SetMenu(data))
+  const [addItemForm, setAddItemForm] = useState({
+    name: "",
+    description: "",
+    allergies: 0,
+    foodType: 0,
+    isSoldOut: false,
+    calories: 0,
+    protein: 0,
+    carbs: 0,
   })
+  
+  const loadMenu = async () => {
+    const res = await fetch(`${API}/itemAdmin/Read`)
+    const data: MenuItems[] = await res.json()
+    SetMenu(data)
+  }
+
+  useEffect(() => {
+    loadMenu()
+  }, [])
+
+  const postItem = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    try {
+      const response = await fetch(`${API}/itemAdmin/delete/${addItemForm.name}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify([addItemForm]),
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      await loadMenu()
+
+      setAddItemForm({
+        name: "",
+        description: "",
+        allergies: 0,
+        foodType: 0,
+        isSoldOut: false,
+        calories: 0,
+        protein: 0,
+        carbs: 0,
+      })
+    } catch (error) {
+      console.error("Error:", error)
+    }
+  }
+
 
   return(
     <SidebarProvider>
@@ -28,22 +85,45 @@ export default function DeleteItem(){
       <main className="relative w-full space-y-6 p-6">
         <h1 className="mt-4 text-center text-3xl font-bold lg:text-4xl">BB Food Cart | Delete Item</h1>
         
+
         <div className="container mx-auto py-10">
           <Card>
             <CardHeader>
               <CardTitle>Delete Item</CardTitle>
-              <CardDescription>Add item to the menu</CardDescription>
-              <CardAction>Card Action</CardAction>
+              <CardDescription>Delete item to the menu</CardDescription>
             </CardHeader>
+
+            <form onSubmit={postItem}>
               <CardContent>
-                <p>Card Content</p>
+                <div className="flex flex-col gap-6">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                    <div className="grid gap-2 md:col-span-2">
+                      <p>Enter the exact name of item to be deleted!!!</p>
+                      <Input
+                        placeholder="Item name:"
+                        value={addItemForm.name}
+                        onChange={(e) =>
+                          setAddItemForm({
+                            ...addItemForm,
+                            name: e.target.value,
+                          })
+                        }
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
               </CardContent>
-              <CardFooter>
-                <p>Card Footer</p>
+
+              <CardFooter className="mt-3">
+                <Button type="submit" variant="outline" size="sm" className="w-full">
+                DELETE
+                </Button>
               </CardFooter>
+            </form>
           </Card>
-        </div>        
-        
+        </div>
+
         <div className="container mx-auto py-10">
           <DataTable columns={columns} data={Menu}/>
         </div>

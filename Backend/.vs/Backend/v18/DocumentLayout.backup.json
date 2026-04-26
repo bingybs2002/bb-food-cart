@@ -178,8 +178,7 @@
               "RelativeToolTip": "EndPoints\\ShoppingCart\\Cart\\AdminItem.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAkwEYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T21:41:30.389Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-03T21:41:30.389Z"
             },
             {
               "$type": "Document",
@@ -191,8 +190,7 @@
               "RelativeToolTip": "Models\\Food\\FoodType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T17:44:37.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-22T17:44:37.455Z"
             },
             {
               "$type": "Document",
@@ -204,8 +202,7 @@
               "RelativeToolTip": "EndPoints\\ShoppingCart\\Stats.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAQwFEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T19:54:44.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-18T19:54:44.274Z"
             },
             {
               "$type": "Document",
@@ -215,7 +212,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAAAH4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-03T18:30:11.384Z",
               "EditorCaption": ""
@@ -254,8 +251,7 @@
               "RelativeToolTip": "Models\\Food\\Food.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T12:41:33.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-12T12:41:33.456Z"
             },
             {
               "$type": "Document",
@@ -315,8 +311,7 @@
               "RelativeToolTip": "EndPoints\\ShoppingCart\\Cart\\ShoppingCart.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T15:12:39.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-22T15:12:39.463Z"
             },
             {
               "$type": "Document",
@@ -636,7 +631,7 @@
               "RelativeDocumentMoniker": "EndPoints\\ShoppingCart\\Cart\\DTO\\AdminShoppingCartDto.cs",
               "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Cart\\DTO\\AdminShoppingCartDto.cs",
               "RelativeToolTip": "EndPoints\\ShoppingCart\\Cart\\DTO\\AdminShoppingCartDto.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAIA1wBMAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAASwBMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-22T17:57:31.948Z",
               "EditorCaption": ""

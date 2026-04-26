@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 
-const API = "https://localhost:63196"
+const API = import.meta.env.VITE_API_BASE_URL
 
 export default function AddItem() {
   const [Menu, SetMenu] = useState<MenuItems[]>([])
@@ -31,7 +31,7 @@ export default function AddItem() {
     protein: 0,
     carbs: 0,
   })
-
+  
   const loadMenu = async () => {
     const res = await fetch(`${API}/itemAdmin/Read`)
     const data: MenuItems[] = await res.json()
