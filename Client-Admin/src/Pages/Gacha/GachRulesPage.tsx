@@ -1,4 +1,4 @@
-import { SidebarProvider } from "@/components/ui/sidebar"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 
 export default function GachaRulesPage() {
@@ -6,22 +6,11 @@ export default function GachaRulesPage() {
     <SidebarProvider>
       <AppSidebar />
 
-      <main className="flex-1 p-6 max-w-2xl">
+      <main className="ml-10 flex-1 p-6 max-w-2xl border-1">
         <h1 className="text-2xl font-bold text-center">Gacha Rules and Disclaimers:</h1>
 
         <p className ="mt-4">
-            We wanted to create a fun and engaging reward system for our customers,
-            so we developed a Gacha-like mechanism that allows customers to test their luck 
-            and win prizes based on their spending. This Gacha system is designed 
-            to add an element of excitement and surprise to the shopping experience
-            at BB Food Truck. And if you are not lucky today, don't worry! We also combined 
-            fortune coockies with the Gacha system, so you can still get some fun and intersting
-            fortune coockies with every purchase, regardless of the Gacha outcome.
-        </p>
-
-        <p className="mt-2">
-          For a single order purchase of $40, 
-          a customer gets <strong>1 Gacha roll</strong>.
+          Compared to traditional Chinese food Experience, we added Gacha on top of Fortune Cookies!
         </p>
 
         <div>
@@ -29,7 +18,7 @@ export default function GachaRulesPage() {
             Drop Rate on Count of 30
           </h3>
 
-          <table className="border border-gray-300 text-sm">
+          <table className="border-3 border-gray-300 text-sm">
               <tr>
                 <th className="border px-3 py-2">Rarity</th>
                 <th className="border px-3 py-2">Expected Rate</th>
@@ -71,6 +60,7 @@ export default function GachaRulesPage() {
           </table>
 
         </div>
+        <SidebarTrigger className="ml-10 mt-100"/>
       </main>
     </SidebarProvider>
   )
