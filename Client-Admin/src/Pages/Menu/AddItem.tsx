@@ -18,7 +18,7 @@ import { Textarea } from "@/components/ui/textarea"
 
 const API = import.meta.env.VITE_API_BASE_URL
 
-export default function AddItem() {
+export default function AddItem() {0
   const [Menu, SetMenu] = useState<MenuItems[]>([])
 
   const [addItemForm, setAddItemForm] = useState({

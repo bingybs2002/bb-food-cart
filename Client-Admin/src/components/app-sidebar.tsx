@@ -39,7 +39,7 @@ export function AppSidebar() {
             <SidebarGroupContent className="ml-4">
               <SidebarMenu className="space-y-1">
               <SidebarMenuItem><Link to="/Orders/OrderHistory">Order History</Link></SidebarMenuItem>
-              <SidebarMenuItem><Link to="">Shopping Cart Tracker</Link></SidebarMenuItem>
+              <SidebarMenuItem><Link to="/Orders/ShoppingCartTracker">Shopping Cart Tracker</Link></SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
           </div>

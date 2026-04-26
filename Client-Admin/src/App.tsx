@@ -5,7 +5,8 @@ import SignupPage from "./Pages/Auth/SignupPage"
 import AdminPanel from "./Pages/AdminPanel"
 import GachaRulesPage from "./Pages/Gacha/GachRulesPage"
 import Utilities from "./Pages/Utilities"
-import OrderHistory from "./Pages/Orders/OrderHistory"
+import OrderHistory from "./Pages/Orders/OrderHistory/OrderHistory"
+import ShoppingCartTracker  from "./Pages/Orders/ShoppingCartTracker/ShoppingCartTracker"
 import AddItem from "./Pages/Menu/AddItem"
 import ViewMenu from "./Pages/Menu/ViewMenu"
 import DeleteItem from "./Pages/Menu/DeleteItem"
@@ -43,13 +44,21 @@ function MainPage() {
 export default function App(){
   return(
     <Routes>
+      //Landing Page
       <Route path="/" element={<MainPage />} />
+      //Auth
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+      //homepage
       <Route path="/homepage" element={<AdminPanel />} />
+      //gacha
       <Route path="/Gacha/Rules" element={<GachaRulesPage />} />
+      //util
       <Route path="/Utilities" element={<Utilities/>}/>
+      //order
       <Route path="/Orders/OrderHistory" element={<OrderHistory/>}/>
+      <Route path="/Orders/ShoppingCartTracker" element={<ShoppingCartTracker/>}/>
+      //menu
       <Route path="/Menu/AddItem" element={<AddItem/>}/>
       <Route path="/Menu/EditItem" element={<EditItem/>}/>
       <Route path="/Menu/DeleteItem" element={<DeleteItem/>}/>
