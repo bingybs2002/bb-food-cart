@@ -51,10 +51,10 @@ export function DataTable<TData, TValue>({
 
         <div className="flex items-center py-4">
           <Input
-            placeholder="Filter by Customer ID:"
-            value={(table.getColumn("customerId")?.getFilterValue() as string) ?? ""}
+            placeholder="Filter by Created Date(UTC)"
+            value={(table.getColumn("createdAtUtc")?.getFilterValue() as string) ?? ""}
             onChange={(event) =>
-              table.getColumn("customerId")?.setFilterValue(event.target.value)
+              table.getColumn("createdAtUtc")?.setFilterValue(event.target.value)
             }
             className="max-w-sm"
           />

@@ -29,9 +29,13 @@ export const columns: ColumnDef<ShoppingCartHistory>[] = [
   {
     accessorKey: "foods",
     header: "Food",
+    cell: ({row}) => {
+      const foods = row.original.foods
+      return foods.map(f=>f.name).join(", ")
+    }
   },
   {
-    accessorKey: "createdDate",
+    accessorKey: "createdAtUtc",
     header: "Created Date(UTC)",
   },
 ]
