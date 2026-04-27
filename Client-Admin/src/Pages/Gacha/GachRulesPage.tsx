@@ -11,11 +11,12 @@ export default function GachaRulesPage() {
 
         <p className ="mt-4">
           Compared to traditional Chinese food Experience, we added Gacha on top of Fortune Cookies!
+          For each purchase that is over $40, you get one spin!
         </p>
 
         <div>
           <h3 className="text-lg font-semibold mb-2 mt-6">
-            Drop Rate on Count of 30
+            Drop Rate based on 30 rolls:
           </h3>
 
           <table className="border-3 border-gray-300 text-sm">

@@ -13,6 +13,7 @@ using Backend.Testing;
 using Backend.Testing.Gacha;
 using Backend.Testing.Accounts;
 using Backend.Testing.Menu;
+using AspNetCore.Swagger.Themes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -114,15 +115,12 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+
+app.UseSwaggerUI(Theme.Dark, c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "BB Food Cart API v1");
-        options.RoutePrefix = "swagger";
-    });
-}
+    c.EnableThemeSwitcher(); // Auto-discovers all custom themes!
+});
 
 app.UseCors("ViteFrontend");
 

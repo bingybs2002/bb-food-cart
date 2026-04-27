@@ -11,6 +11,9 @@ import AddItem from "./Pages/Menu/AddItem"
 import ViewMenu from "./Pages/Menu/ViewMenu"
 import DeleteItem from "./Pages/Menu/DeleteItem"
 import EditItem from "./Pages/Menu/EditItem"
+import GachaHistory from "./Pages/Gacha/History"
+import GachaAddItems from "./Pages/Gacha/AddItem/AddItems"
+
 function MainPage() {
   const accessToken = localStorage.getItem("accessToken")
   const expiredTime = localStorage.getItem("accessTokenExpiresAtUtc")
@@ -45,14 +48,16 @@ export default function App(){
   return(
     <Routes>
       //Landing Page
-      <Route path="/" element={<MainPage />} />
+      <Route path="/" element={<MainPage/>} />
       //Auth
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
+      <Route path="/login" element={<LoginPage/>} />
+      <Route path="/signup" element={<SignupPage/>} />
       //homepage
-      <Route path="/homepage" element={<AdminPanel />} />
+      <Route path="/homepage" element={<AdminPanel/>} />
       //gacha
-      <Route path="/Gacha/Rules" element={<GachaRulesPage />} />
+      <Route path="/Gacha/Rules" element={<GachaRulesPage/>} />
+      <Route path="/Gacha/addItem" element={<GachaAddItems/>}/>
+      <Route path="/Gacha/history" element={<GachaHistory/>}/>
       //util
       <Route path="/Utilities" element={<Utilities/>}/>
       //order

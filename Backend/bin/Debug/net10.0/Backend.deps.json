@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "Backend/1.0.0": {
         "dependencies": {
+          "AspNetCore.SwaggerUI.Themes": "3.0.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.5",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.5",
           "Microsoft.EntityFrameworkCore.Design": "10.0.5",
@@ -18,6 +19,21 @@
         },
         "runtime": {
           "Backend.dll": {}
+        }
+      },
+      "AspNetCore.SwaggerUI.Themes/3.0.2": {
+        "dependencies": {
+          "Swashbuckle.AspNetCore": "10.0.1"
+        },
+        "runtime": {
+          "lib/net10.0/AspNetCore.Swagger.Themes.Common.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/net10.0/AspNetCore.SwaggerUI.Themes.dll": {
+            "assemblyVersion": "3.0.2.0",
+            "fileVersion": "3.0.2.0"
+          }
         }
       },
       "Humanizer.Core/2.14.1": {
@@ -657,6 +673,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AspNetCore.SwaggerUI.Themes/3.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wP0OqBmdtOp85vEi46kiafoDcapdRtir43c5XzpJnYI4N4u4F+zWUONBmZEyoG8Wnmixju+g+J8e9aUGvzRKVw==",
+      "path": "aspnetcore.swaggerui.themes/3.0.2",
+      "hashPath": "aspnetcore.swaggerui.themes.3.0.2.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

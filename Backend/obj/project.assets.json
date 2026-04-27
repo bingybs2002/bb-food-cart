@@ -2,6 +2,24 @@
   "version": 3,
   "targets": {
     "net10.0": {
+      "AspNetCore.SwaggerUI.Themes/3.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Swashbuckle.AspNetCore": "9.0.6"
+        },
+        "compile": {
+          "lib/net10.0/AspNetCore.Swagger.Themes.Common.dll": {},
+          "lib/net10.0/AspNetCore.SwaggerUI.Themes.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/AspNetCore.Swagger.Themes.Common.dll": {},
+          "lib/net10.0/AspNetCore.SwaggerUI.Themes.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -921,6 +939,30 @@
     }
   },
   "libraries": {
+    "AspNetCore.SwaggerUI.Themes/3.0.2": {
+      "sha512": "wP0OqBmdtOp85vEi46kiafoDcapdRtir43c5XzpJnYI4N4u4F+zWUONBmZEyoG8Wnmixju+g+J8e9aUGvzRKVw==",
+      "type": "package",
+      "path": "aspnetcore.swaggerui.themes/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE/LICENSE",
+        "aspnetcore.swaggerui.themes.3.0.2.nupkg.sha512",
+        "aspnetcore.swaggerui.themes.nuspec",
+        "icon.png",
+        "lib/net10.0/AspNetCore.Swagger.Themes.Common.dll",
+        "lib/net10.0/AspNetCore.SwaggerUI.Themes.dll",
+        "lib/net10.0/AspNetCore.SwaggerUI.Themes.xml",
+        "lib/net8.0/AspNetCore.Swagger.Themes.Common.dll",
+        "lib/net8.0/AspNetCore.SwaggerUI.Themes.dll",
+        "lib/net8.0/AspNetCore.SwaggerUI.Themes.xml",
+        "lib/net9.0/AspNetCore.Swagger.Themes.Common.dll",
+        "lib/net9.0/AspNetCore.SwaggerUI.Themes.dll",
+        "lib/net9.0/AspNetCore.SwaggerUI.Themes.xml",
+        "package-readme.md",
+        "readme.txt"
+      ]
+    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -3017,6 +3059,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "AspNetCore.SwaggerUI.Themes >= 3.0.2",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.5",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 10.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.5",
@@ -3076,6 +3119,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "AspNetCore.SwaggerUI.Themes": {
+            "target": "Package",
+            "version": "[3.0.2, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[10.0.5, )"

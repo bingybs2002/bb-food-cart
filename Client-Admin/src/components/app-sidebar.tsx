@@ -65,14 +65,11 @@ export function AppSidebar() {
             </SidebarGroupLabel>
             <SidebarGroupContent className="ml-4">
                 <SidebarMenu className="space-y-1">
-                <SidebarMenuItem><Link to="">Mock Testing</Link></SidebarMenuItem>
                 <SidebarMenuItem><Link to="">Prize Pool</Link></SidebarMenuItem>
                 <SidebarMenuItem><Link to="/Gacha/Rules">Rules</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">History</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">Add items</Link></SidebarMenuItem>
+                <SidebarMenuItem><Link to="/Gacha/History">History</Link></SidebarMenuItem>
+                <SidebarMenuItem><Link to="/Gacha/addItem">Add items</Link></SidebarMenuItem>
                 <SidebarMenuItem><Link to="">Delete item</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">Delete All Items</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">Order History</Link></SidebarMenuItem>
                 </SidebarMenu>
             </SidebarGroupContent>
             </div>
