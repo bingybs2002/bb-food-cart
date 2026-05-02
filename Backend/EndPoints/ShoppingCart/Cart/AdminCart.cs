@@ -27,6 +27,9 @@ public class AdminCart : ControllerBase
         {
             return null;
         }
+        var response = await _cartContext.Customers
+            .FirstOrDefaultAsync(c => c.UserId == userId);
+        Console.WriteLine("User found: ", response);
         return await _cartContext.Customers
             .FirstOrDefaultAsync(c => c.UserId == userId);
     }

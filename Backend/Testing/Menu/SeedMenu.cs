@@ -9,6 +9,7 @@ namespace Backend.Testing.Menu
         {
             if (db.Foods.Any())
             {
+                Console.WriteLine("Menu already seeded. Skipping...");
                 return;
             }
             var options = new JsonSerializerOptions
@@ -24,13 +25,8 @@ namespace Backend.Testing.Menu
             }
 
             var httpclient = new HttpClient();
-
  
             var response = await httpclient.PostAsJsonAsync("https://localhost:63196/itemAdmin/Create-SEED", items);
-
-              
-            
-
         }
     }
 }

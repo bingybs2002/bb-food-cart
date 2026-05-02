@@ -1,13 +1,13 @@
 # BB Food Cart
 
-BB Food Cart is a fullstack application for the imaginary failure Asian Computer student that didn't pass his CMPSC 464 class and can't graduate, and started to do a food cart on the nearby Gym.
+BB Food Cart is a fullstack application for the imaginary failure Computer student that didn't pass his CMPSC 464 class and can't graduate, and started to do a food cart on the nearby Gym.
 
 ### Backend features:
 - JWT-based account registration and login
 - Role-based access for `User` and `Admin`
 - Menu management endpoints
-- Customer shopping cart endpoints
-- A gacha-style rewards API
+- Customer Shopping Cart
+- A gacha-style rewards API(still experimental because I can't do a good animation that draws user attention)
 
 
 ## Stack
@@ -51,22 +51,30 @@ Before running locally, update this connection string to match your PostgreSQL s
 
 The project also includes a development JWT configuration in `appsettings.json`. That is fine for local work, but it should be replaced with environment-specific secrets before any shared or production deployment.
 
-## Running The API
-
-From the repo root:
-
-```powershell
-cd Backend
-dotnet restore
-dotnet ef database update
-dotnet run
-```
-
-If `dotnet ef` is not installed:
-
-```powershell
-dotnet tool install --global dotnet-ef
-```
+## Running The API on Ubuntu machine:
+1. Setup dotnet-sdk:
+ `sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-10.0`
+`sudo apt-get update && \
+  sudo apt-get install -y aspnetcore-runtime-10.0`
+2. Setup PostgreSQL:
+`sudo apt install postgresql`
+`sudo -u postgres psql postgres`
+`CREATE DATABASE "bb-food;"
+`\password postgres`
+`bing`
+`\q`
+3. Trusting the certificate 
+`dotnet dev-certs https --trust`
+`echo 'export DOTNET_GENERATE_ASPNET_CERTIFICATE=false' >> ~/.bashrc`
+`source ~/.bashrc`
+4. Running:
+`dotnet restore`
+`dotnet ef database update`
+`dotent run`
+5. Pause the program, then seed the busy week into the database:
+`sudo -u postgres psql bb-food`
+`\i /home/bing/Projects/bb-food-cart/Backend/Testing/Miscellaneous/busy_week_transactions.sql`
 
 The development launch profile is configured for:
 

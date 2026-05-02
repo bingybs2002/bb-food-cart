@@ -7,19 +7,20 @@ export default function GachaRulesPage() {
       <AppSidebar />
 
       <main className="ml-10 flex-1 p-6 max-w-2xl border-1">
-        <h1 className="text-2xl font-bold text-center">Gacha Rules and Disclaimers:</h1>
-
+        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+          Gacha Rules and Disclaimers:
+        </h2>
         <p className ="mt-4">
           Compared to traditional Chinese food Experience, we added Gacha on top of Fortune Cookies!
           For each purchase that is over $40, you get one spin!
         </p>
 
         <div>
-          <h3 className="text-lg font-semibold mb-2 mt-6">
+          <h3 className="mt-20 text-lg font-semibold mb-2 mt-6">
             Drop Rate based on 30 rolls:
           </h3>
 
-          <table className="border-3 border-gray-300 text-sm">
+          <table className="mt-10 border-3 border-gray-300 text-sm">
               <tr>
                 <th className="border px-3 py-2">Rarity</th>
                 <th className="border px-3 py-2">Expected Rate</th>
@@ -59,7 +60,9 @@ export default function GachaRulesPage() {
               </tr>
             </tbody>
           </table>
-
+          <h1 className="mt-10 scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
+              Once your order is completed, show it to me and I'll draw!
+          </h1>
         </div>
         <SidebarTrigger className="ml-10 mt-100"/>
       </main>

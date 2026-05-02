@@ -25,6 +25,9 @@ export default function ShoppingCartTracker() {
         if (!response.ok){
           throw new Error(`HTTP Error: ${response.status}`)
         }
+        if(response){
+          console.log("Not found")
+        }
         const data: ShoppingCartHistory[] = await response.json()
         setHistory(data)
     }

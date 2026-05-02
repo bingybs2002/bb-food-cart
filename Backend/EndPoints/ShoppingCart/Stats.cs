@@ -102,4 +102,46 @@ public class Stats : ControllerBase
             .ToListAsync();
         return Ok(foods);
     }
+    [HttpGet("weeklySaleStat/{datetime}")]
+    public async Task<ActionResult> weeklySaleStat(DateTime datetime)
+    {
+        var start = datetime.Date.AddDays(-(int)datetime.DayOfWeek);
+        var end = start.AddDays(7);
+
+        var result = await _statContext.ShoppingCarts
+            .Where(f => f.IsCheckedOut
+                && f.CreatedDate >= start
+                && f.CreatedDate < end)
+            .GroupBy(f => f.CreatedDate.Date)
+            .Select(g => new {
+                Date = g.Key,
+                DayOfWeek = g.Key.DayOfWeek.ToString(),   
+                Count = g.Count()
+            })
+            .OrderBy(x=>x.Date)
+            .ToListAsync();
+
+        return Ok(result);
+    }
+    [HttpGet("weeklyVisitStat/{datetime}")]
+    public async Task<ActionResult> weeklyVisitStat(DateTime datetime)
+    {
+        var start = datetime.Date.AddDays(-(int)datetime.DayOfWeek);
+        var end = start.AddDays(7);
+
+        var result = await _statContext.ShoppingCarts
+            .Where(f => f.IsCheckedOut == false
+                && f.CreatedDate >= start
+                && f.CreatedDate < end)
+            .GroupBy(f => f.CreatedDate.Date)
+            .Select(g => new {
+                Date = g.Key,
+                DayOfWeek = g.Key.DayOfWeek.ToString(),   
+                Count = g.Count()
+            })
+            .OrderBy(x=>x.Date)
+            .ToListAsync();
+
+        return Ok(result);
+    }
 }

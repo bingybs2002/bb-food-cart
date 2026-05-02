@@ -12,7 +12,7 @@ import ViewMenu from "./Pages/Menu/ViewMenu"
 import DeleteItem from "./Pages/Menu/DeleteItem"
 import EditItem from "./Pages/Menu/EditItem"
 import GachaHistory from "./Pages/Gacha/History"
-import GachaAddItems from "./Pages/Gacha/AddItem/AddItems"
+import GachaAddItems from "./Pages/Gacha/Gacha!/Gacha!"
 
 function MainPage() {
   const accessToken = localStorage.getItem("accessToken")

@@ -136,6 +136,7 @@ export default function HomePage() {
                   <Bar dataKey="Orders" fill="var(--color-Orders)" radius={4} />
                 </BarChart>
               </ChartContainer>
+                <p>Data that is not seeded will be randomized for now...</p>
             </div>
 
             <div className="flex flex-col gap-6">

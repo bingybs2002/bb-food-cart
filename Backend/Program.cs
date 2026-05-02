@@ -164,9 +164,9 @@ app.Lifetime.ApplicationStarted.Register(() =>
     {
         using var scope = app.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
-        await SeedAccounts.SeedUser(db);
+        
         await SeedMenu.SeedMenuItems(db);
+        await SeedAccounts.SeedUser(db);
     });
 });
 
