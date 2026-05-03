@@ -182,23 +182,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 383,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ShoppingCartItems.txt",
-              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Miscellaneous\\ShoppingCartItems.txt",
-              "RelativeDocumentMoniker": "Testing\\Miscellaneous\\ShoppingCartItems.txt",
-              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Miscellaneous\\ShoppingCartItems.txt",
-              "RelativeToolTip": "Testing\\Miscellaneous\\ShoppingCartItems.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-04-12T10:48:08.679Z"
             },
             {
               "$type": "Document",
@@ -234,8 +222,7 @@
               "RelativeToolTip": "Testing\\Accounts\\Customer.json",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAADwCAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-13T15:18:03.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T15:18:03.323Z"
             },
             {
               "$type": "Document",
@@ -245,10 +232,22 @@
               "RelativeDocumentMoniker": "EndPoints\\ShoppingCart\\Stats.cs",
               "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\EndPoints\\ShoppingCart\\Stats.cs",
               "RelativeToolTip": "EndPoints\\ShoppingCart\\Stats.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAowJIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAAJIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T19:54:44.274Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ShoppingCartItems.txt",
+              "DocumentMoniker": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Miscellaneous\\ShoppingCartItems.txt",
+              "RelativeDocumentMoniker": "Testing\\Miscellaneous\\ShoppingCartItems.txt",
+              "ToolTip": "C:\\Users\\Bing\\Projects\\bb-food-cart\\Backend\\Testing\\Miscellaneous\\ShoppingCartItems.txt",
+              "RelativeToolTip": "Testing\\Miscellaneous\\ShoppingCartItems.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-04-12T10:48:08.679Z"
             },
             {
               "$type": "Document",
