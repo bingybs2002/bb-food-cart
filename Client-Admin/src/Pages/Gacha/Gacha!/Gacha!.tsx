@@ -29,11 +29,12 @@ export default function Gacha(){
         <SidebarProvider>
             <AppSidebar/>
             <main className="relative w-full space-y-6 p-6">
+
                 <h1 className="mt-4 text-center text-3xl font-bold lg:text-4xl">BB-Food | Add Gacha Item</h1>
                 <div className="container mx-auto py-10">
                      
                 </div>
-            <SidebarTrigger/>
+            <SidebarTrigger className="ml-15 fixed bottom-10"/>
             </main>
         </SidebarProvider>
     )

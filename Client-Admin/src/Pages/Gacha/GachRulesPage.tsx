@@ -64,7 +64,7 @@ export default function GachaRulesPage() {
               Once your order is completed, show it to me and I'll draw!
           </h1>
         </div>
-        <SidebarTrigger className="ml-10 mt-100"/>
+        <SidebarTrigger className="absolute bottom-5 left-6 h-10 w-40 border-2 border-white" />
       </main>
     </SidebarProvider>
   )

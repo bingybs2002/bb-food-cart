@@ -1,5 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
-import { Sidebar, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Sidebar, SidebarFooter, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import {columns, type GachaItems } from "./columns";
 import { DataTable } from "./data-table";
 import { useEffect, useState } from "react";
@@ -28,8 +28,7 @@ export default function GachaPricePool(){
             <h2>Gacha Items are listed below:</h2>
             <DataTable columns={columns} data={items} />
 
-          <SidebarTrigger/>
-
+          <SidebarTrigger className="absolute bottom-5 left-6 h-10 w-40 border-2 border-white" />
           </main>
       </SidebarProvider>
   )

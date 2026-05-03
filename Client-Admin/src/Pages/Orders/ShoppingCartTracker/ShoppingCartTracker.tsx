@@ -6,6 +6,7 @@ import { SidebarProvider } from "@/components/ui/sidebar"
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { SidebarTrigger } from "@/components/ui/sidebar"
 
 const API = import.meta.env.VITE_API_BASE_URL
 
@@ -66,6 +67,7 @@ export default function ShoppingCartTracker() {
                 <div className="container mx-auto py-10">
                 <DataTable columns={columns} data={History} />
                 </div>
+                <SidebarTrigger className="absolute bottom-5 left-6 h-10 w-40 border-2 border-white" />
             </main>
     </SidebarProvider>
   )

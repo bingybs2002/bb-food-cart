@@ -3,7 +3,7 @@ import { DataTable } from "./data-table"
 import { useEffect, useState } from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SidebarProvider } from "@/components/ui/sidebar"
-
+import { SidebarTrigger } from "@/components/ui/sidebar"
 export default function OrderHistory() {
 
   const [History, setHistory] = useState<OrderHistory[]>([])
@@ -24,6 +24,7 @@ export default function OrderHistory() {
                 <DataTable columns={columns} data={History} />
 
                 </div>
+            <SidebarTrigger className="absolute bottom-5 left-6 h-10 w-40 border-2 border-white" />
             </main>
     </SidebarProvider>
   )
