@@ -11,8 +11,7 @@ import AddItem from "./Pages/Menu/AddItem"
 import ViewMenu from "./Pages/Menu/ViewMenu"
 import DeleteItem from "./Pages/Menu/DeleteItem"
 import EditItem from "./Pages/Menu/EditItem"
-import GachaHistory from "./Pages/Gacha/History"
-import GachaAddItems from "./Pages/Gacha/Gacha!/Gacha!"
+import GachaManagement from "./Pages/Gacha/gachamanagement"
 import GachaPricePool from "./Pages/Gacha/PricePool/PricePool"
 
 function MainPage() {
@@ -57,8 +56,7 @@ export default function App(){
       <Route path="/homepage" element={<AdminPanel/>} />
       //gacha
       <Route path="/Gacha/Rules" element={<GachaRulesPage/>} />
-      <Route path="/Gacha/addItem" element={<GachaAddItems/>}/>
-      <Route path="/Gacha/history" element={<GachaHistory/>}/>
+      <Route path="/Gacha/management" element={<GachaManagement/>}/>
       <Route path="/Gacha/pricePool" element={<GachaPricePool/>}/>
       //Utils
       <Route path="/Utilities" element={<Utilities/>}/>
