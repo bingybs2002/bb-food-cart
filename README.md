@@ -69,12 +69,14 @@ The project also includes a development JWT configuration in `appsettings.json`.
 `echo 'export DOTNET_GENERATE_ASPNET_CERTIFICATE=false' >> ~/.bashrc`
 `source ~/.bashrc`
 4. Running:
+`dotnet tool install --global dotnet-ef`
 `dotnet restore`
 `dotnet ef database update`
 `dotent run`
 5. Pause the program, then seed the busy week into the database:
+`sudo cp Testing/Miscellaneous/busy_week_transactions.sql /var/lib/postgresql`
 `sudo -u postgres psql bb-food`
-`\i /home/bing/Projects/bb-food-cart/Backend/Testing/Miscellaneous/busy_week_transactions.sql`
+`\i /var/lib/postgresql/busy_week_transactions.sql`
 
 The development launch profile is configured for:
 
