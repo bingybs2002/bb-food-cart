@@ -1,0 +1,228 @@
+{
+  "main": {
+    "id": "d9625c25a725d209",
+    "type": "split",
+    "children": [
+      {
+        "id": "8db217eb1f276ab7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "50e3961910173fd0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5faa5b5fc459ba2d",
+    "type": "split",
+    "children": [
+      {
+        "id": "d211897ea9862f4e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e59b0fa8e71312b1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "353eb29f589ea116",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "379adf2fdb869772",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "afd157c05bb82e7f",
+    "type": "split",
+    "children": [
+      {
+        "id": "96492b215ba252fd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2e5c59e8494b8481",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "GameRecommendation/Hi.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Hi"
+            }
+          },
+          {
+            "id": "e00a5fea6c166b0c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "GameRecommendation/Hi.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Hi"
+            }
+          },
+          {
+            "id": "6e88e3a34009d638",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fd0a5cb9bc31f698",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "GameRecommendation/Hi.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Hi"
+            }
+          },
+          {
+            "id": "ed1bb8592e366b14",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "50e3961910173fd0",
+  "lastOpenFiles": [
+    "Admin-Client/node_modules/@vitejs",
+    "Admin-Client/node_modules/@tanstack",
+    "Admin-Client/node_modules/@tailwindcss",
+    "Admin-Client/node_modules/@eslint",
+    "Admin-Client/node_modules/@types",
+    "Admin-Client/node_modules/@fontsource-variable",
+    "Admin-Client/node_modules/@base-ui",
+    "User-Client/lib/utils.ts",
+    "User-Client/components/ui/button.tsx",
+    "User-Client/components/ui",
+    "User-Client/package.json.2352766349",
+    "User-Client/README.md",
+    "Admin-Client/src/assets/location.png",
+    "Admin-Client/src/assets/react.svg",
+    "Admin-Client/src/assets/bbFoodCart.png",
+    "Admin-Client/dist/assets/bbFoodCart-D1ULD4hy.png",
+    "Admin-Client/public/vite.svg",
+    "Admin-Client/public/bbFoodCart.png",
+    "Admin-Client/public/location.png",
+    "Admin-Client/dist/bbFoodCart.png",
+    "Admin-Client/dist/location.png",
+    "Admin-Client/dist/vite.svg",
+    "Admin-Client/README.md",
+    "Trip to China/To US/Chenfeng Yu.md",
+    "Trip to China/To US/Bingsong Yu.md",
+    "Trip to China/To China/Bingsong Yu Airplane Ticket.md",
+    "Trip to China/To US/Check List.md",
+    "Trip to China/China Eastern Account.md",
+    "Recipes/番茄牛腩煲.md",
+    "Diary/2025/10/10-16-2025.md",
+    "Diary/10-16-2025.md",
+    "Diary/2025/10/Untitled.md",
+    "Diary/Untitled.md",
+    "2025-10-16.md",
+    "Jobs/Clerkie.md",
+    "卷/SQL NOTE.md",
+    "Trip to China/阮雨彬/attachments/I130 Application.md",
+    "Untitled.md",
+    "README.md",
+    "Accounts/12306.md",
+    "Trip to China/阮雨彬/Marriage.md",
+    "Trip to China/阮雨彬/USCIS Account.md",
+    "CShaprLearning/InterviewCodingSkills/Dependency Injection.md",
+    "Trip to China/vacation/1.奇达村.md",
+    "Trip to China/To China/Untitled.md",
+    "Trip to China/To China/Chenfeng Yu Airplane ticket.md"
+  ]
+}

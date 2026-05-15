@@ -1,7 +1,13 @@
 # BB Food Cart
 
-BB Food Cart is a fullstack application for the imaginary failure Computer student that didn't pass his CMPSC 464 class and can't graduate, and started to do a food cart on the nearby Gym.
+BB Food Cart is a full stack application for the alternative universe where a Computer Science student that didn't pass his (computer theory) CMPSC 464 class and can't graduate, and started to do a food cart on the nearby Gym, tailored to customers that are regular gym goers with mind of either cutting or bulking.
 
+## Stack
+
+- .NET 10
+- ASP.NET Core Minimal APIs and Controllers
+- Entity Framework Core w/ PostgreSQL
+- ASP.NET Core Identity
 ### Backend features:
 - JWT-based account registration and login
 - Role-based access for `User` and `Admin`
@@ -9,15 +15,10 @@ BB Food Cart is a fullstack application for the imaginary failure Computer stude
 - Customer Shopping Cart
 - A gacha-style rewards API(still experimental because I can't do a good animation that draws user attention)
 
-
-## Stack
-
-- .NET 10
-- ASP.NET Core Minimal APIs and Controllers
-- Entity Framework Core
-- PostgreSQL
-- ASP.NET Core Identity
-- Swagger for local API exploration in development
+## Frontend Features:
+- Separated Client for admin and user.
+- Both is using typescript. 
+- Admin Client is using Vite, and User Client is using NextJS.
 
 ## Project Layout
 
@@ -47,16 +48,14 @@ Current local defaults:
 }
 ```
 
-Before running locally, update this connection string to match your PostgreSQL setup if needed.
-
-The project also includes a development JWT configuration in `appsettings.json`. That is fine for local work, but it should be replaced with environment-specific secrets before any shared or production deployment.
 
 ## Running The API on Ubuntu machine:
 1. Setup dotnet-sdk:
- `sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-10.0`
-`sudo apt-get update && \
-  sudo apt-get install -y aspnetcore-runtime-10.0`
+`sudo apt-get update && \`
+`sudo apt-get install -y dotnet-sdk-10.0`
+`sudo apt-get update && \`
+`sudo apt-get install -y aspnetcore-runtime-10.0`
+ 
 2. Setup PostgreSQL:
 `sudo apt install postgresql`
 `sudo -u postgres psql postgres`
@@ -97,7 +96,7 @@ It also seeds a default admin account in [Backend/Models/Account/Admin.cs](/User
 - Phone number / username: `9179`
 - Password: `9179`
 
-This is convenient for local testing, but it is not safe for any environment beyond local development.
+
 
 ## Authentication Flow
 
@@ -194,8 +193,3 @@ Sample gacha items are in:
 - [Backend/Testing/Gacha/GachaItems.txt](/Users/bingy/Projects/bb-food-cart/Backend/Testing/Gacha/GachaItems.txt)
 - [Backend/Testing/Gacha/GachaReadMe.txt](/Users/bingy/Projects/bb-food-cart/Backend/Testing/Gacha/GachaReadMe.txt)
 
-## Notes And Gotchas
-
-- The calories utility endpoint exists in [Backend/EndPoints/Calories/EndpointCalories.cs](/Users/bingy/Projects/bb-food-cart/Backend/EndPoints/Calories/EndpointCalories.cs), but it is not currently mapped in [Backend/Program.cs](/Users/bingy/Projects/bb-food-cart/Backend/Program.cs), so it is not active at runtime.
-- The `frontend` directory is currently empty, so this repo behaves as a backend-only project today.
-- Some text files in [Backend/Testing](/Users/bingy/Projects/bb-food-cart/Backend/Testing) describe older endpoint names. The README above reflects the routes currently wired in code.
