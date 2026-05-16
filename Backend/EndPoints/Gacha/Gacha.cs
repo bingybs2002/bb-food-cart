@@ -15,10 +15,17 @@ namespace Backend.EndPoints.Gacha
             //POST bulk insert 
             groups.MapPost("insert", async (AppDbContext db, List<GachaItemType> items) =>
             {
-                await db.GachaItems.AddRangeAsync(items);
-                await db.SaveChangesAsync();
+                try
+                {
+                    await db.GachaItems.AddRangeAsync(items);
+                    await db.SaveChangesAsync();
 
-                return Results.Created("/bulk", items);
+                    return Results.Created("/bulk", items);
+                }
+                catch (DbUpdateException ex)
+                {
+                    return Results.Conflict("Duplicate key detected:" + ex);
+                }
             }).RequireAuthorization("Admin");
 
             groups.MapDelete("delete/{id}", async (int id, AppDbContext db) =>
