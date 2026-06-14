@@ -11,7 +11,7 @@ import AddItem from "./Pages/Menu/AddItem"
 import ViewMenu from "./Pages/Menu/ViewMenu"
 import DeleteItem from "./Pages/Menu/DeleteItem"
 import EditItem from "./Pages/Menu/EditItem"
-import GachaManagement from "./Pages/Gacha/gachamanagement"
+import GachaManagement from "./Pages/Gacha/GachaManagement"
 import GachaPricePool from "./Pages/Gacha/PricePool/PricePool"
 
 function MainPage() {
