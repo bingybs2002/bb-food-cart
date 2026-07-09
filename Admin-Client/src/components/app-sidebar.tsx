@@ -87,15 +87,8 @@ export function AppSidebar() {
 
            <div>
             <SidebarGroupLabel className="ml-2 text-medium font-bold">
-                Utilities
+                <Link to="/Utilities">Utilities</Link>
             </SidebarGroupLabel>
-            <SidebarGroupContent className="ml-4">
-                <SidebarMenu className="space-y-1">
-                <SidebarMenuItem><Link to="/Utilities/AllergicEnumConverter">Allergic enum converter</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">User Profile</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">User Order history</Link></SidebarMenuItem>
-                </SidebarMenu>
-            </SidebarGroupContent>
             </div>
 
         </SidebarGroup>

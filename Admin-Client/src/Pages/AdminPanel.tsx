@@ -12,7 +12,8 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart"
 
-const API = import.meta.env.VITE_API_BASE_URL
+const API = import.meta.env.VITE_API_BASE_URL ?? ""
+const buildApiUrl = (path: string) => `${API}${path}`
 
 type PopularItemtype = {
   name: string
@@ -32,12 +33,20 @@ type SoldOutItemType = {
   protein: number
 }
 
+type WeeklyStatEntry = {
+  Date?: string
+  date?: string
+  Count?: number
+  count?: number
+}
+
 export default function HomePage() {
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [salesToday, setSalesToday] = useState(0)
   const [salesIn7Days, setSalesIn7Days] = useState(0)
   const [popularItem, setPopularItem] = useState<PopularItemtype | null>(null)
   const [SoldOutItems, setSoldOutItems] = useState<SoldOutItemType[]>([])
+  const [chartData, setChartData] = useState<Array<{ month: string; Visits: number; Orders: number }>>([])
 
   const today = new Date()
 
@@ -52,31 +61,89 @@ export default function HomePage() {
     },
   } satisfies ChartConfig
 
-  const chartData = Array.from({ length: 7 }, (_, i) => {
-    const day = new Date()
-    day.setDate(day.getDate() - (6 - i))
+  useEffect(() => {
+    const selectedDate = date ?? new Date()
+    const startOfWeek = new Date(selectedDate)
+    startOfWeek.setHours(0, 0, 0, 0)
+    startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay())
 
-    return {
-      month: day.toLocaleDateString("en-US", { weekday: "short" }),
-      Visits: Math.floor(Math.random() * 300),
-      Orders: Math.floor(Math.random() * 200),
+    const weekDays = Array.from({ length: 7 }, (_, index) => {
+      const day = new Date(startOfWeek)
+      day.setDate(startOfWeek.getDate() + index)
+      return day
+    })
+
+    const toDateKey = (value: string) => new Date(value).toISOString().slice(0, 10)
+
+    const fetchWeeklyStats = async () => {
+      try {
+        const [salesResponse, visitsResponse] = await Promise.all([
+          fetch(buildApiUrl(`/Stat/weeklySaleStat/${encodeURIComponent(selectedDate.toISOString())}`)),
+          fetch(buildApiUrl(`/Stat/weeklyVisitStat/${encodeURIComponent(selectedDate.toISOString())}`)),
+        ])
+
+        if (!salesResponse.ok || !visitsResponse.ok) {
+          throw new Error("Failed to load weekly statistics")
+        }
+
+        const [salesData, visitsData]: [WeeklyStatEntry[], WeeklyStatEntry[]] = await Promise.all([
+          salesResponse.json(),
+          visitsResponse.json(),
+        ])
+
+        const salesByDate = new Map<string, number>()
+        const visitsByDate = new Map<string, number>()
+
+        salesData.forEach((item) => {
+          if (item.Date || item.date) {
+            const key = toDateKey(item.Date ?? item.date ?? "")
+            salesByDate.set(key, item.Count ?? item.count ?? 0)
+          }
+        })
+
+        visitsData.forEach((item) => {
+          if (item.Date || item.date) {
+            const key = toDateKey(item.Date ?? item.date ?? "")
+            visitsByDate.set(key, item.Count ?? item.count ?? 0)
+          }
+        })
+
+        setChartData(
+          weekDays.map((day) => ({
+            month: day.toLocaleDateString("en-US", { weekday: "short" }),
+            Visits: visitsByDate.get(toDateKey(day.toISOString())) ?? 0,
+            Orders: salesByDate.get(toDateKey(day.toISOString())) ?? 0,
+          }))
+        )
+      } catch (error) {
+        console.error(error)
+        setChartData(
+          weekDays.map((day) => ({
+            month: day.toLocaleDateString("en-US", { weekday: "short" }),
+            Visits: 0,
+            Orders: 0,
+          }))
+        )
+      }
     }
-  })
+
+    void fetchWeeklyStats()
+  }, [date])
 
   useEffect(() => {
-    fetch(`${API}/Stat/salesToday`)
+    fetch(buildApiUrl("/Stat/salesToday"))
       .then((res) => res.json())
       .then((data) => setSalesToday(data))
   }, [])
 
   useEffect(() => {
-    fetch(`${API}/Stat/salesInLast7Days`)
+    fetch(buildApiUrl("/Stat/salesInLast7Days"))
       .then((res) => res.json())
       .then((data) => setSalesIn7Days(data))
   }, [])
 
   useEffect(() => {
-    fetch(`${API}/Stat/MostPopularItem`)
+    fetch(buildApiUrl("/Stat/MostPopularItem"))
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch most popular item")
         return res.json()
@@ -86,7 +153,7 @@ export default function HomePage() {
   }, [])
 
   useEffect(() => {
-    fetch(`${API}/Stat/SoldOutItems`)
+    fetch(buildApiUrl("/Stat/SoldOutItems"))
       .then((res) => res.json())
       .then((data) => setSoldOutItems(data))
   }, [])
@@ -95,7 +162,7 @@ export default function HomePage() {
     <SidebarProvider>
       <AppSidebar/>
 
-      <main className="relative w-full space-y-6 p-6">
+      <main className="relative w-full space-y-6 p-6 pb-24">
         <h1 className="mt-4 text-center text-3xl font-bold lg:text-4xl">
           Admin Dashboard | BB Food Cart
         </h1>
@@ -136,7 +203,9 @@ export default function HomePage() {
                   <Bar dataKey="Orders" fill="var(--color-Orders)" radius={4} />
                 </BarChart>
               </ChartContainer>
-                <p>Data that is not seeded will be randomized for now...</p>
+              <p className="mt-3 text-center text-sm text-gray-400">
+                Showing weekly visits and orders from the backend for the selected week.
+              </p>
             </div>
 
             <div className="flex flex-col gap-6">
