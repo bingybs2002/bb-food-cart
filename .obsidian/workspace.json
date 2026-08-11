@@ -1,24 +1,20 @@
 {
   "main": {
-    "id": "d9625c25a725d209",
+    "id": "7f013dd6ebadd70a",
     "type": "split",
     "children": [
       {
-        "id": "8db217eb1f276ab7",
+        "id": "2c4591545d24d688",
         "type": "tabs",
         "children": [
           {
-            "id": "50e3961910173fd0",
+            "id": "4e8db0b6c8ee3968",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           }
         ]
@@ -27,28 +23,30 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "5faa5b5fc459ba2d",
+    "id": "3c2adb6e7d3d4f38",
     "type": "split",
     "children": [
       {
-        "id": "d211897ea9862f4e",
+        "id": "98c68a9fc12286cf",
         "type": "tabs",
         "children": [
           {
-            "id": "e59b0fa8e71312b1",
+            "id": "8728e0ca18225a19",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
           },
           {
-            "id": "353eb29f589ea116",
+            "id": "1c05557e4c7dd6ac",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,11 +63,14 @@
             }
           },
           {
-            "id": "379adf2fdb869772",
+            "id": "8c34c24ab84ece7e",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
@@ -78,23 +79,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 300
   },
   "right": {
-    "id": "afd157c05bb82e7f",
+    "id": "1c12fe2ab3538524",
     "type": "split",
     "children": [
       {
-        "id": "96492b215ba252fd",
+        "id": "046e7c212dc780c6",
         "type": "tabs",
         "children": [
           {
-            "id": "2e5c59e8494b8481",
+            "id": "d79ea4bf81ac3e1f",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "GameRecommendation/Hi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,56 +104,63 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Hi"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "e00a5fea6c166b0c",
+            "id": "56666bd6f480990e",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "GameRecommendation/Hi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Hi"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "6e88e3a34009d638",
+            "id": "599a3301834e6646",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
             }
           },
           {
-            "id": "fd0a5cb9bc31f698",
+            "id": "73ca86f5f0fc1d83",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "854a6cb746f28cd5",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "GameRecommendation/Hi.md"
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Hi"
-            }
-          },
-          {
-            "id": "ed1bb8592e366b14",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "calendar"
+              "title": "Outline"
             }
           }
         ]
@@ -165,64 +172,23 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "bases:Create new base": false
     }
   },
-  "active": "50e3961910173fd0",
+  "active": "4e8db0b6c8ee3968",
   "lastOpenFiles": [
-    "Admin-Client/node_modules/@vitejs",
-    "Admin-Client/node_modules/@tanstack",
-    "Admin-Client/node_modules/@tailwindcss",
-    "Admin-Client/node_modules/@eslint",
-    "Admin-Client/node_modules/@types",
-    "Admin-Client/node_modules/@fontsource-variable",
-    "Admin-Client/node_modules/@base-ui",
-    "User-Client/lib/utils.ts",
-    "User-Client/components/ui/button.tsx",
-    "User-Client/components/ui",
-    "User-Client/package.json.2352766349",
-    "User-Client/README.md",
-    "Admin-Client/src/assets/location.png",
-    "Admin-Client/src/assets/react.svg",
-    "Admin-Client/src/assets/bbFoodCart.png",
-    "Admin-Client/dist/assets/bbFoodCart-D1ULD4hy.png",
-    "Admin-Client/public/vite.svg",
-    "Admin-Client/public/bbFoodCart.png",
-    "Admin-Client/public/location.png",
-    "Admin-Client/dist/bbFoodCart.png",
-    "Admin-Client/dist/location.png",
-    "Admin-Client/dist/vite.svg",
-    "Admin-Client/README.md",
-    "Trip to China/To US/Chenfeng Yu.md",
-    "Trip to China/To US/Bingsong Yu.md",
-    "Trip to China/To China/Bingsong Yu Airplane Ticket.md",
-    "Trip to China/To US/Check List.md",
-    "Trip to China/China Eastern Account.md",
-    "Recipes/番茄牛腩煲.md",
-    "Diary/2025/10/10-16-2025.md",
-    "Diary/10-16-2025.md",
-    "Diary/2025/10/Untitled.md",
-    "Diary/Untitled.md",
-    "2025-10-16.md",
-    "Jobs/Clerkie.md",
-    "卷/SQL NOTE.md",
-    "Trip to China/阮雨彬/attachments/I130 Application.md",
-    "Untitled.md",
-    "README.md",
-    "Accounts/12306.md",
-    "Trip to China/阮雨彬/Marriage.md",
-    "Trip to China/阮雨彬/USCIS Account.md",
-    "CShaprLearning/InterviewCodingSkills/Dependency Injection.md",
-    "Trip to China/vacation/1.奇达村.md",
-    "Trip to China/To China/Untitled.md",
-    "Trip to China/To China/Chenfeng Yu Airplane ticket.md"
+    "backup for docker/Manual/Docker.md",
+    "backup for docker/Manual/After Docker set ups.md",
+    "backup for docker/Manual",
+    "backup for docker/Dockerfile",
+    "backup for docker/start.sh",
+    "backup for docker",
+    "New folder"
   ]
 }

@@ -13,7 +13,7 @@ export default defineConfig({
   },
   define:{
     global: {
-      API: "http://localhost:5173"
+      API: "http://localhost:3000"
     }
   },
 })

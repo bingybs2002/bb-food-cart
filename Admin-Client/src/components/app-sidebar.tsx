@@ -74,21 +74,13 @@ export function AppSidebar() {
 
            <div>
             <SidebarGroupLabel className="ml-2 text-medium font-bold">
-                User Information
+                Other
             </SidebarGroupLabel>
             <SidebarGroupContent className="ml-4">
                 <SidebarMenu className="space-y-1">
-                <SidebarMenuItem><Link to="">User Admin Status</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">User Profile</Link></SidebarMenuItem>
-                <SidebarMenuItem><Link to="">User Order history</Link></SidebarMenuItem>
+                <SidebarMenuItem><Link to="/UserInformation/UserInformation">User Profile</Link></SidebarMenuItem>
                 </SidebarMenu>
             </SidebarGroupContent>
-            </div>
-
-           <div>
-            <SidebarGroupLabel className="ml-2 text-medium font-bold">
-                <Link to="/Utilities">Utilities</Link>
-            </SidebarGroupLabel>
             </div>
 
         </SidebarGroup>

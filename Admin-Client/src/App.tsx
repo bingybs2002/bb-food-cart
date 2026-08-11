@@ -13,6 +13,7 @@ import DeleteItem from "./Pages/Menu/DeleteItem"
 import EditItem from "./Pages/Menu/EditItem"
 import GachaManagement from "./Pages/Gacha/GachaManagement"
 import GachaPricePool from "./Pages/Gacha/PricePool/PricePool"
+import UserInformation from "./Pages/UserInformation/UserInformation"
 
 function MainPage() {
   const accessToken = localStorage.getItem("accessToken")
@@ -68,6 +69,7 @@ export default function App(){
       <Route path="/Menu/EditItem" element={<EditItem/>}/>
       <Route path="/Menu/DeleteItem" element={<DeleteItem/>}/>
       <Route path="/Menu/ViewMenu" element={<ViewMenu/>}/>
+      <Route path="/UserInformation/UserInformation" element={<UserInformation/>}/>
     </Routes>
   )
 }
