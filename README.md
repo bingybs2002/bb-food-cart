@@ -35,6 +35,25 @@ A food cart app that simulates a fake food cart that is specialized for gym rats
 - .NET SDK 10.x
 - PostgreSQL running locally
 
+## Docker development setup
+
+Docker Compose starts the database, API, customer client, and admin client together. Docker Desktop is the only prerequisite for this route.
+
+```bash
+docker compose up --build -d
+```
+
+Then open:
+
+- Customer client: `http://localhost:3002`
+- Admin client: `http://localhost:3003`
+- API and Swagger: `http://localhost:3001/swagger`
+- PostgreSQL (host access): `localhost:3004`
+
+The API applies Entity Framework migrations and seeds its initial data when it starts. To stop the stack, run `docker compose down`; the named PostgreSQL volume remains intact. Use `docker compose down -v` only when you intentionally want to discard Docker database data.
+
+Compose defaults are development-only (`postgres` / `postgres` credentials and the `bb_foodcart` database). Override `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB` in your shell or a root `.env` file before starting if required.
+
 ## Local Configuration
 
 The backend reads its connection string and JWT settings from [Backend/appsettings.json](/Users/bingy/Projects/bb-food-cart/Backend/appsettings.json).
@@ -212,4 +231,3 @@ Sample gacha items are in:
 
 - [Backend/Testing/Gacha/GachaItems.txt](/Users/bingy/Projects/bb-food-cart/Backend/Testing/Gacha/GachaItems.txt)
 - [Backend/Testing/Gacha/GachaReadMe.txt](/Users/bingy/Projects/bb-food-cart/Backend/Testing/Gacha/GachaReadMe.txt)
-

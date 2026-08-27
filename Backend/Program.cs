@@ -75,8 +75,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("ViteFrontend", policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173")
-            .WithOrigins("http://localhost:4000")
+            .WithOrigins(
+                "http://localhost:3002",
+                "http://localhost:3003",
+                "http://localhost:5173",
+                "http://localhost:4000")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -130,6 +133,9 @@ app.UseAuthorization();
 //check if role "user, admin" exists. If not, create one. 
 using (var scope = app.Services.CreateScope())
 {
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await db.Database.MigrateAsync();
+
     var roleManager = scope.ServiceProvider
         .GetRequiredService<RoleManager<IdentityRole>>();
 
@@ -144,7 +150,6 @@ using (var scope = app.Services.CreateScope())
     }
 
     //seeding gacha items
-    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await SeedGacha.SeedAsync(db);
 }
 
